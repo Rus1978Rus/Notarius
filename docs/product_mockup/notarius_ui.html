@@ -1,0 +1,377 @@
+<style>
+  :root{
+    --paper:#ECEFF3; --surface:#FFFFFF; --surface-2:#F5F7F9;
+    --ink:#16202B; --ink-soft:#54636F; --line:#D6DCE3;
+    --navy:#1C3D5A; --navy-ink:#FFFFFF; --brass:#A67C42;
+    --ok:#2E7D5B; --ok-bg:#E7F1EC; --ok-line:#B7D8C8;
+    --bad:#B23A2A; --bad-bg:#F6E8E5; --bad-line:#E4BDB4;
+    --warn:#9C7220; --warn-bg:#F5EEDD; --warn-line:#E0CD9E;
+    --shadow:0 1px 2px rgba(16,32,43,.06),0 8px 26px rgba(16,32,43,.08);
+    --radius:14px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#0C131B; --surface:#131E29; --surface-2:#0F1922;
+      --ink:#E8EDF2; --ink-soft:#95A3B1; --line:#263443;
+      --navy:#21455F; --navy-ink:#EAF2F8; --brass:#C69A5A;
+      --ok:#5CBE93; --ok-bg:#12271F; --ok-line:#27503F;
+      --bad:#E07C68; --bad-bg:#2A1613; --bad-line:#5A2A22;
+      --warn:#D6AA57; --warn-bg:#241E10; --warn-line:#4E3F1E;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#ECEFF3; --surface:#FFFFFF; --surface-2:#F5F7F9;
+    --ink:#16202B; --ink-soft:#54636F; --line:#D6DCE3;
+    --navy:#1C3D5A; --navy-ink:#FFFFFF; --brass:#A67C42;
+    --ok:#2E7D5B; --ok-bg:#E7F1EC; --ok-line:#B7D8C8;
+    --bad:#B23A2A; --bad-bg:#F6E8E5; --bad-line:#E4BDB4;
+    --warn:#9C7220; --warn-bg:#F5EEDD; --warn-line:#E0CD9E;
+    --shadow:0 1px 2px rgba(16,32,43,.06),0 8px 26px rgba(16,32,43,.08);
+  }
+  :root[data-theme="dark"]{
+    --paper:#0C131B; --surface:#131E29; --surface-2:#0F1922;
+    --ink:#E8EDF2; --ink-soft:#95A3B1; --line:#263443;
+    --navy:#21455F; --navy-ink:#EAF2F8; --brass:#C69A5A;
+    --ok:#5CBE93; --ok-bg:#12271F; --ok-line:#27503F;
+    --bad:#E07C68; --bad-bg:#2A1613; --bad-line:#5A2A22;
+    --warn:#D6AA57; --warn-bg:#241E10; --warn-line:#4E3F1E;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding:clamp(14px,3vw,40px);
+  }
+  .wrap{max-width:1000px;margin:0 auto}
+
+  /* ---- top bar ---- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .seal{
+    width:40px;height:40px;border-radius:50%;flex:none;
+    background:var(--navy);color:var(--navy-ink);
+    display:grid;place-items:center;font-family:var(--serif);font-weight:600;
+    font-size:19px;border:1.5px solid var(--brass);
+    box-shadow:inset 0 0 0 3px color-mix(in srgb,var(--navy) 100%,transparent);
+  }
+  .brand h1{font-family:var(--serif);font-size:22px;margin:0;letter-spacing:.02em;font-weight:600}
+  .brand .sub{font-size:12.5px;color:var(--ink-soft);letter-spacing:.14em;text-transform:uppercase}
+  .toggle{
+    font:inherit;font-size:13px;color:var(--ink-soft);background:var(--surface);
+    border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;
+    display:flex;align-items:center;gap:7px;
+  }
+  .toggle:hover{border-color:var(--brass);color:var(--ink)}
+  .toggle:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+  /* ---- lede ---- */
+  .lede{
+    font-family:var(--serif);font-size:clamp(21px,3.4vw,30px);line-height:1.28;
+    text-wrap:balance;margin:0 0 6px;max-width:24ch;
+  }
+  .lede em{font-style:normal;color:var(--navy);border-bottom:2px solid var(--brass);padding-bottom:1px}
+  :root[data-theme="dark"] .lede em{color:var(--brass);border-color:var(--brass)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lede em{color:var(--brass)}}
+  .dek{color:var(--ink-soft);max-width:56ch;margin:0 0 24px;font-size:15px}
+
+  /* ---- console card ---- */
+  .console{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .modes{display:flex;gap:2px;padding:8px 8px 0;border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .mode{
+    font:inherit;font-size:13.5px;font-weight:600;color:var(--ink-soft);
+    background:none;border:0;border-bottom:2.5px solid transparent;
+    padding:11px 16px 12px;cursor:pointer;border-radius:6px 6px 0 0;
+  }
+  .mode[aria-selected="true"]{color:var(--navy);border-bottom-color:var(--brass);background:var(--surface)}
+  :root[data-theme="dark"] .mode[aria-selected="true"]{color:var(--ink)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mode[aria-selected="true"]{color:var(--ink)}}
+  .mode:focus-visible{outline:2px solid var(--brass);outline-offset:-3px}
+
+  .body{padding:clamp(16px,2.5vw,26px)}
+  .hint{font-size:12.5px;color:var(--ink-soft);margin:0 0 14px;display:flex;align-items:center;gap:8px}
+  .hint b{color:var(--ink);font-weight:600}
+
+  /* ---- documents ---- */
+  .docs{display:grid;grid-template-columns:1fr 44px 1fr;gap:0;align-items:stretch}
+  @media (max-width:640px){.docs{grid-template-columns:1fr;gap:14px}.arrow{display:none}}
+  .doc{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+  .doc-h{
+    display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--surface-2);
+    border-bottom:1px solid var(--line);font-size:12px;
+  }
+  .doc-h .tag{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:10.5px;color:var(--ink-soft)}
+  .doc-h .fn{font-family:var(--mono);color:var(--ink);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .doc pre{
+    margin:0;padding:12px;font-family:var(--mono);font-size:12.5px;line-height:1.7;
+    font-variant-numeric:tabular-nums;white-space:pre-wrap;word-break:break-word;color:var(--ink);
+  }
+  .ln{display:block;padding:0 5px;border-radius:4px}
+  .ln.flag{background:var(--bad-bg);box-shadow:inset 3px 0 0 var(--bad)}
+  .num{color:var(--bad);font-weight:700}
+  .ghost{
+    display:inline-block;color:var(--warn);background:var(--warn-bg);border:1px solid var(--warn-line);
+    border-radius:4px;font-size:9.5px;font-weight:700;letter-spacing:.04em;padding:0 4px;
+    vertical-align:middle;transform:translateY(-1px);
+  }
+  .arrow{display:grid;place-items:center;color:var(--ink-soft)}
+  .arrow svg{width:22px;height:22px}
+
+  /* ---- actions ---- */
+  .actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
+  .run{
+    font:inherit;font-weight:650;font-size:15px;color:var(--navy-ink);background:var(--navy);
+    border:1px solid var(--navy);border-radius:10px;padding:12px 22px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:9px;box-shadow:var(--shadow);
+  }
+  .run:hover{background:color-mix(in srgb,var(--navy) 88%,black)}
+  :root[data-theme="dark"] .run:hover{background:color-mix(in srgb,var(--navy) 80%,white)}
+  .run:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+  .samples{display:flex;flex-wrap:wrap;gap:7px;margin-left:auto}
+  .samples .lbl{font-size:12px;color:var(--ink-soft);align-self:center;margin-right:2px}
+  .chip{
+    font:inherit;font-size:12.5px;color:var(--ink);background:var(--surface-2);
+    border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer;
+  }
+  .chip[aria-pressed="true"]{border-color:var(--brass);background:color-mix(in srgb,var(--brass) 14%,var(--surface));color:var(--ink);font-weight:600}
+  .chip:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+  /* ---- verdict ---- */
+  .verdict{
+    margin-top:20px;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    display:grid;grid-template-columns:6px 1fr;background:var(--surface);
+    opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease;
+  }
+  .verdict.show{opacity:1;transform:none}
+  .stripe{background:var(--ink-soft)}
+  .verdict[data-state="ok"] .stripe{background:var(--ok)}
+  .verdict[data-state="bad"] .stripe{background:var(--bad)}
+  .verdict[data-state="warn"] .stripe{background:var(--warn)}
+  .v-body{padding:18px 20px}
+  .v-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13px;
+    letter-spacing:.03em;padding:6px 13px;border-radius:999px;border:1px solid var(--line);
+  }
+  .verdict[data-state="ok"] .pill{color:var(--ok);background:var(--ok-bg);border-color:var(--ok-line)}
+  .verdict[data-state="bad"] .pill{color:var(--bad);background:var(--bad-bg);border-color:var(--bad-line)}
+  .verdict[data-state="warn"] .pill{color:var(--warn);background:var(--warn-bg);border-color:var(--warn-line)}
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:currentColor}
+  .v-headline{font-family:var(--serif);font-size:19px;margin:12px 0 4px;font-weight:600;text-wrap:balance}
+  .v-say{color:var(--ink-soft);font-size:14.5px;margin:0;max-width:62ch}
+
+  .detail{margin-top:15px;border-top:1px dashed var(--line);padding-top:14px;display:grid;gap:9px}
+  .drow{display:grid;grid-template-columns:120px 1fr;gap:12px;font-size:13.5px;align-items:baseline}
+  @media (max-width:520px){.drow{grid-template-columns:1fr;gap:2px}}
+  .drow .k{color:var(--ink-soft);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  .drow .v{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+  .drow .v .num{color:var(--bad)}
+  .cat{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--navy);
+    background:color-mix(in srgb,var(--navy) 10%,var(--surface));border:1px solid var(--line);
+    border-radius:5px;padding:1px 7px;letter-spacing:.02em}
+  :root[data-theme="dark"] .cat{color:var(--brass)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cat{color:var(--brass)}}
+
+  /* ---- footer ---- */
+  .foot{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px 26px;align-items:baseline;color:var(--ink-soft);font-size:12.5px}
+  .foot .honest{max-width:58ch}
+  .foot b{color:var(--ink);font-weight:600}
+  .scope{font-family:var(--serif);font-style:italic;color:var(--ink)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand">
+      <div class="seal" aria-hidden="true">N</div>
+      <div>
+        <h1>NOTARIUS</h1>
+        <div class="sub">document authenticity check</div>
+      </div>
+    </div>
+    <button class="toggle" id="themeBtn" type="button" aria-label="Toggle theme">
+      <span id="themeIcon">◐</span><span id="themeTxt">theme</span>
+    </button>
+  </header>
+
+  <p class="lede">Is what they sent you <em>genuine</em>? Or was it tampered with along the way?</p>
+  <p class="dek">Upload your reference and the document you received. We'll show you, in plain terms,
+    <b>exactly where</b> and <b>what</b> changed — even if the edit was hidden so well the eye can't see it.</p>
+
+  <section class="console" aria-label="Document check">
+    <div class="modes" role="tablist" aria-label="Mode">
+      <button class="mode" role="tab" aria-selected="true">Check</button>
+      <button class="mode" role="tab" aria-selected="false">Seal</button>
+      <button class="mode" role="tab" aria-selected="false">Compare</button>
+    </div>
+
+    <div class="body">
+      <p class="hint">An illustrative example: <b>a payment report from a counterparty</b>. Pick a scenario on the right.</p>
+
+      <div class="docs">
+        <div class="doc">
+          <div class="doc-h"><span class="tag">Reference</span><span class="fn" id="fnA">otchet_podlinnik.txt</span></div>
+          <pre id="docA"></pre>
+        </div>
+        <div class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </div>
+        <div class="doc">
+          <div class="doc-h"><span class="tag">Received</span><span class="fn" id="fnB">otchet_ot_kontragenta.txt</span></div>
+          <pre id="docB"></pre>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="run" id="runBtn" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          Check
+        </button>
+        <div class="samples">
+          <span class="lbl">Scenario:</span>
+          <button class="chip" data-s="ok" aria-pressed="false" type="button">Genuine</button>
+          <button class="chip" data-s="bad" aria-pressed="true" type="button">Amount swapped</button>
+          <button class="chip" data-s="warn" aria-pressed="false" type="button">Backdated forgery</button>
+        </div>
+      </div>
+
+      <div class="verdict" id="verdict" data-state="bad" role="status" aria-live="polite">
+        <div class="stripe" aria-hidden="true"></div>
+        <div class="v-body">
+          <div class="v-top">
+            <span class="pill"><span class="dot"></span><span id="pillTxt">BREAK</span></span>
+            <span id="pillMeta" style="font-size:12.5px;color:var(--ink-soft)"></span>
+          </div>
+          <h2 class="v-headline" id="vHead"></h2>
+          <p class="v-say" id="vSay"></p>
+          <div class="detail" id="vDetail"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="honest"><b>Candidly:</b> we show you <b>where</b> the tampering is — the verdict on intent
+      (an error or deliberate) is passed by a human. We are not a substitute for legal expertise.</div>
+    <div class="scope">The engine is ours. The doors and integrations are yours.</div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function apply(t){root.setAttribute("data-theme",t);
+    document.getElementById("themeIcon").textContent=(t==="dark")?"☾":"☀";}
+  var sysDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme:dark)").matches;
+  apply(sysDark?"dark":"light");
+  document.getElementById("themeBtn").addEventListener("click",function(){
+    apply(root.getAttribute("data-theme")==="dark"?"light":"dark");});
+
+  var base=[
+    "PAYMENT REPORT",
+    "recipient: Contractor LLC",
+    "amount to transfer: 1 000 000 USD",
+    "basis: act No. 77 of 2026-07-20"
+  ];
+  function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+  function renderPlain(el,lines){
+    el.innerHTML=lines.map(function(l){return '<span class="ln">'+esc(l)+'</span>';}).join("");
+  }
+
+  var scenarios={
+    ok:{
+      state:"ok", fnB:"otchet_ot_kontragenta.txt", pill:"CONFIRMED",
+      meta:"3 pillars agree",
+      head:"This is exactly the document the source sent.",
+      say:"A byte-for-byte match with your reference. The source's signature, independent witnesses, and the public record all agree.",
+      docB:function(){return base.slice();},
+      flag:-1,
+      detail:[["lines changed","0 — the document is intact"],["public record","matches: Aktiv-Finance"]]
+    },
+    bad:{
+      state:"bad", fnB:"otchet_ot_kontragenta.txt", pill:"BREAK",
+      meta:"tampering detected",
+      head:"The amount in the third line was swapped — and the edit was hidden.",
+      say:"The document that arrived differs from your reference. The amount grew ninefold, and the site of the edit was masked with an invisible character inside a word.",
+      docBhtml:function(el){
+        el.innerHTML=[
+          '<span class="ln">'+esc(base[0])+'</span>',
+          '<span class="ln">'+esc(base[1])+'</span>',
+          '<span class="ln flag">amount to trans<span class="ghost">inv.</span>fer: <span class="num">9 000 000</span> USD</span>',
+          '<span class="ln">'+esc(base[3])+'</span>'
+        ].join("");
+      },
+      detail:[
+        ["where","line 3"],
+        ["what","<span class=\"cat\">VALUE_SUBSTITUTION</span> · amount <span class=\"v\">1 000 000</span> → <span class=\"v\"><span class=\"num\">9 000 000</span></span>"],
+        ["stealth","invisible separator inside the word «transfer» (masking)"],
+        ["level","high — for manual review"]
+      ]
+    },
+    warn:{
+      state:"warn", fnB:"otchet_podlinnik.txt", pill:"FORGERY EXPOSED",
+      meta:"appropriation",
+      head:"The document is genuine — but an outsider is trying to pass it off as their own.",
+      say:"The content is untouched, but the party now claiming, after the fact, to be the sender is not the one who registered the document first. The public record remembers the real source.",
+      docB:function(){return base.slice();},
+      flag:-1,
+      detail:[
+        ["claimant","Shell LLC (seal at 09:05)"],
+        ["public record","<span class=\"cat\">Aktiv-Finance</span> — first, at 09:00"],
+        ["witnesses","0 of 2 confirmed the claimant"],
+        ["outcome","painted onto the glass — the registry stays clean"]
+      ]
+    }
+  };
+
+  var current="bad";
+  function paint(key,animate){
+    var s=scenarios[key]; current=key;
+    document.getElementById("fnB").textContent=s.fnB;
+    renderPlain(document.getElementById("docA"),base);
+    if(s.docBhtml){s.docBhtml(document.getElementById("docB"));}
+    else{renderPlain(document.getElementById("docB"),s.docB());}
+    var v=document.getElementById("verdict");
+    v.setAttribute("data-state",s.state);
+    document.getElementById("pillTxt").textContent=s.pill;
+    document.getElementById("pillMeta").textContent="· "+s.meta;
+    document.getElementById("vHead").textContent=s.head;
+    document.getElementById("vSay").textContent=s.say;
+    document.getElementById("vDetail").innerHTML=s.detail.map(function(d){
+      return '<div class="drow"><span class="k">'+d[0]+'</span><span class="v">'+d[1]+'</span></div>';
+    }).join("");
+    document.querySelectorAll(".chip").forEach(function(c){
+      c.setAttribute("aria-pressed",c.getAttribute("data-s")===key?"true":"false");});
+    if(animate){v.classList.remove("show");void v.offsetWidth;}
+    v.classList.add("show");
+  }
+
+  document.querySelectorAll(".chip").forEach(function(c){
+    c.addEventListener("click",function(){paint(c.getAttribute("data-s"),true);});
+  });
+  document.getElementById("runBtn").addEventListener("click",function(){
+    var v=document.getElementById("verdict");v.classList.remove("show");
+    setTimeout(function(){paint(current,true);},160);
+  });
+
+  // modes — stub; "Check" is active; demo-only selection handling
+  document.querySelectorAll(".mode").forEach(function(m){
+    m.addEventListener("click",function(){
+      document.querySelectorAll(".mode").forEach(function(x){x.setAttribute("aria-selected","false");});
+      m.setAttribute("aria-selected","true");
+    });
+  });
+
+  paint("bad",false);
+})();
+</script>

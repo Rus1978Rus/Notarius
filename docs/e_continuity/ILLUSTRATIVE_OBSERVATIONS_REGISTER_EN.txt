@@ -1,0 +1,33 @@
+ILLUSTRATIVE_OBSERVATIONS_REGISTER_RU
+Project: E-Continuity / Managed Recoverability Framework
+Created: 2026-06-05T19:26:06+00:00
+
+1. ANCHOR PRESERVATION AND RECOVERY
+Status: OBSERVATION / HIGH_INTEREST / ILLUSTRATIVE_CASE / NOT_PROOF / NOT_VALIDATION.
+Source context: film "Persian Lessons" (2020) used as illustration only.
+Core idea:
+If an object cannot be preserved directly, stable anchors may allow later recovery.
+Refined formula:
+OBJECT → ANCHOR → MEMORY_SYSTEM → INTERPRETER → RECOVERY.
+Important boundary:
+ANCHOR ≠ PROOF.
+ANCHOR = RECOVERY_HANDLE.
+The anchor alone is insufficient: the interpreter and the expansion protocol must survive.
+
+2. CRT vs LCD / RETRO GAME DISPLAY DEPENDENCY
+Status: OBSERVATION / ILLUSTRATIVE_CASE / NOT_PROOF / NOT_VALIDATION.
+Core idea:
+A game may run on a modern display, but the original perceptual mission may not be recovered.
+Formula:
+Display compatibility ≠ Experience recoverability (recoverability of the original experience).
+Candidate case:
+CASE-MEDIA-GAME-001 / CRT Display Dependency in Retro Games.
+Use:
+Media/interface-dependent recoverability, cultural/experiential preservation.
+
+3. INTERFACE STATE VS RECOVERABILITY STATE
+Status: ACTIVE_E-CONTINUITY_GUARD.
+Formula:
+Apparent preservation ≠ proven recoverability.
+Use:
+Prevent overclaim from visual/interface evidence.

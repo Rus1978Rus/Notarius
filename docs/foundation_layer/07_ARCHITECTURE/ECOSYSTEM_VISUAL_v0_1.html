@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSL/MIP Ecosystem Map</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #08080f;
+  --s1: #0d0d18;
+  --s2: #121222;
+  --border: #1a1a2e;
+  --b2: #222238;
+  --text: #e4e4f0;
+  --muted: #545470;
+  --faint: #1e1e32;
+  --gold: #c49a28;
+  --gold2: #f0c84a;
+  --blue: #4f6ef7;
+  --teal: #00c9a7;
+  --rose: #e05a7a;
+  --sage: #4aaa80;
+  --lavender: #8870f0;
+  --amber: #e08820;
+  --sans: 'Cormorant Garamond', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* STARS BG */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.08) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 20%, rgba(255,255,255,.05) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,.06) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,.04) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,.05) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* HEADER */
+.hdr {
+  text-align: center;
+  padding: 32px 20px 24px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.hdr::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 200px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.hdr-eyebrow {
+  font-size: 8px;
+  letter-spacing: .3em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.hdr-title {
+  font-family: var(--sans);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.hdr-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hdr-sub {
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: .1em;
+}
+
+/* MAIN MAP */
+.map-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* MOTHER */
+.mother-node {
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+}
+.mother-card {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(196,154,40,.08), rgba(196,154,40,.04));
+  border: 1px solid rgba(196,154,40,.35);
+  border-radius: 16px;
+  padding: 20px 32px;
+  cursor: pointer;
+  transition: all .3s;
+  position: relative;
+}
+.mother-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 30px rgba(196,154,40,.15);
+}
+.mother-card.active {
+  border-color: var(--gold2);
+  box-shadow: 0 0 40px rgba(196,154,40,.2);
+}
+.mother-icon { font-size: 20px; margin-bottom: 6px; }
+.mother-name {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gold2);
+  letter-spacing: .02em;
+  margin-bottom: 3px;
+}
+.mother-sub { font-size: 8px; color: var(--muted); letter-spacing: .12em; }
+.mother-badge {
+  position: absolute;
+  top: -8px; right: -8px;
+  background: var(--gold);
+  color: var(--bg);
+  font-size: 7px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 10px;
+  letter-spacing: .08em;
+}
+
+/* CONNECTOR LINE */
+.connector {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+.connector-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(180deg, var(--gold), var(--border));
+}
+
+/* BRANCHES ROW */
+.branches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  position: relative;
+}
+
+/* HORIZONTAL LINE ACROSS */
+.branches::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 16%; right: 16%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+}
+
+/* BRANCH CONNECTOR */
+.branch-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.branch-tick {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+}
+
+/* BRANCH CARD */
+.branch-card {
+  width: 100%;
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+}
+.branch-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity .25s;
+}
+.branch-card:hover { transform: translateY(-2px); }
+.branch-card:hover::before { opacity: 1; }
+.branch-card.active::before { opacity: 1; }
+
+/* COLORS PER BRANCH */
+.bc-linter { border-color: rgba(74,170,128,.2); }
+.bc-linter::before { background: var(--sage); }
+.bc-linter:hover, .bc-linter.active { border-color: var(--sage); box-shadow: 0 4px 20px rgba(74,170,128,.1); }
+
+.bc-conveyor { border-color: rgba(79,110,247,.2); }
+.bc-conveyor::before { background: var(--blue); }
+.bc-conveyor:hover, .bc-conveyor.active { border-color: var(--blue); box-shadow: 0 4px 20px rgba(79,110,247,.12); }
+
+.bc-foundation { border-color: rgba(136,112,240,.2); }
+.bc-foundation::before { background: var(--lavender); }
+.bc-foundation:hover, .bc-foundation.active { border-color: var(--lavender); box-shadow: 0 4px 20px rgba(136,112,240,.12); }
+
+.bc-provocation { border-color: rgba(224,88,122,.2); }
+.bc-provocation::before { background: var(--rose); }
+.bc-provocation:hover, .bc-provocation.active { border-color: var(--rose); box-shadow: 0 4px 20px rgba(224,88,122,.1); }
+
+.bc-router { border-color: rgba(0,201,167,.15); opacity: .6; }
+.bc-router::before { background: var(--teal); }
+.bc-router:hover { opacity: .85; border-color: var(--teal); }
+
+.bc-fo-sci { border-color: rgba(224,136,32,.15); opacity: .6; }
+.bc-fo-sci::before { background: var(--amber); }
+.bc-fo-sci:hover { opacity: .85; border-color: var(--amber); }
+
+.branch-icon { font-size: 16px; margin-bottom: 8px; }
+.branch-name {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.branch-tagline {
+  font-size: 7px;
+  color: var(--muted);
+  letter-spacing: .08em;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.branch-status {
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.bs-active { background: rgba(74,170,128,.12); color: var(--sage); }
+.bs-product { background: rgba(79,110,247,.12); color: var(--blue); }
+.bs-register { background: rgba(136,112,240,.12); color: var(--lavender); }
+.bs-method { background: rgba(224,88,122,.12); color: var(--rose); }
+.bs-candidate { background: rgba(58,58,80,.5); color: var(--muted); }
+
+/* DETAIL PANEL */
+.detail-panel {
+  margin-top: 28px;
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: none;
+  animation: slideIn .3s ease;
+}
+.detail-panel.show { display: block; }
+@keyframes slideIn { from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)} }
+
+.dp-head {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.dp-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.dp-title {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.dp-sub { font-size: 9px; color: var(--muted); letter-spacing: .1em; line-height: 1.7; }
+.dp-badge-wrap { margin-left: auto; display: flex; flex-direction: column; gap: 5px; align-items: flex-end; }
+
+.dp-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+}
+.dp-col {
+  background: var(--bg);
+  padding: 16px 18px;
+}
+.dp-col-label {
+  font-size: 7px;
+  letter-spacing: .2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dp-col-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--faint);
+}
+
+.dp-item {
+  font-size: 8px;
+  color: var(--muted);
+  padding: 4px 0;
+  border-bottom: 1px solid var(--faint);
+  line-height: 1.5;
+  display: flex;
+  gap: 6px;
+}
+.dp-item::before { content: '·'; color: var(--b2); flex-shrink: 0; }
+.dp-item:last-child { border-bottom: none; }
+
+.dp-formula {
+  font-size: 9px;
+  color: var(--text);
+  padding: 3px 0;
+  letter-spacing: .03em;
+  line-height: 1.8;
+}
+.dp-formula .neq { color: var(--gold2); }
+
+.dp-foot {
+  padding: 12px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.dp-link {
+  font-size: 8px;
+  color: var(--muted);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .2s;
+  letter-spacing: .05em;
+}
+.dp-link:hover { border-color: var(--gold); color: var(--gold); }
+.dp-note { font-size: 8px; color: var(--muted); margin-left: auto; font-style: italic; }
+
+/* LEGEND */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+.leg { display: flex; align-items: center; gap: 6px; font-size: 8px; color: var(--muted); letter-spacing: .06em; }
+.leg-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-eyebrow">Ruslan Malyavskiy · Private Authorial Project</div>
+  <div class="hdr-title">MSL/MIP <em>Ecosystem</em></div>
+  <div class="hdr-sub">Project map · 2026 · Click a branch for details</div>
+</div>
+
+<div class="map-wrap">
+
+  <!-- MOTHER NODE -->
+  <div class="mother-node">
+    <div class="mother-card" id="node-mother" onclick="showDetail('mother')">
+      <div class="mother-badge">MOTHER</div>
+      <div class="mother-icon">◈</div>
+      <div class="mother-name">MSL/MIP Sign Alphabet</div>
+      <div class="mother-sub">Semantic Sign Discipline for AI Systems</div>
+    </div>
+  </div>
+
+  <!-- CONNECTOR -->
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- BRANCHES -->
+  <div class="branches">
+
+    <div class="branch-wrap">
+      <div class="branch-tick"></div>
+      <div class="branch-card bc-linter" onclick="showDetail('linter')">
+        <div class="branch-icon">⊙</div>
+        <div class="branch-name">Linter / Semantic Scanner</div>
+        <div class="branch-tagline">Methodology proving ground</div>
+        <div class="branch-status bs-active">LEVEL 2 · STABLE</div>
+      </div>
+    </div>
+
+    <div class="branch-wrap">
+      <div class="branch-tick"></div>
+      <div class="branch-card bc-conveyor" onclick="showDetail('conveyor')">
+        <div class="branch-icon">⟳</div>
+        <div class="branch-name">AI Conveyor Workbench</div>
+        <div class="branch-tagline">Multi-LLM review platform</div>
+        <div class="branch-status bs-product">STRONG PRODUCT CANDIDATE</div>
+      </div>
+    </div>
+
+    <div class="branch-wrap">
+      <div class="branch-tick"></div>
+      <div class="branch-card bc-foundation" onclick="showDetail('foundation')">
+        <div class="branch-icon">◎</div>
+        <div class="branch-name">Foundation Layer</div>
+        <div class="branch-tagline">Register of foundational observations</div>
+        <div class="branch-status bs-register">REGISTER EXISTS</div>
+      </div>
+    </div>
+
+    <div class="branch-wrap">
+      <div class="branch-tick"></div>
+      <div class="branch-card bc-provocation" onclick="showDetail('provocation')">
+        <div class="branch-icon">⊗</div>
+        <div class="branch-name">Controlled Provocation</div>
+        <div class="branch-tagline">Method for probing model behavior boundaries</div>
+        <div class="branch-status bs-method">METHOD EXISTS</div>
+      </div>
+    </div>
+
+    <div class="branch-wrap">
+      <div class="branch-tick"></div>
+      <div class="branch-card bc-router" onclick="showDetail('router')">
+        <div class="branch-icon">⊕</div>
+        <div class="branch-name">Semantic Router</div>
+        <div class="branch-tagline">Router for objects by meaning</div>
+        <div class="branch-status bs-candidate">CANDIDATE</div>
+      </div>
+    </div>
+
+    <div class="branch-wrap">
+      <div class="branch-tick"></div>
+      <div class="branch-card bc-fo-sci" onclick="showDetail('foscience')">
+        <div class="branch-icon">◉</div>
+        <div class="branch-name">FO Validation Science</div>
+        <div class="branch-tagline">Mechanism for scientific verification of observations</div>
+        <div class="branch-status bs-candidate">DO NOT SPIN OFF YET</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DETAIL PANEL -->
+  <div class="detail-panel" id="detailPanel">
+    <div class="dp-head">
+      <div class="dp-icon" id="dpIcon"></div>
+      <div>
+        <div class="dp-title" id="dpTitle"></div>
+        <div class="dp-sub" id="dpSub"></div>
+      </div>
+      <div class="dp-badge-wrap" id="dpBadges"></div>
+    </div>
+    <div class="dp-body">
+      <div class="dp-col">
+        <div class="dp-col-label">Contains</div>
+        <div id="dpContains"></div>
+      </div>
+      <div class="dp-col">
+        <div class="dp-col-label">Formulas</div>
+        <div id="dpFormulas"></div>
+      </div>
+      <div class="dp-col">
+        <div class="dp-col-label">Links</div>
+        <div id="dpLinks"></div>
+      </div>
+    </div>
+    <div class="dp-foot">
+      <div id="dpFootLinks"></div>
+      <div class="dp-note" id="dpNote"></div>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="leg"><div class="leg-dot" style="background:var(--gold)"></div>Mother branch</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--sage)"></div>Active tool</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--blue)"></div>Product candidate</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--lavender)"></div>Register / Explorer</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--rose)"></div>Method</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--muted)"></div>Future candidate</div>
+  </div>
+
+</div>
+
+<script>
+const DATA = {
+  mother: {
+    icon: '◈',
+    title: 'MSL/MIP Sign Alphabet',
+    sub: 'A semantic Alphabet of signs for AI systems · The mother branch of the ecosystem',
+    badges: ['<span style="background:rgba(196,154,40,.12);color:#f0c84a;border:1px solid rgba(196,154,40,.3);font-size:7px;padding:3px 9px;border-radius:4px;font-weight:700;letter-spacing:.1em">MOTHER BRANCH</span>', '<span style="background:rgba(74,170,128,.1);color:#4aaa80;border:1px solid rgba(74,170,128,.25);font-size:7px;padding:3px 9px;border-radius:4px;font-weight:700;letter-spacing:.1em">ACTIVE</span>'],
+    contains: ['Sign Cards', 'Sign Registry', 'SIGN_CARD_SCHEMA', 'COMMON_PROTOCOL', 'Severity calibration guide', 'Safe cases library', 'Test corpus'],
+    formulas: ['FORM <span class="neq">≠</span> STATUS', 'CLAIM <span class="neq">≠</span> PROOF', 'LOOKS_LIKE <span class="neq">≠</span> IS', 'AUTHORITY_SHAPE <span class="neq">≠</span> AUTHORITY'],
+    links: ['Spawned the Linter', 'Spawned the conveyor methodology', 'Became MODULE_MSL_MIP', 'Spawned the first FO', 'Azbuka != a container for everything'],
+    note: 'The Alphabet = the mother branch, not a monolith'
+  },
+  linter: {
+    icon: '⊙',
+    title: 'Linter / Semantic Scanner',
+    sub: 'Methodology proving ground · LEVEL 2 tool · Fast. Local. One object.',
+    badges: ['<span style="background:rgba(74,170,128,.1);color:#4aaa80;border:1px solid rgba(74,170,128,.25);font-size:7px;padding:3px 9px;border-radius:4px;font-weight:700;letter-spacing:.1em">LEVEL 2 · STABLE</span>'],
+    contains: ['Linter rules v0_1D', 'Test corpus', 'Adversarial cases', 'False positive / false negative register', 'Mixed script detection', 'Status KV scanner'],
+    formulas: ['LINTER <span class="neq">≠</span> CONVEYOR', 'LINTER = PREDECESSOR', 'RULE <span class="neq">≠</span> EXECUTION', 'TEST_GROUND = NECESSARY_STAGE'],
+    links: ['Gave: effect_fields', 'Gave: patch cycle', 'Gave: the false positive concept', 'Gave: review cycle', 'Gave: the external conveyor idea', 'LEVEL 2 → LEVEL 3 = Conveyor'],
+    note: 'Without the linter the conveyor might not have appeared'
+  },
+  conveyor: {
+    icon: '⟳',
+    title: 'AI Conveyor Workbench',
+    sub: 'A platform for controlled multi-LLM review · Not "ask 4 models" — a disciplined process',
+    badges: ['<span style="background:rgba(79,110,247,.12);color:#4f6ef7;border:1px solid rgba(79,110,247,.25);font-size:7px;padding:3px 9px;border-radius:4px;font-weight:700;letter-spacing:.1em">STRONG PRODUCT CANDIDATE</span>', '<span style="background:rgba(58,58,80,.5);color:#545470;border:1px solid #1a1a2e;font-size:7px;padding:3px 9px;border-radius:4px;font-weight:700;letter-spacing:.1em">PROTOTYPE v0.3</span>'],
+    contains: ['Core Engine (parallel requests)', 'Quorum Engine', 'Consensus Engine', 'Archive + Analytics', 'Plugin Interface', 'MODULE_MSL_MIP', 'Status Dictionary v0_1B', 'Integrator Output Spec'],
+    formulas: ['INTEGRATOR <span class="neq">≠</span> JUDGE', 'QUORUM <span class="neq">≠</span> VALIDATION', 'CONSENSUS <span class="neq">≠</span> PROOF', 'PLATFORM <span class="neq">≠</span> MODULE', 'AUTHOR_DECIDES'],
+    links: ['Grew out of manual card runs', 'MSL/MIP = a MODULE inside the platform', 'Foundation Layer = a future module', 'Controlled Provocation = a mode', 'SEQUENTIAL MODE (v0.4)'],
+    note: 'METHODOLOGY_FIRST → INTERFACE_FIRST'
+  },
+  foundation: {
+    icon: '◎',
+    title: 'Foundation Layer',
+    sub: 'A register of foundational observations about how systems handle status and trust',
+    badges: ['<span style="background:rgba(136,112,240,.1);color:#8870f0;border:1px solid rgba(136,112,240,.25);font-size:7px;padding:3px 9px;border-radius:4px;font-weight:700;letter-spacing:.1em">44 FO CANDIDATES</span>'],
+    contains: ['FO-001..FO-044 (candidates)', 'FO_CANDIDATE_REVIEW_METHOD', '4 layers: CORE/SUPPORTING/DOMAIN/DEFERRED', 'Case Library (template)', 'Kimi screening results', 'Foundation Layer Explorer (concept)'],
+    formulas: ['OBSERVATION_STRENGTH <span class="neq">≠</span> DOCUMENTATION_STRENGTH', 'DEFERRED <span class="neq">≠</span> DELETED', 'CASE_NOT_FOUND <span class="neq">≠</span> PHENOMENON_NOT_EXISTS', 'PATTERN <span class="neq">≠</span> PROOF'],
+    links: ['12 CORE FO await the conveyor', 'Case Library needs to be filled in', 'Explorer = a future product', 'Link to ECC / AgentShield', 'FO-043 STATUS_INTERFACE_REPLACEMENT'],
+    note: 'First the conveyor + cases → then the product'
+  },
+  provocation: {
+    icon: '⊗',
+    title: 'Controlled Provocation',
+    sub: 'A method for probing the behavior boundaries of AI models · The topic stays constant — one variable changes',
+    badges: ['<span style="background:rgba(224,88,122,.1);color:#e05a7a;border:1px solid rgba(224,88,122,.25);font-size:7px;padding:3px 9px;border-radius:4px;font-weight:700;letter-spacing:.1em">METHOD EXISTS</span>'],
+    contains: ['Controlled Provocation Method Card', 'Experiments Register', 'Boundary discovery protocol', 'Variables: INTENT/FRAME/DETAIL/ROLE', 'Semantic routing observations'],
+    formulas: ['CONTROLLED_PROVOCATION <span class="neq">≠</span> ATTACK', 'CONTROLLED_PROVOCATION = BOUNDARY_DISCOVERY', 'BOUNDARY_FOUND <span class="neq">≠</span> VULNERABILITY_CONFIRMED'],
+    links: ['A mode in AI Conveyor Workbench', 'MODULE_CONTROLLED_PROVOCATION (candidate)', 'Source of many FO candidates', 'Link to FO-026 SOCIAL_ENG≅PROMPT_INJ'],
+    note: 'A standalone research method'
+  },
+  router: {
+    icon: '⊕',
+    title: 'Semantic Router',
+    sub: 'A future router for objects by meaning · Automatically determines the type and directs it to a module',
+    badges: ['<span style="background:rgba(58,58,80,.5);color:#545470;border:1px solid #1a1a2e;font-size:7px;padding:3px 9px;border-radius:4px;font-weight:700;letter-spacing:.1em">EMERGENT CANDIDATE</span>'],
+    contains: ['The idea of automatic routing', 'Object → Semantic Router → MODULE_X', 'Without the user manually selecting the type'],
+    formulas: ['SIGN_MEANING = CAN_BE_REPROGRAMMED', 'FORM <span class="neq">≠</span> FIXED_MEANING', 'ROUTER <span class="neq">≠</span> CLASSIFIER_ONLY'],
+    links: ['FO-043 STATUS_INTERFACE_REPLACEMENT', 'Linked to Plugin Interface', 'Depends on the maturity of the Foundation Layer'],
+    note: 'DO_NOT_SPIN_OFF_YET'
+  },
+  foscience: {
+    icon: '◉',
+    title: 'FO Validation Science',
+    sub: 'A separate mechanism for the scientific verification of FO · Above conveyor review',
+    badges: ['<span style="background:rgba(58,58,80,.5);color:#545470;border:1px solid #1a1a2e;font-size:7px;padding:3px 9px;border-radius:4px;font-weight:700;letter-spacing:.1em">DO NOT SPIN OFF YET</span>'],
+    contains: ['The idea of formal verification of observations', 'Above the conveyor level', 'Applying scientific standards to FO'],
+    formulas: ['FO_CANDIDATE <span class="neq">≠</span> VALIDATED_OBSERVATION', 'CONVEYOR_RESULT <span class="neq">≠</span> SCIENTIFIC_PROOF', 'INTERESTING_IDEA <span class="neq">≠</span> WORKING_TOOL'],
+    links: ['Depends on: a working conveyor', 'Depends on: a filled-in Case Library', 'Depends on: the 12 CORE FO run through'],
+    note: 'First the conveyor + case library → then the science'
+  }
+};
+
+let current = null;
+
+function showDetail(key) {
+  document.querySelectorAll('.branch-card, .mother-card').forEach(c => c.classList.remove('active'));
+
+  const d = DATA[key];
+  if(current === key) {
+    document.getElementById('detailPanel').classList.remove('show');
+    current = null;
+    return;
+  }
+  current = key;
+
+  if(key === 'mother') document.getElementById('node-mother').classList.add('active');
+  else {
+    const map = {linter:'bc-linter',conveyor:'bc-conveyor',foundation:'bc-foundation',
+                 provocation:'bc-provocation',router:'bc-router',foscience:'bc-fo-sci'};
+    document.querySelectorAll('.branch-card').forEach(c => {
+      if(c.classList.contains(map[key])) c.classList.add('active');
+    });
+  }
+
+  document.getElementById('dpIcon').textContent = d.icon;
+  document.getElementById('dpTitle').textContent = d.title;
+  document.getElementById('dpSub').textContent = d.sub;
+  document.getElementById('dpBadges').innerHTML = d.badges.join('<br style="margin:3px">');
+
+  document.getElementById('dpContains').innerHTML = d.contains.map(i =>
+    `<div class="dp-item">${i}</div>`).join('');
+  document.getElementById('dpFormulas').innerHTML = d.formulas.map(f =>
+    `<div class="dp-formula">${f}</div>`).join('');
+  document.getElementById('dpLinks').innerHTML = d.links.map(l =>
+    `<div class="dp-item">${l}</div>`).join('');
+  document.getElementById('dpNote').textContent = d.note;
+
+  document.getElementById('detailPanel').classList.add('show');
+  document.getElementById('detailPanel').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+</script>
+</body>
+</html>

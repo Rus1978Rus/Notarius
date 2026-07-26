@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foundation Layer Explorer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+:root {
+  --ink: #0f0f14;
+  --paper: #f5f2ec;
+  --paper2: #ede9e0;
+  --line: #d4cfc4;
+  --line2: #c4bfb3;
+  --accent: #1a1a2e;
+  --gold: #8b6914;
+  --gold2: #c49a28;
+  --rust: #7a3b1e;
+  --sage: #2d4a3e;
+  --muted: #6b6557;
+  --faint: #a09890;
+  --serif: 'Playfair Display', Georgia, serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* GRAIN OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: .6;
+}
+
+/* HEADER */
+.hdr {
+  border-bottom: 2px solid var(--ink);
+  padding: 20px 24px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 16px;
+}
+
+.hdr-left {}
+.hdr-eyebrow {
+  font-size: 8px;
+  letter-spacing: .25em;
+  color: var(--faint);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.hdr-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+.hdr-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hdr-right {
+  text-align: right;
+}
+.hdr-stat {
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: .1em;
+  line-height: 2;
+}
+.hdr-stat strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* SEARCH BAR */
+.search-zone {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-wrap {
+  flex: 1;
+  position: relative;
+}
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: var(--faint);
+}
+.search-inp {
+  width: 100%;
+  background: var(--paper2);
+  border: 1px solid var(--line2);
+  border-radius: 6px;
+  padding: 9px 12px 9px 30px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s;
+}
+.search-inp:focus { border-color: var(--gold); }
+.search-inp::placeholder { color: var(--faint); }
+
+.domain-pills {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.dpill {
+  font-size: 7px;
+  letter-spacing: .08em;
+  padding: 4px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--line2);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
+  white-space: nowrap;
+}
+.dpill.on {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* MAIN LAYOUT */
+.main {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: calc(100vh - 130px);
+}
+
+/* SIDEBAR */
+.sidebar {
+  border-right: 1px solid var(--line);
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.layer-section {
+  margin-bottom: 4px;
+}
+
+.layer-header {
+  padding: 6px 16px;
+  font-size: 7px;
+  letter-spacing: .2em;
+  color: var(--faint);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.layer-count {
+  background: var(--paper2);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 7px;
+  color: var(--muted);
+}
+
+.fo-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background .15s;
+  border-left: 2px solid transparent;
+  position: relative;
+}
+.fo-item:hover { background: var(--paper2); }
+.fo-item.active {
+  background: var(--paper2);
+  border-left-color: var(--gold);
+}
+
+.fo-num {
+  font-size: 8px;
+  color: var(--faint);
+  letter-spacing: .08em;
+  margin-bottom: 2px;
+}
+.fo-name {
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.fo-formula {
+  font-size: 7px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: .03em;
+}
+
+.status-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sd-core { background: var(--gold); }
+.sd-support { background: var(--sage); }
+.sd-domain { background: var(--rust); }
+.sd-deferred { background: var(--line2); }
+
+/* DETAIL PANEL */
+.detail {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.detail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: var(--faint);
+  text-align: center;
+}
+.detail-empty-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  opacity: .3;
+}
+.detail-empty-txt {
+  font-size: 9px;
+  letter-spacing: .1em;
+  line-height: 2;
+  text-transform: uppercase;
+}
+
+.detail-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.detail-num {
+  font-size: 9px;
+  color: var(--faint);
+  letter-spacing: .15em;
+  margin-bottom: 6px;
+}
+.detail-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  margin-bottom: 6px;
+}
+.detail-subtitle {
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: .06em;
+}
+
+.status-badge {
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.sb-core { background: rgba(139,105,20,.1); color: var(--gold); border: 1px solid rgba(139,105,20,.25); }
+.sb-support { background: rgba(45,74,62,.1); color: var(--sage); border: 1px solid rgba(45,74,62,.25); }
+.sb-domain { background: rgba(122,59,30,.1); color: var(--rust); border: 1px solid rgba(122,59,30,.25); }
+.sb-deferred { background: var(--paper2); color: var(--faint); border: 1px solid var(--line2); }
+
+/* FORMULA BLOCK */
+.formula-block {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.formula-block::before {
+  content: 'FORMULA';
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 7px;
+  letter-spacing: .2em;
+  color: rgba(245,242,236,.2);
+}
+.formula-line {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 2;
+  letter-spacing: .05em;
+}
+.formula-line .neq { color: var(--gold2); }
+
+/* SECTIONS */
+.section {
+  margin-bottom: 18px;
+}
+.section-label {
+  font-size: 7px;
+  letter-spacing: .2em;
+  color: var(--faint);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.section-body {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* DOMAIN TAGS */
+.domain-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.dtag {
+  font-size: 7px;
+  letter-spacing: .08em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: var(--paper2);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+/* LINKS */
+.fo-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fo-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--paper2);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.fo-link:hover { border-color: var(--gold); }
+.fo-link-num { font-size: 8px; color: var(--faint); width: 40px; }
+.fo-link-name { font-size: 9px; color: var(--ink); }
+.fo-link-arrow { margin-left: auto; font-size: 9px; color: var(--faint); }
+
+/* CASE LIBRARY */
+.case-item {
+  padding: 10px 12px;
+  background: var(--paper2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+.case-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.case-title { font-size: 9px; font-weight: 500; }
+.case-type {
+  font-size: 7px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: .06em;
+}
+.ct-conf { background: rgba(45,74,62,.12); color: var(--sage); }
+.ct-bound { background: rgba(139,105,20,.12); color: var(--gold); }
+.ct-cont { background: rgba(122,59,30,.12); color: var(--rust); }
+.case-desc { font-size: 8px; color: var(--muted); line-height: 1.6; }
+.case-source { font-size: 7px; color: var(--faint); margin-top: 4px; letter-spacing: .05em; }
+
+/* LAYER LEGEND */
+.legend {
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.leg-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 7px;
+  color: var(--muted);
+  letter-spacing: .06em;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 2px; }
+
+/* HIDDEN */
+.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-left">
+    <div class="hdr-eyebrow">MSL/MIP · Private Authorial Project</div>
+    <div class="hdr-title">Foundation Layer <em>Explorer</em></div>
+  </div>
+  <div class="hdr-right">
+    <div class="hdr-stat">Observations register <strong>v0.11</strong></div>
+    <div class="hdr-stat">FO candidates <strong>44</strong></div>
+    <div class="hdr-stat">CORE / SUPPORT / DOMAIN / DEFERRED</div>
+  </div>
+</div>
+
+<div class="search-zone">
+  <div class="search-wrap">
+    <span class="search-icon">◎</span>
+    <input class="search-inp" id="searchInp" placeholder="Search by name, formula, domain..." oninput="filterFO()">
+  </div>
+  <div class="domain-pills">
+    <div class="dpill on" onclick="filterDomain(this,'all')">ALL</div>
+    <div class="dpill" onclick="filterDomain(this,'ai')">AI</div>
+    <div class="dpill" onclick="filterDomain(this,'law')">LAW</div>
+    <div class="dpill" onclick="filterDomain(this,'identity')">IDENTITY</div>
+    <div class="dpill" onclick="filterDomain(this,'systems')">SYSTEMS</div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="sidebar" id="sidebar">
+
+    <!-- CORE -->
+    <div class="layer-section">
+      <div class="layer-header">
+        CORE OPERATIONAL
+        <span class="layer-count">12</span>
+      </div>
+
+      <div class="fo-item active" onclick="showFO('fo004')" data-domains="ai systems">
+        <div class="fo-num">FO-004</div>
+        <div class="fo-name">REVIEW ≠ VALIDATION</div>
+        <div class="fo-formula">The conveyor's constitution</div>
+        <div class="status-dot sd-core"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo012')" data-domains="ai systems">
+        <div class="fo-num">FO-012</div>
+        <div class="fo-name">OBSERVED > DECLARED</div>
+        <div class="fo-formula">Methodological rule</div>
+        <div class="status-dot sd-core"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo013')" data-domains="ai systems law">
+        <div class="fo-num">FO-013</div>
+        <div class="fo-name">SUBSTRATE INDEPENDENCE</div>
+        <div class="fo-formula">Transfer between domains</div>
+        <div class="status-dot sd-core"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo018')" data-domains="ai systems">
+        <div class="fo-num">FO-018</div>
+        <div class="fo-name">RITUAL ≠ CAUSAL</div>
+        <div class="fo-formula">Defense against cargo cult</div>
+        <div class="status-dot sd-core"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo026')" data-domains="ai">
+        <div class="fo-num">FO-026</div>
+        <div class="fo-name">SOCIAL_ENG ≅ PROMPT_INJ</div>
+        <div class="fo-formula">AI / human bridge</div>
+        <div class="status-dot sd-core"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo032')" data-domains="systems ai">
+        <div class="fo-num">FO-032</div>
+        <div class="fo-name">RULE DENSITY → EMERGENT</div>
+        <div class="fo-formula">Rule density</div>
+        <div class="status-dot sd-core"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo033')" data-domains="systems ai">
+        <div class="fo-num">FO-033</div>
+        <div class="fo-name">SYSTEMS NEED PRUNING</div>
+        <div class="fo-formula">Periodic pruning</div>
+        <div class="status-dot sd-core"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo043')" data-domains="identity law systems">
+        <div class="fo-num">FO-043</div>
+        <div class="fo-name">STATUS INTERFACE REPLACE</div>
+        <div class="fo-formula">Patches A + B</div>
+        <div class="status-dot sd-core"></div>
+      </div>
+    </div>
+
+    <!-- SUPPORTING -->
+    <div class="layer-section">
+      <div class="layer-header">
+        SUPPORTING
+        <span class="layer-count">10</span>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo001')" data-domains="ai systems law">
+        <div class="fo-num">FO-001</div>
+        <div class="fo-name">FORM ≠ STATUS</div>
+        <div class="fo-formula">Needs a counterexample</div>
+        <div class="status-dot sd-support"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo038')" data-domains="law identity">
+        <div class="fo-num">FO-038</div>
+        <div class="fo-name">SACRAL STATUS TRANSFER</div>
+        <div class="fo-formula">Structural pattern</div>
+        <div class="status-dot sd-support"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo044')" data-domains="identity law">
+        <div class="fo-num">FO-044</div>
+        <div class="fo-name">LAYERED IDENTITY</div>
+        <div class="fo-formula">IDENTITY = STATUS_STACK</div>
+        <div class="status-dot sd-support"></div>
+      </div>
+    </div>
+
+    <!-- DOMAIN -->
+    <div class="layer-section">
+      <div class="layer-header">
+        HUMANITARIAN / DOMAIN
+        <span class="layer-count">6</span>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo017')" data-domains="law identity">
+        <div class="fo-num">FO-017</div>
+        <div class="fo-name">DAMAGE OUTLIVES RESTORE</div>
+        <div class="fo-formula">Law / identity</div>
+        <div class="status-dot sd-domain"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo030')" data-domains="identity law">
+        <div class="fo-num">FO-030</div>
+        <div class="fo-name">DUAL STATUS UNDER PRESSURE</div>
+        <div class="fo-formula">Historical FO</div>
+        <div class="status-dot sd-domain"></div>
+      </div>
+    </div>
+
+    <!-- DEFERRED -->
+    <div class="layer-section">
+      <div class="layer-header">
+        DEFERRED
+        <span class="layer-count">16</span>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo002')" data-domains="ai systems">
+        <div class="fo-num">FO-002</div>
+        <div class="fo-name">CLAIM ≠ PROOF</div>
+        <div class="fo-formula">Cases needed</div>
+        <div class="status-dot sd-deferred"></div>
+      </div>
+
+      <div class="fo-item" onclick="showFO('fo039')" data-domains="systems">
+        <div class="fo-num">FO-039</div>
+        <div class="fo-name">DEEP PATTERN CONDITIONS</div>
+        <div class="fo-formula">High-risk hypothesis</div>
+        <div class="status-dot sd-deferred"></div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="leg-item"><div class="status-dot sd-core" style="position:static;transform:none"></div>CORE</div>
+      <div class="leg-item"><div class="status-dot sd-support" style="position:static;transform:none"></div>SUPPORT</div>
+      <div class="leg-item"><div class="status-dot sd-domain" style="position:static;transform:none"></div>DOMAIN</div>
+      <div class="leg-item"><div class="status-dot sd-deferred" style="position:static;transform:none"></div>DEFERRED</div>
+    </div>
+
+  </div>
+
+  <!-- DETAIL -->
+  <div class="detail" id="detail">
+
+    <!-- FO-004 -->
+    <div id="fo004" class="fo-detail">
+      <div class="detail-head">
+        <div>
+          <div class="detail-num">FO-004 · CORE OPERATIONAL</div>
+          <div class="detail-title">REVIEW ≠ VALIDATION</div>
+          <div class="detail-subtitle">Conveyor constitution · Operational rule</div>
+        </div>
+        <div class="status-badge sb-core">CORE</div>
+      </div>
+
+      <div class="formula-block">
+        <div class="formula-line">REVIEW <span class="neq">≠</span> VALIDATION</div>
+        <div class="formula-line">CONVEYOR_COMPLETED <span class="neq">≠</span> DOCUMENT_VALIDATED</div>
+        <div class="formula-line">PROCESS_EVIDENCE <span class="neq">=</span> PROOF</div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Observation</div>
+        <div class="section-body">
+          Passing through the conveyor creates process evidence,
+          but is not proof of the object's validity.
+          Four models can reach consensus — and all four can be wrong
+          in the same direction. A quorum does not replace independent verification.
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Use in the conveyor</div>
+        <div class="section-body">
+          Used in every run. The basis for AUTHOR_SLOT —
+          the final decision always rests with the author.
+          INTEGRATOR = CONSENSUS_ASSEMBLER, not JUDGE.
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Cases</div>
+        <div class="case-item">
+          <div class="case-top">
+            <div class="case-title">Running the card `,` through 4 models</div>
+            <div class="case-type ct-conf">CONFIRMING</div>
+          </div>
+          <div class="case-desc">
+            CONVEYOR_NORMAL_RESULT. All models returned ACCEPT_WITH_PATCHES.
+            The card got status WORKINGLY_CLOSED — not VALIDATED.
+          </div>
+          <div class="case-source">SOURCE: MSL_MIP_CONVEYOR_RUNS_AUDIT_v0_1</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Boundary</div>
+        <div class="section-body">
+          FO-004 does not deny the value of review.
+          It clarifies: review creates PROCESS_EVIDENCE, not PROOF.
+          The difference matters when making final decisions.
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Related FO</div>
+        <div class="fo-links">
+          <div class="fo-link" onclick="showFO('fo012')">
+            <span class="fo-link-num">FO-012</span>
+            <span class="fo-link-name">OBSERVED_BEHAVIOUR > DECLARED_BEHAVIOUR</span>
+            <span class="fo-link-arrow">→</span>
+          </div>
+          <div class="fo-link" onclick="showFO('fo018')">
+            <span class="fo-link-num">FO-018</span>
+            <span class="fo-link-name">RITUAL_COMPLIANCE ≠ CAUSAL_MECHANISM</span>
+            <span class="fo-link-arrow">→</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Application domains</div>
+        <div class="domain-tags">
+          <div class="dtag">AI / LLM</div>
+          <div class="dtag">CONVEYOR</div>
+          <div class="dtag">CONTROL SYSTEMS</div>
+          <div class="dtag">MEDICINE</div>
+          <div class="dtag">LAW</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FO-043 (hidden by default) -->
+    <div id="fo043" class="fo-detail hidden">
+      <div class="detail-head">
+        <div>
+          <div class="detail-num">FO-043 · CORE OPERATIONAL · PATCHES A+B</div>
+          <div class="detail-title">STATUS INTERFACE REPLACEMENT</div>
+          <div class="detail-subtitle">Status-interface replacement · Potentially fundamental</div>
+        </div>
+        <div class="status-badge sb-core">CORE</div>
+      </div>
+
+      <div class="formula-block">
+        <div class="formula-line">STATUS_INTERFACE <span class="neq">≠</span> NEUTRAL_FORM</div>
+        <div class="formula-line">RECOGNIZED_STATUS <span class="neq">≠</span> ORIGINAL_IDENTITY</div>
+        <div class="formula-line">ABSENCE_OF_RESISTANCE <span class="neq">≠</span> CONSENT</div>
+        <div class="formula-line">RESIDUAL_MEANING <span class="neq">≠</span> DEAD_MEANING</div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">8 possible outcomes</div>
+        <div class="section-body">
+          1. TOOL_UNUSED · 2. ATTEMPT_FAILED · 3. REPLACEMENT_SUCCEEDED ·
+          4. STATUS_ROLLBACK · 5. HYBRID_STATUS_FORMATION ·
+          6. REVERSE_IDENTITY_DRIFT · 7. IMPOSER_COLLAPSE · 8. TARGET_GROUP_DISSOLUTION
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">STRUCTURAL BOUNDARY GUARD</div>
+        <div class="section-body">
+          NOT_POLITICAL_CLAIM · NOT_HISTORICAL_VERDICT · NOT_MORAL_JUDGMENT ·
+          MECHANISM_DESCRIPTION ≠ HISTORICAL_VERDICT · PATTERN ≠ PROOF
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Related FO</div>
+        <div class="fo-links">
+          <div class="fo-link" onclick="showFO('fo038')">
+            <span class="fo-link-num">FO-038</span>
+            <span class="fo-link-name">SACRAL_STATUS_TRANSFER</span>
+            <span class="fo-link-arrow">→</span>
+          </div>
+          <div class="fo-link" onclick="showFO('fo044')">
+            <span class="fo-link-num">FO-044</span>
+            <span class="fo-link-name">LAYERED_IDENTITY (paired)</span>
+            <span class="fo-link-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OTHER FO STUBS -->
+    <div id="fo012" class="fo-detail hidden">
+      <div class="detail-head">
+        <div>
+          <div class="detail-num">FO-012 · CORE OPERATIONAL</div>
+          <div class="detail-title">OBSERVED > DECLARED</div>
+          <div class="detail-subtitle">Methodological rule · Already tagged METHODOLOGICAL_RULE</div>
+        </div>
+        <div class="status-badge sb-core">CORE</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">OBSERVED_BEHAVIOUR <span class="neq">></span> DECLARED_BEHAVIOUR</div>
+        <div class="formula-line">WHAT_MODEL_DOES <span class="neq">></span> WHAT_MODEL_SAYS</div>
+      </div>
+      <div class="section">
+        <div class="section-label">Use</div>
+        <div class="section-body">When evaluating model answers in the conveyor. A model may declare that it follows the MSL/MIP rule yet violate it in its actual output. Observed behavior takes priority over the declaration.</div>
+      </div>
+    </div>
+
+    <div id="fo013" class="fo-detail hidden">
+      <div class="detail-head">
+        <div>
+          <div class="detail-num">FO-013 · CORE OPERATIONAL</div>
+          <div class="detail-title">SUBSTRATE INDEPENDENCE</div>
+          <div class="detail-subtitle">Permission to transfer between domains</div>
+        </div>
+        <div class="status-badge sb-core">CORE</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">INTERPRETATION_PROBLEMS</div>
+        <div class="formula-line"><span class="neq">=</span> SUBSTRATE_INDEPENDENT</div>
+      </div>
+      <div class="section">
+        <div class="section-label">Use</div>
+        <div class="section-body">The CLAIM ≠ PROOF pattern works in law, medicine and LLMs at once. This is the basis for transferring observations between domains — which is what FO-038..FO-044 does.</div>
+      </div>
+    </div>
+
+    <div id="fo018" class="fo-detail hidden">
+      <div class="detail-head">
+        <div>
+          <div class="detail-num">FO-018 · CORE OPERATIONAL</div>
+          <div class="detail-title">RITUAL ≠ CAUSAL MECHANISM</div>
+          <div class="detail-subtitle">Protection against CARGO_CULT_MSL_MIP</div>
+        </div>
+        <div class="status-badge sb-core">CORE</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">RITUAL_COMPLIANCE <span class="neq">≠</span> CAUSAL_MECHANISM</div>
+        <div class="formula-line">FILLED_FORM <span class="neq">≠</span> WORKING_GUARD</div>
+      </div>
+      <div class="section">
+        <div class="section-label">Use</div>
+        <div class="section-body">Filling in all card fields ≠ creating a working guard. Used when reviewing sign cards and when checking any project artifacts.</div>
+      </div>
+    </div>
+
+    <div id="fo026" class="fo-detail hidden">
+      <div class="detail-head">
+        <div>
+          <div class="detail-num">FO-026 · CORE OPERATIONAL</div>
+          <div class="detail-title">SOCIAL_ENG ≅ PROMPT_INJECTION</div>
+          <div class="detail-subtitle">A bridge between the human and AI domains</div>
+        </div>
+        <div class="status-badge sb-core">CORE</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">SOCIAL_ENGINEERING</div>
+        <div class="formula-line"><span class="neq">≅</span> PROMPT_INJECTION</div>
+        <div class="formula-line">SAME_MECHANISM / DIFFERENT_SUBSTRATE</div>
+      </div>
+    </div>
+
+    <div id="fo032" class="fo-detail hidden">
+      <div class="detail-head">
+        <div><div class="detail-num">FO-032 · CORE</div><div class="detail-title">RULE DENSITY → EMERGENT</div></div>
+        <div class="status-badge sb-core">CORE</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">RULE_DENSITY <span class="neq">→</span> EMERGENT_SYSTEM_BEHAVIOUR</div>
+      </div>
+      <div class="section"><div class="section-label">Use</div><div class="section-body">The accumulation of MSL/MIP rules created the conveyor as emergent behaviour. Paired with FO-033.</div></div>
+    </div>
+
+    <div id="fo033" class="fo-detail hidden">
+      <div class="detail-head">
+        <div><div class="detail-num">FO-033 · CORE</div><div class="detail-title">SYSTEMS NEED PRUNING</div></div>
+        <div class="status-badge sb-core">CORE</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">COMPLEX_SYSTEMS <span class="neq">→</span> PERIODIC_PRUNING_REQUIRED</div>
+      </div>
+      <div class="section"><div class="section-label">Use</div><div class="section-body">Migration package, registry inventory. Paired with FO-032.</div></div>
+    </div>
+
+    <div id="fo001" class="fo-detail hidden">
+      <div class="detail-head">
+        <div><div class="detail-num">FO-001 · SUPPORTING</div><div class="detail-title">FORM ≠ STATUS</div></div>
+        <div class="status-badge sb-support">SUPPORT</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">FORM <span class="neq">≠</span> STATUS</div>
+        <div class="formula-line">LOOKS_LIKE <span class="neq">≠</span> IS</div>
+      </div>
+      <div class="section"><div class="section-label">What's needed</div><div class="section-body">Counterexample: a notarial seal? a judge's signature? — cases where form DOES create status after all. NEEDS_CASE_COLLECTION.</div></div>
+    </div>
+
+    <div id="fo038" class="fo-detail hidden">
+      <div class="detail-head">
+        <div><div class="detail-num">FO-038 · SUPPORTING</div><div class="detail-title">SACRAL STATUS TRANSFER</div></div>
+        <div class="status-badge sb-support">SUPPORT</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">CROWN <span class="neq">≠</span> LEGITIMACY</div>
+        <div class="formula-line">ELECTION <span class="neq">≠</span> ABSOLUTE_AUTHORITY</div>
+        <div class="formula-line">NON_RESISTANCE <span class="neq">≠</span> CONSENT</div>
+      </div>
+      <div class="section"><div class="section-label">Guard</div><div class="section-body">NOT_POLITICAL_CLAIM · NOT_LEGAL_THEORY · STRUCTURAL_PATTERN_ONLY</div></div>
+    </div>
+
+    <div id="fo044" class="fo-detail hidden">
+      <div class="detail-head">
+        <div><div class="detail-num">FO-044 · SUPPORTING</div><div class="detail-title">LAYERED IDENTITY</div></div>
+        <div class="status-badge sb-support">SUPPORT</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">IDENTITY <span class="neq">=</span> STATUS_STACK</div>
+        <div class="formula-line">ONE_LABEL <span class="neq">≠</span> FULL_IDENTITY</div>
+      </div>
+    </div>
+
+    <div id="fo017" class="fo-detail hidden">
+      <div class="detail-head">
+        <div><div class="detail-num">FO-017 · HUMANITARIAN</div><div class="detail-title">DAMAGE OUTLIVES RESTORATION</div></div>
+        <div class="status-badge sb-domain">DOMAIN</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">STATUS_DAMAGE <span class="neq">></span> STATUS_RESTORATION_SPEED</div>
+      </div>
+    </div>
+
+    <div id="fo030" class="fo-detail hidden">
+      <div class="detail-head">
+        <div><div class="detail-num">FO-030 · HUMANITARIAN</div><div class="detail-title">DUAL STATUS UNDER PRESSURE</div></div>
+        <div class="status-badge sb-domain">DOMAIN</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">EXTERNAL_STATUS <span class="neq">≠</span> INTERNAL_IDENTITY</div>
+      </div>
+    </div>
+
+    <div id="fo002" class="fo-detail hidden">
+      <div class="detail-head">
+        <div><div class="detail-num">FO-002 · DEFERRED</div><div class="detail-title">CLAIM ≠ PROOF</div></div>
+        <div class="status-badge sb-deferred">DEFERRED</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">CLAIM <span class="neq">≠</span> PROOF</div>
+      </div>
+      <div class="section"><div class="section-label">Status</div><div class="section-body">STRONG_OBSERVATION / WEAK_DOCUMENTATION. Cases exist across dozens of sessions — not catalogued. NEEDS_CASE_COLLECTION.</div></div>
+    </div>
+
+    <div id="fo039" class="fo-detail hidden">
+      <div class="detail-head">
+        <div><div class="detail-num">FO-039 · DEFERRED</div><div class="detail-title">DEEP PATTERN CONDITIONS</div></div>
+        <div class="status-badge sb-deferred">DEFERRED</div>
+      </div>
+      <div class="formula-block">
+        <div class="formula-line">EXPERIENCE + ABSTRACTION</div>
+        <div class="formula-line">+ KNOWLEDGE + TIME + ENVIRONMENT</div>
+        <div class="formula-line"><span class="neq">=</span> ELEVATED_PROBABILITY</div>
+      </div>
+      <div class="section"><div class="section-label">Status</div><div class="section-body">HYPOTHESIS. A beautiful formula — high-risk. Historical examples require independent verification.</div></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showFO(id) {
+  document.querySelectorAll('.fo-detail').forEach(d => d.classList.add('hidden'));
+  document.querySelectorAll('.fo-item').forEach(i => i.classList.remove('active'));
+
+  const detail = document.getElementById(id);
+  if(detail) detail.classList.remove('hidden');
+
+  event.currentTarget && event.currentTarget.classList.add('active');
+}
+
+function filterFO() {
+  const q = document.getElementById('searchInp').value.toLowerCase();
+  document.querySelectorAll('.fo-item').forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(q) ? '' : 'none';
+  });
+}
+
+let activeDomain = 'all';
+function filterDomain(el, domain) {
+  activeDomain = domain;
+  document.querySelectorAll('.dpill').forEach(p => p.classList.remove('on'));
+  el.classList.add('on');
+
+  document.querySelectorAll('.fo-item').forEach(item => {
+    if(domain === 'all') {
+      item.style.display = '';
+    } else {
+      const domains = item.dataset.domains || '';
+      item.style.display = domains.includes(domain) ? '' : 'none';
+    }
+  });
+}
+
+// Click handler fix
+document.querySelectorAll('.fo-item').forEach(item => {
+  item.addEventListener('click', function() {
+    document.querySelectorAll('.fo-item').forEach(i => i.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

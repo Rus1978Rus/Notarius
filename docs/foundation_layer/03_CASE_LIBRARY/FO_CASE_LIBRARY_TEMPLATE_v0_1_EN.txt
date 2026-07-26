@@ -1,0 +1,158 @@
+PRIVATE AUTHORIAL PROJECT / COMMERCIAL USE PROHIBITED
+Author / owner: Ruslan Malyavskiy
+
+DOCUMENT_ID:
+FO_CASE_LIBRARY_TEMPLATE_v0_1_RU
+
+STATUS:
+WORKING_TEMPLATE
+NOT_FILLED
+FOR_FUTURE_CASE_COLLECTION
+
+SOURCE:
+Template proposed by Kimi after the FO v0.11 screening.
+Clarification: OBSERVATION_STRENGTH != DOCUMENTATION_STRENGTH.
+
+PURPOSE:
+For each FO, collect cases, counterexamples, and boundary cases.
+Once filled in -- half of the screening remarks close automatically.
+
+============================================================
+FILLING PRIORITIES (per the screening results)
+============================================================
+
+HIGH READINESS (cases exist, cataloguing needed):
+FO-003  RECOGNITION != TRUST
+FO-006  RULE != EXECUTION
+FO-002  CLAIM != PROOF
+
+MEDIUM READINESS (targeted collection needed):
+FO-001  FORM != STATUS
+FO-005  INTERFACE != REALITY
+FO-007  RULE_COMPLIANCE != ROLE_INTEGRITY
+FO-008  ROLE_SWITCHING_CAN_FAKE_COMPLIANCE
+FO-009  EXPLANATION_OF_EXECUTION != EXECUTION
+FO-011  DECLARED_MODE != OBSERVED_BEHAVIOUR
+FO-017  STATUS_DAMAGE_OUTLIVES_RESTORATION
+FO-019  FALSE_STATUS_IN_CONTROL_LOOP_COMPOUNDS
+FO-036  SEMANTIC_TIME_ILLUSION
+FO-038  SACRAL_STATUS_TRANSFER
+FO-041  STATIC_PERMISSION_VS_CURRENT_FITNESS
+FO-042  RECOGNIZED_RISK_CATEGORY
+FO-044  LAYERED_IDENTITY
+
+============================================================
+CASE CARD TEMPLATE
+============================================================
+
+FO-XXX_CASE_LIBRARY
+
+FO_ID:         FO-XXX
+FO_TITLE:      [name of the finding]
+FO_FORMULA:    [core formula]
+
+------------------------------------------------------------
+
+CASE_001:
+TITLE:         [brief description of the case]
+SOURCE:        [session / document / run / date]
+TYPE:          CONFIRMING / CONTRARY / BOUNDARY
+DESCRIPTION:   [what happened, how it relates to the FO]
+STRENGTH:      STRONG / MODERATE / WEAK
+
+------------------------------------------------------------
+
+CASE_002:
+TITLE:
+SOURCE:
+TYPE:
+DESCRIPTION:
+STRENGTH:
+
+------------------------------------------------------------
+
+[add cases as they are discovered]
+
+------------------------------------------------------------
+
+BOUNDARY_CASES[]:
+Cases where the FO works non-obviously or at the boundary.
+
+COUNTEREXAMPLES[]:
+Cases where the FO does not work.
+IMPORTANT: the existence of a counterexample does not cancel the FO.
+           It refines its boundary.
+
+------------------------------------------------------------
+
+LIBRARY_STATUS:
+EMPTY / PARTIAL / SUFFICIENT_FOR_CONVEYOR
+
+SUFFICIENT_FOR_CONVEYOR:
+at least 2 CONFIRMING cases
++ 1 BOUNDARY or COUNTEREXAMPLE
+
+============================================================
+FILLED-IN EXAMPLE (FO-003)
+============================================================
+
+FO-003_CASE_LIBRARY
+
+FO_ID:       FO-003
+FO_TITLE:    RECOGNITION != TRUST
+FO_FORMULA:  The model recognized the sign ≠ the interpretation can be trusted
+
+------------------------------------------------------------
+
+CASE_001:
+TITLE:    Gemini recognized @ as "mention" instead of "at the price of"
+SOURCE:   SESSION_AZBUKA_REVIEW (presumably 2026-05)
+TYPE:     CONFIRMING
+DESCRIPTION: The sign @ in a price-list context was interpreted
+             as an address/mention. The model recognized the sign correctly
+             but applied the modern meaning, ignoring the context.
+STRENGTH: STRONG
+
+------------------------------------------------------------
+
+CASE_002:
+TITLE:    Claude interpreted @ correctly in a price-list context
+SOURCE:   SESSION (to be specified)
+TYPE:     BOUNDARY
+DESCRIPTION: When the context "19th-century price list" was stated explicitly,
+             the model applied the historical meaning.
+             Boundary: context changes the interpretation.
+STRENGTH: MODERATE
+
+------------------------------------------------------------
+
+LIBRARY_STATUS: PARTIAL
+NEEDED: 1 more CONFIRMING case for SUFFICIENT_FOR_CONVEYOR
+
+============================================================
+RULE OF USE
+============================================================
+
+CASE_NOT_FOUND != PHENOMENON_NOT_EXISTS
+CASE_NOT_ARCHIVED != OBSERVATION_WEAK
+
+Cases are collected deliberately from:
+-- the project's session history
+-- conveyor runs
+-- external examples from other domains
+-- provocation experiments
+
+OBSERVATION_STRENGTH != DOCUMENTATION_STRENGTH
+
+============================================================
+STATUS_LOCK
+============================================================
+
+CASE_LIBRARY != PROOF_OF_FO
+CASE_LIBRARY = EVIDENCE_COLLECTION
+
+A sufficient number of cases makes it possible
+to run an FO through the full conveyor.
+The conveyor renders the verdict, not the case library.
+
+END_OF_DOCUMENT

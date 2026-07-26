@@ -1,0 +1,317 @@
+MIGRATION PACKAGE
+PROJECT: E-Continuity / Managed Recoverability Framework
+DATE: 2026-06-05
+PACKAGE VERSION: v0_2 (full — after reviewing all documentation)
+STATUS: PROTO-FATHER / SUBSTANTIVELY CURRENT AS OF v2.3
+
+================================================================
+FOR A NEW CHAT — PASTE AT THE TOP
+================================================================
+
+I am Ruslan Malyavskiy. I am continuing work on
+E-Continuity (former name: Template E) —
+an engineering framework for analyzing and managing
+the long-term recoverability of objects, systems,
+documentation, skills, technologies and mission.
+
+WHAT THE PROJECT IS ABOUT:
+Storing an object does NOT equal preserving its function.
+A system is truly preserved only when
+its target mission can be recovered
+across time, changes of people, technologies and institutions.
+
+================================================================
+PROJECT HISTORY
+================================================================
+
+v1.0: OAIS + biobank + archive (narrow domain)
+      First case: vitrification of a mouse hippocampus (PNAS 2026)
+      First boundary: not a theory of consciousness, not immortality
+
+Body of ride-it-out rules:
+      Viking Mission 1976 — the project's flagship case
+      56000 images, 40 years of storage, 2 years for 3000 images
+      DATA PRESERVED != DATA READABLE
+
+v2.1: expansion — engineering, research institutes, infrastructure, biobanks
+v2.2: CASE-SPACE-001 + Activation Failure + Dynamic Proof Testing
+v2.3: compact formula + MVW metric + stabilization
+v2.3.1: PENDING — rename only (do not change content)
+
+================================================================
+CURRENT STATE
+================================================================
+
+CURRENT NAME: E-Continuity
+OLD NAME: Template E (historical only)
+CURRENT VERSION: v2.3
+NEXT RELEASE: v2.3.1 RENAME_ONLY
+
+PACKAGE: Template E v2.3 Full Master Archive RU
+  -- substantively current
+  -- name outdated after PROJECT_NAME_LOCK
+
+================================================================
+CENTRAL THESIS
+================================================================
+
+OBJECT_PRESERVED != MISSION_RECOVERABLE
+STATIC_INTEGRITY != DYNAMIC_RECOVERABILITY
+DATA_EXISTS != DATA_READABLE
+DATA_READABLE != DATA_UNDERSTANDABLE
+INTERFACE_STATE != RECOVERABILITY_STATE
+
+Continuity = governed recoverability through time.
+
+VIKING RULE:
+A system degrades not from an event,
+but from the absence of an event.
+(without proof testing — an imperceptible fade)
+
+================================================================
+COMPACT CORE FORMULA (v2.3)
+================================================================
+
+Mature E-system =
+  Technical Recoverability
++ Verification Layer
++ Custody & Successor Governance
++ Migration & Sunset Governance
++ Capability Continuity
+
+(The expanded 13-component formula is in the appendix.)
+
+================================================================
+RECOVERABILITY LEVELS (10 levels)
+================================================================
+
+Physical          -- the object physically exists
+Structural        -- the material remains usable
+Functional        -- the object is able to perform its function
+Operational       -- the object can be used safely
+Mission           -- the target mission is achievable
+Component         -- the parts are useful even if the whole is not
+Surrogate         -- via witness samples / emulations
+Evidential        -- the object retains evidentiary value
+Cultural          -- cultural / educational significance
+Reconstructive    -- the function is recoverable through reconstruction
+
+================================================================
+CONTINUITY CHAIN
+================================================================
+
+Object → Metadata → Format/Medium → Infrastructure
+→ Operators → Custody → Institution → Capability → Mission
+
+================================================================
+FAILURE TAXONOMY (including v2.2 additions)
+================================================================
+
+Physical / Structural / Interpretability / Custody
+Operator / Migration / Dependency / Institutional
+Mission / Economic / Cultural / Capability
+Activation Failure (v2.2) -- failure on return from dormant
+
+================================================================
+PROOF TESTING (3 levels, v2.2)
+================================================================
+
+Static Proof Test   -- the object exists, visually intact
+Dynamic Proof Test  -- withstands pressure/load/cycles
+Mission Proof Test  -- performs the target mission
+
+Static proof != Dynamic proof != Mission proof
+
+VIKING LESSON:
+Periodic drill reactivation is mandatory.
+Without it, a system loses its ability to return
+imperceptibly, with no event, with no one to blame.
+
+================================================================
+CUSTODY GOVERNANCE
+================================================================
+
+NO ORPHAN DOCUMENTATION
+Custody cannot terminate without transfer
+No single-human continuity
+Handover Lock before closure
+
+Orphan Documentation =
+a document with no owner, successor, status, or review cycle
+
+Institutional Recovery Custodian =
+a procedure activated when the custodians are lost
+
+================================================================
+TWO RISKS (from the Viking Case)
+================================================================
+
+RISK 1: Technology degradation
+  The carrier becomes obsolete. The format is unreadable. The software will not run.
+  A visible risk. Can be monitored and planned for.
+
+RISK 2: Understanding degradation
+  People leave. Documentation is lost.
+  The knowledge of how to "read" it disappears along with the knowledge carriers.
+  Less visible. More often left with no owner.
+
+Both require separate safeguards.
+
+================================================================
+NEW CONCEPTS (from the latest work session)
+================================================================
+
+INTERFACE_TO_RECOVERABILITY_GUARD:
+INTERFACE_STATE != RECOVERABILITY_STATE
+Apparent preservation != proven recoverability
+
+ANCHOR PRESERVATION:
+OBJECT → ANCHOR → MEMORY_SYSTEM → INTERPRETER → RECOVERY
+Anchor = recovery handle (not proof)
+Without an interpreter and an expansion protocol the anchor is insufficient
+
+CASE-MEDIA-GAME-001 (candidate):
+CRT vs LCD — display compatibility != experience recoverability
+
+================================================================
+PENDING INTEGRATION QUEUE (10 tasks)
+================================================================
+
+1. v2.3.1 RENAME_ONLY_RELEASE (priority 1)
+2. PROJECT_PACKAGE_RULE_SHORT
+3. INTERFACE_TO_RECOVERABILITY_GUARD → into the core
+4. ANCHOR_PRESERVATION → into the appendix
+5. CASE-MEDIA-GAME-001 (CRT/LCD) → candidate
+6. rename MANAGEMENT_BRIEF
+7. retain README_CURRENT
+8. lock in OLD_FOLDER_RULE
+9. CASE-SPACE-001 C-4 source hardening
+10. EXTERNAL_REVIEW_STAGE after rename
+
+================================================================
+CASE LIBRARY (15 cases)
+================================================================
+
+CORE (C-3/C-4):
+CASE-SOFT-001   Legacy Software Collapse
+CASE-NII-001    Orphan Documentation
+CASE-BIO-001    Hippocampus Vitrification
+CASE-INFRA-001  Qanats
+CASE-ARCHAEO-001 Antikythera
+CASE-SPACE-001  Apollo Propulsion Hardware (C-3/C-4)
+
+SUPPORTING (C-2/C-3):
+CASE-CIV-001    Monastic Network
+CASE-MIL-001    Tank Storage
+CASE-MED-ORTHO-001 Arthroplasty
+CASE-CULT-001   Chimney Sweep Brush
+CASE-REL-001    Temple to Museum
+
+UNPLANNED STRONG CASE:
+SVOD-VIKING-001 Viking Mission Data Recovery
+  56000 images / 40 years / 2 years for 3000
+  Two risks: technology degradation + understanding degradation
+  Main lesson: proof testing is mandatory
+
+PLANNED:
+CASE-MEDIA-001  VHS Archive
+CASE-AIR-001    Aircraft Donor Storage
+CASE-IND-001    Mothballed Industrial Plant
+CASE-LANG-001   Language Death / Liturgical Survival
+CASE-MUSEUM-001 Conservation vs Function Conflict
+CASE-MEDIA-GAME-001 CRT Display Dependency (candidate)
+
+================================================================
+METRICS
+================================================================
+
+ETIG / DD / CD / CSR / MVW / SCS / SER / LDP / HRL / MGM / SRL
+
+MVW (Material Viability Window) v0.1:
+The window of time during which a material withstands the target load.
+MVW-1 / MVW-2 do not grant the right to claim dynamic recoverability.
+
+================================================================
+EXTERNAL REVIEW STRATEGY
+================================================================
+
+For a first contact — only:
+1. Introduction
+2. Framework notes
+3. Viking case
+4. Foundation Pack v1.0
+
+Do NOT show: the whole library, the metaphysics, the long extensions.
+
+The key question for the specialist:
+"Where does the useful transfer end
+and the strained analogy begin?"
+
+The ideal outcome is not "brilliant",
+but "there is something engineering-grade here,
+and over here you are overgeneralizing".
+
+Order of specialists:
+1. Archivist / digital preservation
+2. Cryobiologist / biobank
+3. Reliability / resilience engineer
+4. Systems theorist
+5. Museum conservator
+6. DevOps / SRE
+
+================================================================
+CONNECTION TO THE MSL/MIP ECOSYSTEM
+================================================================
+
+E-Continuity is the PROTO-FATHER of the entire ecosystem.
+
+E-Continuity:  OBJECT_PRESERVED != MISSION_RECOVERABLE
+MSL/MIP:       SIGN_EXISTS != MEANING_RECOVERABLE
+AI Conveyor:   REVIEW_COMPLETED != VALIDATED
+Foundation FO: HEAD != SOURCE
+
+The conveyor = a proof testing mechanism for MSL/MIP artifacts
+WORKINGLY_CLOSED = proof test passed at the current level
+
+================================================================
+WHAT NOT TO DO
+================================================================
+
+Do NOT edit the OLD_DO_NOT_EDIT folder
+Do NOT call "Template E" the primary name
+Do NOT cut a new master release before v2.3.1 is complete
+Do NOT claim Gold Master without artifacts
+Do NOT invent a hash
+Do NOT conflate interface state and recoverability state
+
+================================================================
+FILES TO LOAD INTO THIS CHAT
+================================================================
+
+PRIORITY 1 (required):
+Template_E_v2_3_Full_Master_Archive_RU_ALL.pdf
+README_CURRENT_E-Continuity_RU_v1_0.txt
+CURRENT_RULES_GUARDS_PATCHES_REGISTER_EN.txt
+PENDING_INTEGRATION_QUEUE_EN.txt
+
+PRIORITY 2 (if detail is needed):
+03_Case_Library_RU.docx
+04_Operational_SOP_Pack_RU.docx
+09_Stabilization_Patch_v2_3_RU.docx
+04_svod_case_001_viking_v2.2.docx
+
+PRIORITY 3 (strategy):
+"Что нужно показать кому.txt"
+
+================================================================
+STATUS_LOCK
+================================================================
+
+STATIC_INTEGRITY = DYNAMIC_RECOVERABILITY  -- FORBIDDEN
+OBJECT_PRESERVED = MISSION_RECOVERABLE     -- FORBIDDEN
+INTERFACE_STATE = RECOVERABILITY_STATE     -- FORBIDDEN
+COPY = ORIGIN                              -- FORBIDDEN
+RECONSTRUCTION = PHYSICAL_ORIGINAL         -- FORBIDDEN
+LLM_OUTPUT = VERIFIED_COPY                -- FORBIDDEN
+
+END_OF_MIGRATION_PACKAGE

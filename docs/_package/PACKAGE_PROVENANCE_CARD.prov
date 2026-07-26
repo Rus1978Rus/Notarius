@@ -1,0 +1,42 @@
+PACKAGE_PROVENANCE_CARD
+=======================
+Rule basis: PROJECT_WIDE_DOCUMENT_PROVENANCE_AND_ARTIFACT_RULE_v0_2
+            (E-Continuity RULES_REGISTER, item 4). Clearing debt AD-15.
+
+PACKAGE_ID:            notarius-working-repo
+PROJECT:               NOTARIUS — provenance tracker for a data element
+PARENT_FRAMEWORK:      E-Continuity / Governed-recoverability framework
+LINEAGE:               E-Continuity → MSL/MIP → NOTARIUS (grandchild)
+AUTHOR_OWNER:          Ruslan Malyavskiy
+REPOSITORY:            Rus1978Rus/Notarius
+BRANCH:                main
+CARD_CREATED:          2026-07-22
+CARD_STATUS:           WORKING / RESEARCH_TRACK (AD-9)
+
+CONTENT PROVENANCE (CONTENT ≠ SOURCE):
+  SOURCE_MATERIAL (author's originals/copies, not AI):
+    - docs/NOTARIUS_FULL_SESSION.md       (uploaded by the author; AI added AD notes)
+    - docs/foundation_layer/**            (COPY of the MSL/MIP Foundation Layer package)
+    - docs/e_continuity/**                (COPY of the E-Continuity v2.3 package)
+    - docs/vendor_answers/**              (external AI answers, pasted by the author)
+  LLM_GENERATED (Claude output in this session; LLM_OUTPUT ≠ VERIFIED_COPY):
+    - all docs/*ANALYSIS*, *AUDIT*, *REVIEW*, *DISCIPLINE*, *FRAMING*
+    - docs/AUTHOR_DECISIONS.md            (records the author's decisions, AI-written text)
+    - docs/conveyor_results/**
+    - notarius/**  tests/**  experiments/**  (code — AI output)
+    - README.md, this package set
+
+INTEGRITY:
+  MANIFEST:            docs/_package/MANIFEST.tsv
+  CHECKSUMS:           docs/_package/SHA256SUMS.txt (real SHA-256, not fabricated)
+  HASH_STATUS:         COMPUTED_IN_WORKSPACE / NOT_EXTERNALLY_VERIFIED
+  DOCUMENT_CARDS:      docs/_package/DOCUMENT_PROVENANCE_REGISTER.md
+
+BOUNDARIES (parent rules honored):
+  COPY ≠ PROVENANCE
+  RECONSTRUCTION ≠ PHYSICAL_ORIGINAL
+  HASH_EXISTS ≠ HASH_VERIFIED
+  LLM_OUTPUT ≠ VERIFIED_COPY
+  INTERFACE_STATE ≠ RECOVERABILITY_STATE
+
+COMMERCIAL_NOTICE: PRIVATE AUTHOR PROJECT / COMMERCIAL USE PROHIBITED.

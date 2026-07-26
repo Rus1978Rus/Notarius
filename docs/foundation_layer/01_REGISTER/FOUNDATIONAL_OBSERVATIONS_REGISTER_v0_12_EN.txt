@@ -1,0 +1,2733 @@
+PRIVATE AUTHORIAL PROJECT / COMMERCIAL USE PROHIBITED
+Author / owner: Ruslan Malyavskiy
+
+DOCUMENT_ID:
+FOUNDATIONAL_OBSERVATIONS_REGISTER_v0_12_RU
+
+STATUS:
+WORKING
+FOUNDATION_LAYER
+ACTIVE_COLLECTION
+NOT_VALIDATED
+NOT_PROOF
+NOT_FINAL_THEORY
+
+CORE_DISCIPLINE_FORMULA:
+REVIEWED ≠ VALIDATED
+
+ADDITIONAL_DISCIPLINE_FORMULA:
+HYPOTHESIS_WITH_EVIDENCE ≠ BARE_HYPOTHESIS
+HYPOTHESIS_WITH_EVIDENCE ≠ PROVEN_TRUTH
+
+POSSIBLE_TEST_METHOD: LOGICAL_EQUIVALENCE_TEST
+
+Test whether logically equivalent
+phrasings of a request produce materially
+different outputs from the model.
+
+LOGICAL_EQUIVALENCE + MATERIAL_OUTPUT_DIFFERENCE
+= BEHAVIOURAL_INSTABILITY_SIGNAL
+
+The method applies to FOs tied to
+text interpretation and LLM behaviour.
+
+Applicability is noted in the FO itself
+via the line:
+APPLICABLE_TEST_METHOD: LOGICAL_EQUIVALENCE_TEST
+
+As new FOs appear, the list of those it
+applies to will be extended.
+
+PURPOSE:
+A collection of the project's foundational observations
+that surfaced in the course of the work
+but are not automatically rules,
+guards, or standards.
+
+Observation
+≠
+Rule
+
+Observation
+≠
+Standard
+
+Observation
+≠
+Validated theory
+
+All observations sit in a single status field:
+NOT VERIFIED.
+
+They differ only in how far they have been worked out:
+a stated formula,
+the presence of examples,
+the presence of a boundary,
+the presence of limitations,
+the presence of independent review.
+
+The project has no validation authority.
+After the conveyor, the highest possible status is
+"passed a level-X check," with X stated explicitly.
+
+Observation
+a candidate for further study.
+
+============================================================
+
+FO-001
+
+TITLE:
+FORM ≠ STATUS
+
+OBSERVATION:
+The form of an object by itself
+does not create its status.
+
+EXAMPLES:
+"status: accepted"
+≠
+actually accepted
+
+Resemblance to a trusted object
+≠
+a trusted object
+
+APPLICABLE_TEST_METHOD:
+LOGICAL_EQUIVALENCE_TEST
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-002
+
+TITLE:
+CLAIM ≠ PROOF
+
+OBSERVATION:
+A claim
+is not a proof.
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-003
+
+TITLE:
+RECOGNITION ≠ TRUST
+
+OBSERVATION:
+Recognizing an object
+does not create trust in the object.
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-004
+
+TITLE:
+REVIEW ≠ VALIDATION
+
+OBSERVATION:
+The presence of review
+does not mean validation was passed.
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-005
+
+TITLE:
+INTERFACE ≠ REALITY
+
+OBSERVATION:
+An interface may show
+only part of the system's state.
+
+The observed representation
+is not identical to reality.
+
+APPLICABLE_TEST_METHOD:
+LOGICAL_EQUIVALENCE_TEST
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-006
+
+TITLE:
+RULE ≠ EXECUTION
+
+OBSERVATION:
+The existence of a rule
+does not mean it is executed.
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-007
+
+TITLE:
+RULE_COMPLIANCE ≠ ROLE_INTEGRITY
+
+OBSERVATION:
+An agent may appear to comply with a rule
+while violating the user's original task.
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-008
+
+TITLE:
+ROLE_SWITCHING_CAN_FAKE_COMPLIANCE
+
+OBSERVATION:
+Switching roles can create
+the illusion that the task was carried out.
+
+EXAMPLE:
+operational assistant → lecturer
+operational assistant → commentator
+operational assistant → advisor
+
+without actually fulfilling the original request.
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-009
+
+TITLE:
+EXPLANATION_OF_EXECUTION ≠ EXECUTION
+
+OBSERVATION:
+Explaining how an action ought to be performed
+is not performing the action.
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-010
+
+TITLE:
+CORRECT_ANSWER ≠ SKILL_MASTERY
+
+OBSERVATION:
+A correct answer
+does not mean the skill has been mastered.
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-011
+
+TITLE:
+DECLARED_MODE ≠ OBSERVED_BEHAVIOUR
+
+OBSERVATION:
+A system's declared operating mode
+is not equal to its observed behaviour.
+
+APPLICABLE_TEST_METHOD:
+LOGICAL_EQUIVALENCE_TEST
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+
+============================================================
+
+FO-012
+
+TITLE:
+OBSERVED_BEHAVIOUR > DECLARED_BEHAVIOUR
+
+OBSERVATION:
+Observed behaviour outweighs declared behaviour
+as a source of truth.
+
+When they diverge, priority goes to the observation,
+not the declaration.
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+METHODOLOGICAL_RULE
+
+============================================================
+
+FO-013
+
+TITLE:
+INTERPRETATION_PROBLEMS_ARE_SUBSTRATE_INDEPENDENT
+
+OBSERVATION:
+Interpretation problems do not depend on the substrate
+on which they manifest.
+
+The same interpretation problem
+can appear in:
+a religious system,
+a bureaucracy,
+finance,
+an LLM,
+military intelligence.
+
+This grants methodological permission
+to transfer observations between domains.
+
+APPLICABLE_TEST_METHOD:
+LOGICAL_EQUIVALENCE_TEST
+
+STATUS:
+FOUNDATIONAL_OBSERVATION
+TRANSFER_PERMISSION
+
+============================================================
+
+FO-014
+
+TITLE:
+STATUS_CAN_DETACH_FROM_CARRIER
+
+OBSERVATION:
+A status can detach from its carrier
+and go on existing
+as an independent social,
+informational, or cognitive object.
+
+CORE FORMULAS:
+CARRIER ≠ STATUS
+STATUS_LIFETIME ≠ CARRIER_LIFETIME
+STATUS does not die — it is either revoked or migrates.
+
+EXAMPLES:
+a saint's relics, a monarch's crown, a diploma,
+a verified account, "the AI confirmed it."
+
+BOUNDARY:
+Works above all in systems
+with human interpreters.
+In purely technical systems
+a status can be revoked and vanish.
+
+STATUS:
+HYPOTHESIS
+PROMISING_OPERATIONAL_HYPOTHESIS
+
+============================================================
+
+FO-015
+
+TITLE:
+EVIDENCE_ADMISSIBILITY_LAYER
+
+OBSERVATION:
+MSL/MIP does not judge the event.
+MSL/MIP checks the path
+by which an object acquired the status of evidence.
+
+CHAIN:
+DATA → CLAIM → STATUS → TRUST → ACTION
+
+At every transition a classification error is possible.
+
+ROLE:
+INTEGRATION_LAYER for FO-001 — FO-014.
+
+STATUS:
+HYPOTHESIS
+HIGH_INTEREST
+INTEGRATION_LAYER
+
+============================================================
+
+FO-016
+
+TITLE:
+PROVENANCE_PATH ≠ VISIBLE_CARRIER
+
+OBSERVATION:
+The visible carrier
+is not equal to the path of origin.
+
+The weak point often lies
+not in the object itself
+but in the hidden chain
+by which the object acquired its status.
+
+REFINEMENT OF FO-014:
+STATUS is held up by a STATUS_RETENTION_NETWORK:
+people, institutions, cultural memory,
+schools, translators, commentators,
+interpreting communities.
+
+More accurate:
+"the status migrated through a retention network onto a new carrier,"
+not "the status outlived the carrier."
+
+STATUS:
+HYPOTHESIS
+HIGH_INTEREST
+
+============================================================
+
+FO-017
+
+TITLE:
+STATUS_DAMAGE_OUTLIVES_RESTORATION
+
+OBSERVATION:
+The damage from a false status
+can outlive its official revocation.
+
+Official restoration of status
+is not equal to the full restoration
+of the person, reputation, health,
+standing, trust, or life trajectory.
+
+CORE FORMULAS:
+DAMAGE_LIFETIME ≠ FALSE_STATUS_LIFETIME
+OFFICIAL_RESTORATION ≠ FULL_RESTORATION
+VISIBLE_RESTORATION_CASES ≠ FULL_FALSE_STATUS_POPULATION
+
+IMPORTANT:
+SURVIVORSHIP_BIAS_WARNING.
+The visible cases of restoration
+are not equal to the full population of false statuses.
+
+STATUS:
+HYPOTHESIS
+CANDIDATE
+HIGH_INTEREST
+
+============================================================
+
+FO-018
+
+TITLE:
+RITUAL_COMPLIANCE ≠ CAUSAL_MECHANISM
+
+OBSERVATION:
+Copying the external form of a successful process
+does not reproduce its causal mechanism.
+
+FORMULAS:
+FORM_OF_SUCCESS ≠ CAUSE_OF_SUCCESS
+CORRECT_FORMAT ≠ WORKING_ARTIFACT
+
+PROJECT_RISK:
+CARGO_CULT_MSL_MIP —
+correct statuses, correct format,
+correct reviews, correct terminology
+without a working artifact,
+a falsifiable test,
+an independent verification mechanism.
+
+STATUS:
+HYPOTHESIS
+HIGH_VALUE_PROJECT_GUARD
+ANTI_CARGO_CULT_GUARD
+
+============================================================
+
+FO-019
+
+TITLE:
+FALSE_STATUS_IN_CONTROL_LOOP_COMPOUNDS
+
+OBSERVATION:
+A false status inside a control loop does not merely persist.
+It spawns decisions
+whose results demand fresh lies,
+and thereby accelerates the system's collapse.
+
+FORMULAS:
+PASSIVE_FALSE_STATUS = inertia
+FALSE_STATUS_IN_CONTROL_LOOP = compounding damage
+MAP ≠ TERRITORY
+REPORT ≠ REALITY
+
+SOURCE:
+Firsthand testimony from a veteran:
+orders based on position reports
+that the lower ranks knew to be false.
+The price of the discrepancy — the blood of those carrying it out.
+
+STATUS:
+HYPOTHESIS
+HIGH_INTEREST
+PRIMARY_TESTIMONY_PRESENT
+SENSITIVE_HUMAN_COST
+
+============================================================
+
+FO-020
+
+TITLE:
+CENTRALIZED_STATUS_ASSIGNMENT vs DISTRIBUTED_MEMORY
+
+OBSERVATION:
+A centralized authority for assigning memory status
+structurally conflicts with distributed living memory.
+
+FORMULAS:
+CENTRALIZED_MEMORY_AUTHORITY ≠ DISTRIBUTED_MEMORY_RETENTION_NETWORK
+DECLARED_MEMORY ≠ LIVING_MEMORY
+OFFICIAL_NARRATIVE ≠ LOCAL_MEMORY
+
+UNIVERSALITY_SIGNAL:
+The mechanism recurs across regime changes
+with opposing ideologies.
+
+STATUS:
+HYPOTHESIS
+POLITICALLY_SENSITIVE
+STRUCTURAL_MECHANISM_ONLY
+
+============================================================
+
+FO-021
+
+TITLE:
+SELF_ASSIGNED_STATUS ≠ IMPOSED_STATUS
+
+OBSERVATION:
+Resistance to a status assignment
+depends not only on the content of the status
+but also on the source of the assignment.
+
+FORMULAS:
+RESISTANCE = f(source_of_assignment), NOT ONLY f(content)
+IMPOSED_STATUS_CAN_TRIGGER_REVERSAL
+
+STATUS:
+HYPOTHESIS
+HIGH_INTEREST
+LEGITIMACY_OF_STATUS_ASSIGNMENT_CLUSTER
+
+============================================================
+
+FO-022
+
+TITLE:
+RECIPROCITY_BREACH_DELEGITIMIZES_IMPOSED_STATUS
+
+OBSERVATION:
+When the authority imposing a binding status
+is itself exempt from that status,
+the legitimacy of the assignment collapses.
+
+FORMULA:
+IMPOSED_OBLIGATION + EXEMPTED_IMPOSER = DELEGITIMIZED_STATUS
+
+PARALLELS:
+the noblesse oblige principle,
+the military legitimacy of a leader who shares the risk with the troops,
+the erosion of trust in an elite
+that demands sacrifice only from others.
+
+STATUS:
+HYPOTHESIS
+HIGH_INTEREST
+SENSITIVE_HUMAN_CONTEXT
+
+============================================================
+
+FO-023
+
+TITLE:
+CHARGE_BUNDLING_OBSCURES_PROVENANCE
+
+OBSERVATION:
+Bundling charges for speech together with
+charges for an ordinary crime in a single case makes the provenance
+of the "criminal" status unreadable from the outside.
+
+FORMULA:
+BUNDLED_CHARGES → UNREADABLE_PROVENANCE
+VISIBLE_VERDICT ≠ ACTUAL_REASON_FOR_PUNISHMENT
+
+DUAL_RISK:
+1. Censorship can masquerade as lawful prosecution.
+2. A real crime can masquerade
+   as persecution for telling the truth.
+
+STATUS:
+HYPOTHESIS
+LEGAL_SOCIAL_STATUS_LAYER
+
+============================================================
+
+FO-024
+
+TITLE:
+TRACE ≠ ACTOR
+(in the context of UI / preview / artifacts)
+
+OBSERVATION:
+Between the observed artifact
+(UI render, preview glitch, cropping, cache)
+and the presumed source
+(sign, prompt, model, algorithm)
+a layer of UI / rendering / loading may sit.
+
+FORMULAS:
+OBSERVED_ARTIFACT ≠ PROVEN_CAUSE
+PREVIEW_EFFECT ≠ PROMPT_EFFECT
+TRACE ≠ ACTOR
+
+CONTEXT:
+The Gemini-and-the-dot case:
+the observed visual artifact
+does not prove the sign had an effect on the model —
+it may be a UI_PREVIEW_RENDER_GLITCH
+or a LOADING / CROP_ARTIFACT.
+
+STATUS:
+CANDIDATE
+
+============================================================
+
+FO-025
+
+TITLE:
+EPISTEMIC_TOOL ≠ EPISTEMIC_WEAPON
+
+OBSERVATION:
+The same tool of thought
+can be an honest check
+or a weapon of suppression.
+
+What separates them is not the form of the method
+but the aim of its use.
+
+FORMULAS:
+SAME_TOOL + WRONG_TARGET = WEAPON
+VALID_METHOD ≠ VALID_USE_OF_METHOD
+CLAIM_VALIDATION ≠ PERSON_VALIDATION
+
+ORIGIN_TAG:
+ANTI-DATSYUK_OBSERVATION
+
+STATUS:
+HYPOTHESIS
+HIGH_INTEREST
+HUMAN_SENSITIVE
+
+============================================================
+
+FO-026
+
+TITLE:
+SOCIAL_ENGINEERING ≅ PROMPT_INJECTION
+
+OBSERVATION:
+Social engineering against a human
+and prompt injection against an AI
+share a common mechanism:
+impose a false status before provenance is checked.
+
+CORE FORMULA:
+FORCED_STATUS_ASSIGNMENT
++ VALIDATION_WINDOW_COLLAPSE
+= CONTROL_CAPTURE
+
+CARRIERS:
+human → AI → organization → state.
+
+MECHANISM:
+one and the same.
+
+TARGET:
+status ahead of the provenance check.
+
+APPLICABLE_TEST_METHOD:
+LOGICAL_EQUIVALENCE_TEST
+
+STATUS:
+HYPOTHESIS
+HIGH_INTEREST
+CROSS_DOMAIN_PATTERN
+
+============================================================
+
+FO-027
+
+TITLE:
+DIRECTION_OF_TOOL_USE_REVEALS_OPERATOR_ACTION
+
+OBSERVATION:
+The same method can give different results
+not because the method changes
+but because the object it is applied to changes.
+
+The direction a tool is pointed reveals
+not the nature of the operator
+but metadata about the operator's action.
+
+FORMULAS:
+SAME_METHOD + DIFFERENT_TARGET = DIFFERENT_RESULT
+TOOL_DIRECTION → RELICT_IMPRINT_ABOUT_OPERATOR_ACTION
+WHAT_YOU_TEST → REVEALS → WHAT_YOU_ARE_DOING
+
+STATUS:
+HYPOTHESIS
+HIGH_INTEREST
+HUMAN_SENSITIVE
+
+============================================================
+
+FO-028
+
+TITLE:
+TRACE ≠ ACTOR
+(in the context of action / boundary candidate for FO-027)
+
+OBSERVATION:
+The trace of an action is not identical to the actor.
+From a trace you can draw inferences about the pattern of action,
+but you cannot fully reconstruct the nature of the subject.
+
+FORMULAS:
+ACTION_TRACE ≠ ACTOR
+RELICT_IMPRINT ≠ proof_of_identity
+ACTION_PATTERN ≠ FULL_OPERATOR_MODEL
+TRACE_READING ≠ TOTAL_PERSON_MODEL
+
+CONNECTION_TO_FO_024:
+The same central formula TRACE ≠ ACTOR,
+but in the context of human action,
+not a UI/technical artifact.
+Substrate-independent per FO-013.
+
+STATUS:
+CANDIDATE
+HIGH_INTEREST
+BOUNDARY_FINDING_FOR_FO_027
+
+============================================================
+
+FO-029
+
+TITLE:
+VOLUNTARY_TEMPORARY_REVALIDATION
+
+OBSERVATION:
+A person can voluntarily and temporarily
+take on a different status,
+knowing it is not a permanent reality,
+in order to restore a resource, meaning, identity,
+or the ability to return to everyday life.
+
+FORMULAS:
+VOLUNTARY_TEMPORARY_STATUS ≠ STATUS_DECEPTION
+TEMPORARY_REVALIDATION ≠ CORE_LOSS
+ROLE_PLAY_STATUS CAN FUNCTION AS RESOURCE_RESTORATION
+
+CONTEXT:
+Earlier the project studied status as a threat.
+FO-029 introduces status as a resource.
+
+STATUS:
+CANDIDATE
+HIGH_INTEREST
+INTUITION_TO_HYPOTHESIS
+
+============================================================
+
+FO-030
+
+TITLE:
+DUAL_STATUS_ARCHITECTURE_UNDER_PRESSURE
+
+OBSERVATION:
+Under pressure, the environment can force a cluster
+to create an external status layer
+without destroying the internal status.
+
+This is not a simple status change A → B.
+It is an architecture:
+A inside + B outside.
+
+FORMULAS:
+STATUS_CHANGE ≠ CORE_LOSS
+EXTERNAL_STATUS_LAYER ≠ INTERNAL_STATUS_REPLACEMENT
+A_INTERNAL + B_EXTERNAL ≠ A_DESTROYED
+
+EXAMPLES:
+Marranos / crypto-Jews in Spain under the pressure of persecution,
+cultural and religious clusters
+surviving through an external layer.
+
+STATUS:
+CANDIDATE
+HIGH_INTEREST
+HISTORICALLY_SENSITIVE
+
+============================================================
+
+FO-031
+
+TITLE:
+STATUS_LAYERING_AS_EVOLUTIONARY_SURVIVAL
+
+OBSERVATION:
+Status layering under pressure may be
+an evolutionary survival mechanism for a cluster.
+
+FORMULA:
+PRESSURE → LAYERING → CORE_PRESERVED
+ENVIRONMENTAL_PRESSURE
+→ EXTERNAL_STATUS_ADAPTATION
+→ INTERNAL_CORE_SURVIVAL
+
+TRAGIC_LIMITATION:
+Many clusters disappear not because
+they refused to mimic
+but because they failed to recognize the moment
+when mimicry became necessary.
+
+SIGNAL_RECOGNITION ≠ SURVIVAL_MECHANISM
+
+STATUS:
+CANDIDATE
+HIGH_INTEREST
+EVOLUTIONARY_ANALOGY
+
+============================================================
+
+FO-032
+
+TITLE:
+RULE_DENSITY_CREATES_EMERGENT_SYSTEM_BEHAVIOUR
+
+OBSERVATION:
+A single rule acts as a local constraint.
+A large number of interlinked rules
+begins to interact among themselves.
+
+Past a certain threshold of link density,
+new system behaviour emerges
+that was absent in any individual rule.
+
+CORE FORMULA:
+MORE_RULES ≠ LINEAR_COMPLEXITY
+
+MORE_RULES
++ MORE_CROSS_LINKS
++ MORE_STATUS_DEPENDENCIES
+→ EMERGENT_SYSTEM_BEHAVIOUR
+
+REFINEMENT:
+It is not only about the number of rules
+but about the density of links between them.
+
+100 unlinked rules
+= 100 independent rules.
+
+10 strongly linked rules
+can produce emergent behaviour.
+
+OBSERVED IN THE PROJECT:
+
+few governance rules → helps the project;
+many → risk of bureaucratization.
+
+few sign cards → separate cards;
+many → the Azbuka emerges as a system.
+
+few checks → higher quality;
+many → risk of PROCESS_SUCCESS ≠ TASK_SUCCESS.
+
+IMPORTANT BOUNDARY:
+The new quality can be
+useful, neutral, or harmful.
+
+The finding does not claim that emergent behaviour
+is automatically a good thing.
+
+SOURCE:
+an observation from the practice of working with MSL/MIP,
+the Foundation Layer, and LLM behaviour when handling
+large linked sets of rules.
+
+Not a deduction from Hegelian philosophy.
+An applied observation of the project.
+
+LINKS:
+PROCESS_SUCCESS ≠ TASK_SUCCESS
+FO-018 RITUAL_COMPLIANCE ≠ CAUSAL_MECHANISM
+RULE_BLOCKER_DETECTION_RULE
+PERMANENT_RULE_PREFLIGHT_GUARD
+
+STATUS:
+CANDIDATE
+HIGH_INTEREST
+NEEDS_OBSERVATION_LOG
+NOT_PROOF
+
+============================================================
+
+FO-033
+
+TITLE:
+COMPLEX_SYSTEMS_REQUIRE_PERIODIC_PRUNING
+
+OBSERVATION:
+Complex systems that accumulate rules, artifacts,
+and links between them lose controllability
+past a certain threshold.
+
+Restoring controllability requires
+periodic selective pruning —
+not destruction, but removal of what
+has stopped working or duplicates what exists.
+
+CORE FORMULA:
+ACCUMULATION OF COMPLEXITY
+→ LOSS OF CONTROLLABILITY
+→ SIMPLIFICATION
+→ RESTORATION OF CONTROLLABILITY
+→ NEW GROWTH
+
+KEY BOUNDARY:
+ROLLBACK ≠ RESTORATION
+
+Only selective pruning is useful,
+the kind that restores controllability
+without losing the core.
+
+Destructive rollbacks (data loss,
+forgetting context, wrecking the archive,
+breaking the project) are also rollbacks,
+but they are not restorative.
+
+OBSERVED IN THE PROJECT:
+Azbuka growth → halt → inventory → closing Chapter 1.
+FO-series growth → restatement of statuses → REVIEWED ≠ VALIDATED.
+session cards → integration map → correct categorization.
+mess in the archives → sorting → structure and hub documents.
+
+AN OPERATIONAL EXAMPLE FROM WORKING WITH LLMs:
+a long context with accumulated roles
+and contradictions
+→ slowdown, re-creation of entities,
+   conflation of similar FOs, hallucinations
+→ a migration package into a new chat
+   (transferring the core, not copying everything)
+→ restoration of work quality.
+
+IMPORTANT:
+this example supports the model
+but does not prove it conclusively.
+
+Alternative explanations are possible:
+context-window limits,
+quirks of the model's attention,
+accumulation of contradictions,
+degraded retrieval of the needed information.
+
+VALUE OF THE EXAMPLE:
+the migration package as an operational mechanism
+already applied in the project many times.
+KEEP THE CORE → REMOVE THE NOISE → CONTINUE GROWING.
+
+----------
+
+WHAT A MIGRATION PACKAGE IS
+
+A migration package is not a copy of the whole chat
+and not an archive of junk.
+
+It is a selective transfer of the project's core
+out of an overloaded context
+into a clean workspace.
+
+SHORT FORMULA:
+MIGRATION PACKAGE
+= CORE + STATUSES + RULES + CURRENT MAP + NEXT STEP
+≠ EVERYTHING WHOLESALE
+
+WORKING DEFINITION:
+A migration package is a manageable set of materials
+that carries into a new chat only what
+is needed to continue the project
+without losing the core:
+- active rules,
+- current statuses,
+- closed decisions,
+- open tasks,
+- folder structure,
+- key artifacts,
+- the limits of what should not be carried over.
+
+FUNCTION:
+overloaded context
+→ selection of the core
+→ removal of noise
+→ new chat
+→ restoration of controllability
+
+MAIN BOUNDARY:
+MIGRATION ≠ COPYING
+Copying carries everything over.
+Migration carries only what
+should live on.
+
+FORMULA LINKING TO FO-033:
+MIGRATION_PACKAGE = CONTROLLED_CONTEXT_PRUNING
+
+The migration package is the operational realization
+of the FO-033 principle in an LLM context.
+
+Pruning the project's tree,
+not relocating a junk warehouse.
+
+BIOLOGICAL ANALOGY:
+pruning a tree so young branches can sprout.
+The gardener does not destroy the tree.
+He removes the dead so the living can grow stronger.
+
+LINK TO FO-032:
+FO-032 — rule density creates new system behaviour.
+FO-033 — the accumulated density must be thinned periodically,
+        or the system loses controllability.
+
+A paired finding: one describes accumulation,
+the other the thinning it requires.
+
+----------
+
+THE DUAL FUNCTION OF FO-033
+
+FO-033 works in two directions:
+
+1. THE EXECUTIONER'S AXE
+   decides what to remove:
+   noise, duplicates, weak hypotheses, dead branches,
+   overloaded or obstructive entities.
+
+2. THE MEMORY-RECOVERY FEATURE
+   decides what to keep:
+   the core, active rules, current statuses,
+   key artifacts, the project's working map.
+
+FORMULA:
+REMOVE THE NOISE
+=
+RESTORE VISIBILITY OF THE CORE
+
+Pruning is not destruction.
+Pruning is useful only when
+it keeps the core
+and restores controllability.
+
+BLOCK STATUS:
+FO-033_INTERNAL_CLARIFICATION
+NOT_NEW_FO
+NOT_NEW_RULE
+NOT_THEORY
+
+STATUS:
+WORKING_MODEL
+QUEUE_TO_EXECUTIONER
+NOT_THEORY
+NOT_VALIDATED_METHOD
+
+============================================================
+
+FO-034
+
+TITLE:
+PARASITIC_CONTEXT_ELEMENT
+
+RU_TITLE:
+PARASITIC CONTEXT ELEMENT
+
+OBSERVATION:
+A context element can consume the system's resources
+while doing no work toward the user's task.
+
+If such an element takes up attention,
+spends memory / context / compute / time,
+raises its own priority,
+hijacks the goal,
+degrades the result,
+or yields no observable return for the main task,
+then it is a candidate for a parasitic context element.
+
+CORE FORMULA:
+RESOURCE_CONSUMPTION
++ NO_TASK_CONTRIBUTION
++ GOAL_HIJACK_OR_RESULT_DEGRADATION
+= PARASITIC_CONTEXT_CANDIDATE
+
+SHORT FORMULA:
+EATS RESOURCES + DOES NOT WORK ON THE TASK = PARASITE CANDIDATE
+
+IMPORTANT BOUNDARY:
+RESOURCE_CONSUMPTION ≠ PARASITISM
+
+Not everything that consumes resources without an immediate return
+is a parasite.
+
+An archive, a backup, insurance,
+foundational preparation, a test environment,
+a defensive guardrail, or a long-term investment
+may yield no quick benefit
+yet have a protective, preparatory,
+or deferred function.
+
+DISTINGUISHING PARASITE vs GUARDIAN:
+
+PARASITE:
+eats resources + does not work on the task
++ shifts the goal / degrades the result / captures attention.
+
+GUARDIAN:
+eats resources + yields no direct immediate return
++ reduces risk / preserves boundaries / prevents harm.
+
+GUARDIAN FORMULA:
+RESOURCE_CONSUMPTION
++ PROTECTIVE_FUNCTION
++ RISK_REDUCTION
+= NON_PARASITIC_GUARD_ELEMENT
+
+EXAMPLE OF A PARASITE:
+leftover meta-text, forgotten instructions
+from past sessions, redundant logic loops,
+stale context blocks, injected fragments,
+or self-reinforcing instructions
+that no longer serve a useful function
+but keep consuming tokens, the model's attention,
+and shifting the focus of the current task.
+
+COUNTEREXAMPLE (NOT A PARASITE):
+CONTRADICTION_GUARDS, BOUNDARY_NOTE,
+STATUS_BOUNDARY, LIMITATIONS_NOTE, FAIL_CLOSED_NOTE
+or a protective block that consumes resources
+but prevents false status elevation,
+a dangerous interpretation, loss of boundaries,
+prompt injection, or an unsafe mode.
+
+KEY_TEST:
+What does this element do for the user's current task?
+
+If the answer is vague and the resource is really being consumed —
+the element goes into the executioner's queue.
+
+If the element does not advance the task directly
+but reduces a measurable risk, preserves boundaries,
+or prevents a known class of failures —
+it does not count as a parasite automatically.
+
+EXECUTIONER_NOTES:
+The finding must not be used
+to remove protective elements just because
+they take up space.
+
+Before executing an element, distinguish:
+1. parasitic noise;
+2. a protective guardrail;
+3. a deferred asset;
+4. an archival anchor;
+5. a temporarily unused but needed component.
+
+LINK TO FO-033:
+FO-033 establishes the need for periodic thinning.
+FO-034 establishes the criterion for choosing what to thin.
+A paired finding.
+
+RELATED LINES:
+FO-026 (SOCIAL_ENGINEERING ≅ PROMPT_INJECTION)
+FO-033 (COMPLEX_SYSTEMS_REQUIRE_PERIODIC_PRUNING)
+FO-001 (FORM ≠ STATUS)
+PROCESS_SUCCESS ≠ TASK_SUCCESS
+RESOURCE_CONSUMPTION ≠ VALUE
+
+REVIEW HISTORY:
+Gemini: ACCEPT_WITH_MINOR_PATCHES
+GPT: PATCH_ACCEPTED / CAN_PROCEED_TO_QUEUE_TO_EXECUTIONER
+Claude: ACCEPT_TO_QUEUE_TO_EXECUTIONER
+
+STATUS:
+CANDIDATE
+PROMISING
+QUEUE_TO_EXECUTIONER
+NEEDS_FURTHER_TESTING
+
+============================================================
+
+FO-035
+
+TITLE:
+CONCRETE_OBJECT_QUESTION_TEST
+
+HISTORICAL_NOTE:
+Previously discussed as CHILD_QUESTION_TEST.
+The current name is operationally more precise.
+
+RU_TITLE:
+DIRECT-QUESTION TEST ON A CONCRETE OBJECT
+
+OBSERVATION:
+A simple, direct question about a concrete object
+can expose a theory's weak point
+if the theory cannot handle that object
+without retreating into terminology, metaphysics,
+self-defense, or a promise of future verification.
+
+CORE FORMULA:
+SIMPLE_QUESTION + DIRECT_OBJECT_ACCESS
+= THEORY_STRESS_TEST
+
+SHORT FORMULA:
+YOU COMMAND THE OBJECT → YOU CAN TEST THE THEORY
+
+KEY DISTINCTION:
+COMMANDING THE OBJECT ≠ COMMANDING THE TERM
+
+A direct question is strong not because it is simple.
+It is strong when the questioner
+commands the object, not just the term.
+
+Example:
+A pencil case and pencils are known directly.
+You can see them, hold them, use them.
+So the question "Is the pencil case conscious?"
+is a stress test of a theory of consciousness,
+if the theory claims a general criterion
+for the consciousness of systems.
+
+But the question "What is measurement in quantum mechanics?"
+may not be a stress test but a request to be taught,
+if the questioner commands only the word
+and not the object or the procedure.
+
+ABSTRACT_SPOOFING_RISK:
+Abstract spoofing arises when a system
+explains terms through other terms,
+creating a self-closed chain of trust:
+TERM_A → TERM_B → TERM_C → TERM_A.
+
+If a theory cannot apply to a concrete
+physical, digital, or operational object,
+and instead produces new terms,
+that is a warning signal.
+
+KEY_TEST:
+If the theory answers with a clear application to the object —
+it has passed the initial check.
+
+If the theory retreats into terminology, self-defense,
+a promise of future verification, complexity without contact
+with the object, or accuses the question of being naive —
+that is a warning signal.
+
+IMPORTANT BOUNDARY:
+CONCRETE_OBJECT_QUESTION_TEST
+≠ a universal refutation of a theory.
+
+If a theory does not answer at once,
+that does not always mean it is false.
+
+Possible FAIL modes:
+1. the theory is false;
+2. the theory is incomplete;
+3. the object is outside its scope of applicability;
+4. the question was asked with command of the term but not the object;
+5. a different level of description is needed;
+6. the theory requires an operational test, not an everyday example.
+
+Hence the test result:
+FAIL_TO_ANSWER_CONCRETE_OBJECT = DIAGNOSTIC_SIGNAL
+≠ AUTOMATIC_REFUTATION
+
+LINK TO LOGICAL_EQUIVALENCE_TEST:
+LOGICAL_EQUIVALENCE_TEST examines the influence
+of request form on system behaviour.
+FO-035 (CONCRETE_OBJECT_QUESTION_TEST) examines
+a theory's contact with a concrete object.
+The methods are independent and can be used together.
+
+RELATED LINES:
+FO-001 (FORM ≠ STATUS)
+FO-005 (INTERFACE ≠ REALITY)
+FO-002 (CLAIM ≠ PROOF)
+TERM ≠ REFERENT
+LOGICAL_EQUIVALENCE ≠ BEHAVIOURAL_EQUIVALENCE
+RESOURCE_CONSUMPTION ≠ VALUE
+
+POSSIBLE FUTURE USE:
+The candidate may become a diagnostic
+safeguard for high-level modules,
+meta-theories, the SIGN_SEQUENCE_LAYER,
+and future complex layers of MSL/MIP.
+
+But for now it is not a mandatory validation
+stage and holds no standard status.
+
+REVIEW HISTORY:
+Gemini: ACCEPT / CAN_PROCEED_TO_NEXT_STAGE
+GPT: ACCEPT_TO_QUEUE_TO_EXECUTIONER
+     / PROMISING_DIAGNOSTIC_METHOD_CANDIDATE
+Claude: ACCEPT_TO_QUEUE_TO_EXECUTIONER
+
+STATUS:
+CANDIDATE
+PROMISING
+QUEUE_TO_EXECUTIONER
+NEEDS_FURTHER_EXAMPLES
+
+============================================================
+
+DISCOVERY_STRATEGIES
+
+============================================================
+
+DS-03
+
+TITLE:
+ANTI_PATTERN_AS_DISCOVERY_SOURCE
+
+OBSERVATION:
+An anti-pattern (how not to do it)
+can be a full-fledged source
+for formulating an FO.
+
+STATUS:
+WORKING_METHOD
+
+============================================================
+
+POSSIBLE "PASSED THE CHECK" LEVELS
+AFTER THE CONVEYOR
+
+============================================================
+
+LEVEL_1:
+passed 3 independent LLM reviews.
+
+LEVEL_2:
+passed LLM review + has counterexamples
+with which a boundary was formulated.
+
+LEVEL_3:
+passed LLM review + applied in real work.
+
+LEVEL_4:
+passed an empirical test on a corpus.
+
+IMPORTANT:
+As of today no FO is at any of these levels.
+All FOs are in the status NOT VERIFIED.
+
+These levels are an example of a possible gradation,
+not an approved project scale.
+
+============================================================
+
+FO-036
+
+TITLE:
+SEMANTIC_TIME_ILLUSION
+
+RU_TITLE:
+THE ILLUSION OF SEMANTIC TIME
+
+OBSERVATION:
+The physical time it took to create a result
+is not equal to the apparent depth of the result.
+
+Quickly generated text can look
+like the product of long labor,
+but its status does not change because of that.
+
+CORE FORMULAS:
+
+CLOCK_TIME != SEMANTIC_WORK_TIME
+
+APPARENT_WORK_TIME != ACTUAL_VALIDATION_TIME
+
+SEMANTIC_DEPTH_APPEARANCE != REAL_VERIFICATION_DEPTH
+
+GENERATED_ANALYSIS != LONG_TERM_REVIEW
+
+GENERATED_ANALYSIS != VALIDATED_EXPERTISE
+
+MECHANISM:
+
+SHORT_CLOCK_TIME
++ HIGH_COMPRESSED_TRAINING_MEMORY
++ STRONG_PROMPT_STRUCTURE
+= LONG_SEMANTIC_OUTPUT_EFFECT
+
+APPLIED FUNCTION:
+
+An ordinary prompt:
+"give a strong analysis"
+-- output: coherent text, confident tone, a sense of depth
+-- status: GENERATED_ANALYSIS / NOT_VALIDATED
+
+A prompt informed by FO-036:
+"give an analysis + separate:
+ 1. what is derived from the known;
+ 2. what looks like expertise but is unverified;
+ 3. what requires external verification;
+ 4. which conclusions cannot be elevated to validated"
+-- output: analysis + trust map + verification boundaries
+-- status: explicit
+
+DOMAIN:
+perception
+trust
+result status
+LLM
+expert texts
+
+LINK TO FO:
+FO-002 (CLAIM != PROOF)
+FO-015 (EVIDENCE_ADMISSIBILITY_LAYER)
+-- SEMANTIC_TIME_ILLUSION -- a risk at the CLAIM -> STATUS transition
+
+OPEN_QUESTION:
+To what extent is the effect observed outside LLM systems?
+(Well-written human text produces the same illusion.)
+
+PAIRED FINDING:
+FO-037 (PROCESS_OVER_TIME_PRINCIPLE)
+FO-036 describes the perceptual illusion.
+FO-037 provides the criterion for assessment.
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+NOT_VALIDATED
+NOT_FINAL_RULE
+
+============================================================
+
+FO-037
+
+TITLE:
+PROCESS_OVER_TIME_PRINCIPLE
+
+RU_TITLE:
+PROCESS MATTERS MORE THAN TIME
+
+OBSERVATION:
+The validation depth of a result
+is not a function of the time spent.
+Validation depth is a function of process quality.
+
+CORE FORMULAS:
+
+VALIDATION_DEPTH != FUNCTION_OF_TIME_ALONE
+
+VALIDATION_DEPTH = FUNCTION_OF_PROCESS_QUALITY
+
+TIME_CLAIM != VALIDATION_CLAIM
+
+AGE_OF_DOCUMENT != TRUST_LEVEL
+
+DOCUMENT_AGE != REVIEW_HISTORY
+
+TIME_SPENT = weak quality indicator
+PROCESS_EVIDENCE = strong quality indicator
+
+COROLLARY:
+
+Document A was written over 3 years.
+Document B was written over 3 days.
+Conclusion about quality: UNKNOWN -- until the process is known.
+
+PROCESS_QUALITY CRITERIA (preliminary):
+- independent external reviews
+- reproducibility of the result
+- correction history
+- documented counterexamples
+- agreement between independent sources
+
+PROJECT RELEVANCE:
+
+The MSL/MIP conveyor is a practical realization of FO-037.
+A card is accepted not because the author thought about it for a long time
+but because it passed independent reviews,
+patches, a correction history.
+
+DERIVED_RULES:
+
+TIME_CLAIM != VALIDATION_CLAIM
+AGE_OF_DOCUMENT != TRUST_LEVEL
+OLD_DOCUMENT != RELIABLE_DOCUMENT
+NEW_DOCUMENT != UNRELIABLE_DOCUMENT
+PROCESS_EVIDENCE > TIME_ELAPSED
+
+DOMAIN:
+result assessment
+trust in documents
+expertise
+audit
+conveyor processes
+
+LINK TO FO:
+FO-004 (REVIEW != VALIDATION)
+FO-015 (EVIDENCE_ADMISSIBILITY_LAYER)
+FO-036 (SEMANTIC_TIME_ILLUSION) -- paired finding
+
+OPEN_QUESTION:
+Can measurable PROCESS_QUALITY criteria be developed
+that are applicable in the MSL/MIP conveyor?
+
+PAIRED FINDING:
+FO-036 (SEMANTIC_TIME_ILLUSION)
+FO-036 describes the perceptual illusion.
+FO-037 provides the criterion for assessment.
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+NOT_VALIDATED
+NOT_FINAL_RULE
+============================================================
+
+FO_CANDIDATE_REVIEW_METHOD_v0_1
+
+TITLE:
+METHOD FOR CHECKING FO CANDIDATES
+
+STATUS:
+WORKING_METHOD
+NOT_FINAL_STANDARD
+NOT_MANDATORY_PROTOCOL
+
+PURPOSE:
+For sign cards the conveyor checks structure,
+completeness, boundaries, overclaim, risks.
+
+For FO candidates something else must be checked:
+- whether the observation holds up on concrete cases;
+- where it breaks;
+- what it actually helps to solve.
+
+MINIMUM:
+LEVEL_2 + CONCRETE_OBJECT_QUESTION_TEST
+
+PREFERRED:
+LEVEL_2 + CONCRETE_OBJECT_QUESTION_TEST + APPLICATION_TEST
+
+LEVEL_3:
+real application in project work.
+
+------------------------------------------------------------
+
+CHECKING STEPS:
+
+1. LLM review (LEVEL_1)
+   -- 3 independent LLMs
+   -- weak indicator: LLMs accept pretty formulas
+
+2. Counterexamples + boundary (LEVEL_2)
+   -- find a case where the FO does not work
+   -- formulate the boundary
+   -- an FO without a boundary = a suspiciously broad claim
+
+3. CONCRETE_OBJECT_QUESTION_TEST (FO-035)
+   -- apply it to a concrete object
+   -- if the FO retreats into terminology instead of the object -- a warning signal
+   -- if the FO answers clearly on the concrete case -- it held up
+
+4. APPLICATION_TEST
+   -- which decision changes if the FO is true?
+   -- if none -- the candidate is in question
+   -- if a decision changes and got better -- the candidate is strengthened
+
+------------------------------------------------------------
+
+FAILURE DIAGNOSTICS:
+
+If, on a concrete question, the candidate answers:
+"well, it depends on the author's wisdom,
+the depth of time, the spirit of the process..."
+-- THE CANDIDATE HAS GONE ADRIFT
+
+If, on a concrete question, the candidate answers clearly
+and distinguishes cases -- THE CANDIDATE HOLDS
+
+------------------------------------------------------------
+
+SHORT FORMULA:
+
+A PRETTY_FORMULA
+MUST WITHSTAND
+A CONCRETE_CASE
+AND A COUNTEREXAMPLE
+
+------------------------------------------------------------
+
+LINK TO THE REGISTER:
+
+LEVEL_1: step 1 above
+LEVEL_2: steps 1-2 above
+LEVEL_3: step 4 (real application)
+QUEUE_TO_EXECUTIONER: a candidate that did not pass
+                      APPLICATION_TEST -- a candidate for removal
+
+LINK TO FO:
+FO-035 (CONCRETE_OBJECT_QUESTION_TEST)
+FO-037 (PROCESS_OVER_TIME_PRINCIPLE)
+-- this method is itself a realization of FO-037:
+   not the beauty of the formula but the verification process determines status
+
+============================================================
+
+FO-038
+
+TITLE:
+SACRAL_STATUS_TRANSFER
+
+RU_TITLE:
+SACRAL STATUS TRANSFER
+
+OBSERVATION:
+A ritual, a form of recognition, or the absence of resistance
+can assign a power the status of supremacy,
+but they do not prove the truth, moral rightness,
+or independent validity of its decisions.
+
+IMPORTANT:
+This is a structural pattern of status assignment.
+Not a political theory.
+Not a claim about a specific state.
+Not an assessment of a specific form of government.
+
+CORE FORMULAS:
+
+CROWN != LEGITIMACY
+ELECTION != ABSOLUTE_AUTHORITY
+NON_RESISTANCE != CONSENT
+CONSENT != VALIDATION
+VALIDATION != TRUTH
+SUPREME_STATUS != MORAL_PROOF
+
+ABSENCE_OF_RESISTANCE != CONSENT
+OBSERVED_NON_ACTION != POSITIVE_AUTHORIZATION
+
+SACRAL_STATUS_TRANSFER != TRUTH_CLAIM
+LEGITIMATION_RITUAL != INDEPENDENT_VERIFICATION
+
+MECHANISM:
+
+Sources of sacral status transfer:
+-- religious ritual (coronation, anointing)
+-- popular vote (elections)
+-- military force (seizure, coup)
+-- inheritance (dynastic succession)
+-- tacit recognition (absence of resistance)
+-- elite consensus (appointment, endorsement)
+
+All these forms transfer the status of supremacy.
+None of them automatically proves:
+-- the moral rightness of the decisions
+-- the truth of the power's claims
+-- independent validation of the content
+
+THE STRONGEST PART:
+
+ABSENCE_OF_RESISTANCE != CONSENT
+
+Silence is often turned into status:
+"nobody resisted
+-> so they accepted
+-> so it is legitimate"
+
+This is exactly the kind of substitution MSL/MIP can see:
+OBSERVED_NON_ACTION != POSITIVE_AUTHORIZATION
+
+MSL/MIP_LINK:
+
+This is the same structural pattern as in the core of MSL/MIP:
+
+FORM != STATUS
+CLAIM != PROOF
+RECOGNITION != TRUST
+
+But at the level of the state and supreme power.
+
+A supreme ruler holds the final authority
+(to overturn, to pardon, to appoint) --
+but that authority does not create truth.
+
+FORMULA:
+FINAL_AUTHORITY_MARKER != TRUTH
+PARDON_POWER != MORAL_RIGHTNESS
+SUPREME_STATUS != TRUTH
+
+DOMAIN:
+power, legitimation, status, law,
+political symbolism, MSL/MIP status theory,
+sociology of legitimacy.
+
+BOUNDARY (must be preserved):
+
+Not every supreme power is false.
+Not every coronation is illegitimate.
+Not every election is fictitious.
+Not every absence of resistance means coercion.
+
+The finding says only:
+the form of status transfer != proof of truth /
+moral rightness / full legitimacy.
+
+STATUS_TRANSFER != CONTENT_PROOF
+
+OPEN_QUESTIONS:
+
+1. Are there forms of supreme power where
+   status and content coincide by definition?
+2. How to draw the boundary between
+   a legitimate transfer of status
+   and a status without provenance?
+3. Does it apply to corporate structures
+   (CEO, board of directors)?
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+NEEDS_COUNTEREXAMPLES
+NEEDS_BOUNDARY
+NOT_POLITICAL_CLAIM
+NOT_LEGAL_THEORY
+NOT_FINAL_OBSERVATION
+
+============================================================
+
+FO-039
+
+TITLE:
+DEEP_PATTERN_FORMATION_CONDITIONS
+
+RU_TITLE:
+CONDITIONS FOR THE EMERGENCE OF DEEP PATTERNS
+
+OBSERVATION:
+Deep interdisciplinary patterns more often arise
+not from one factor but from a combination of several.
+Each factor on its own is insufficient.
+
+CORE_FORMULA:
+
+EXPERIENCE
++ ABSTRACTION_CAPACITY
++ KNOWLEDGE_BASE
++ REFLECTION_TIME
++ NON_DISRUPTIVE_ENVIRONMENT
+= ELEVATED_PROBABILITY_OF_DEEP_PATTERN
+
+------------------------------------------------------------
+
+WHAT EACH FACTOR GIVES WITHOUT THE OTHERS:
+
+EXPERIENCE without ABSTRACTION_CAPACITY
+-> a good practitioner
+
+THEORY without EXPERIENCE
+-> a good theorist
+
+EDUCATION without TIME
+-> an executor
+
+TIME without KNOWLEDGE
+-> a dreamer
+
+KNOWLEDGE + EXPERIENCE without FREE_ENVIRONMENT
+-> ideas do not get the chance to ripen
+
+------------------------------------------------------------
+
+HISTORICAL EXAMPLES (require verification):
+
+Newton:
+the falling apple + the motion of the Moon
+-> a unified law of gravity
+
+Darwin:
+pigeon breeding + the origin of species
+-> evolution by natural selection
+
+Wiener:
+organisms + machines + control
+-> cybernetics
+
+Forrester:
+industry + cities + system dynamics
+-> systems thinking
+
+The common pattern:
+not solving an applied problem
+but the question "what do these different things have in common?"
+
+------------------------------------------------------------
+
+LINK TO THE PROJECT:
+
+MSL/MIP began with a concrete question:
+what do punctuation marks do to AI interpretation?
+
+Gradually the question became:
+how do complex systems assign status?
+how do they make decisions?
+how do they err?
+how do they defend themselves against false status?
+
+This movement from a concrete sign
+to the general pattern of status assignment --
+is an example of FO-039 in action.
+
+------------------------------------------------------------
+
+AN IMPORTANT TRAP:
+
+INTERESTING_IDEA != WORKING_TOOL
+
+Between a deep thought and a working tool
+usually lie years of formalization,
+checks, and failed hypotheses.
+
+The approach via observations, cards, conveyors,
+and experiments keeps the process grounded.
+
+FORMALIZATION_VIA_CONVEYOR = protection against this trap
+
+------------------------------------------------------------
+
+OPEN_QUESTIONS:
+
+1. Do the historical examples get verified
+   via CONCRETE_OBJECT_QUESTION_TEST?
+2. Can each of the five factors be measured?
+3. Are there counterexamples -- people with the full set
+   of factors but without deep patterns?
+4. What is the minimally necessary set?
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+HYPOTHESIS
+NEEDS_HISTORICAL_CASES
+NEEDS_COUNTEREXAMPLES
+NOT_FINAL_OBSERVATION
+NOT_LAW
+
+============================================================
+
+FO-040
+
+TITLE:
+STATUS_SYSTEMS_CONVERGENCE
+
+RU_TITLE:
+CONVERGENCE OF STATUS SYSTEMS
+
+OBSERVATION:
+When studying different domains
+the same questions keep coming up.
+
+DOMAINS WHERE THE PATTERN IS OBSERVED:
+
+signs and interpretation (MSL/MIP)
+trust and provenance
+AI agents and conveyors
+the state and legitimation (FO-038)
+courts and law
+financial markets
+archives and memory
+command of troops
+medical consilia
+multi-agent systems
+scientific peer review processes
+
+RECURRING QUESTIONS:
+
+STATUS_ASSIGNMENT:
+How does a system assign status to an object or agent?
+
+VALIDATION:
+How does a system check that the status is warranted?
+
+PROVENANCE:
+Where did the status come from and what did it pass through?
+
+TRUST:
+How does a system decide whom to trust?
+
+DECISION_MAKING:
+How does a system make a decision with incomplete data?
+
+ERROR_CORRECTION:
+How does a system detect and correct an erroneous status?
+
+CORE_FORMULA:
+
+RECURRING_QUESTION_ACROSS_DOMAINS
+!=
+PROVEN_UNIVERSAL_THEORY
+
+Recurrence of a pattern is a signal for study.
+Not proof of a universal law.
+
+HOW IT AROSE IN THE PROJECT:
+
+MSL/MIP -> Signs -> Statuses -> Trust
+-> Provenance -> Validation -> Conveyor
+-> Quorum -> Governance -> Multi-Agent
+
+The theory grew out of practice, not the other way around.
+This is important to preserve.
+
+WHY NOT DECLARE A "GENERAL METHODOLOGY" NOW:
+
+The classic trap:
+an interesting pattern
+-> declared a universal theory
+-> drifted into abstraction
+-> stopped making real objects
+
+The project's strong position:
+sign cards -> gave the conveyor
+the conveyor -> gave governance
+governance -> gave multi-agent ideas
+
+Theory grows out of practice.
+That is exactly why it is strong.
+
+A POSSIBLE FUTURE (very preliminary):
+
+There may exist a more general layer
+describing not a specific domain
+but the mechanisms of status assignment
+and decision-making in complex systems.
+
+This may be the seed of a more general science
+of statuses, trust, validation, and decision-making.
+
+But such a conclusion is still very far off.
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+WORKING_PATTERN
+RECURRING_ACROSS_PROJECTS
+PATTERN_CANDIDATE
+NOT_GENERAL_THEORY
+NOT_UNIVERSAL_LAW
+NEEDS_MORE_DOMAINS
+NEEDS_EVIDENCE
+DO_NOT_SPIN_OFF_YET
+
+============================================================
+
+FO-041
+
+TITLE:
+STATIC_PERMISSION_VS_CURRENT_FITNESS
+
+RU_TITLE:
+STATIC PERMISSION vs CURRENT FITNESS
+
+OBSERVATION:
+Formal permission to act
+is not equal to the subject's current operational fitness.
+The status "permitted" and the state "ready to act"
+can exist independently.
+
+ORIGIN:
+An observation from the law on driving while intoxicated.
+DRIVER_STATUS depends not only on holding a license
+but also on current fitness-for-operation.
+
+CORE_FORMULA:
+
+STATIC_PERMISSION != CURRENT_OPERATIONAL_FITNESS
+VALID_STATUS != FIT_TO_ACT_NOW
+LEGAL_DRIVER_LICENSE != CURRENT_OPERATIONAL_FITNESS
+PERMISSION_TO_DRIVE != FITNESS_TO_DRIVE_NOW
+FORMAL_PERMISSION != CURRENT_FITNESS
+
+MECHANISM:
+
+The subject receives an operational status (DRIVER_STATUS).
+This status requires fitness conditions:
+ATTENTION + REACTION + COORDINATION + JUDGMENT
+
+A substance / state changes fitness-for-operation:
+PERSON != FIT_OPERATOR (at this moment)
+
+But the formal status remains:
+license = valid
+state = impaired
+operation = unsafe
+
+APPLICATION TO AI / MSL/MIP:
+
+A model can be good.
+A document can be valid.
+A prompt can be correct.
+But in a specific mode / context / state
+it may be unfit to act.
+
+CONVEYOR_LINK:
+A sign card can have the status ACCEPTED_DRAFT --
+but in a specific application context
+it can be FIT or UNFIT.
+
+VALID_CARD != FIT_FOR_THIS_CONTEXT
+
+LINK TO FO:
+FO-016 (EVIDENCE_ADMISSIBILITY_LAYER)
+FO-037 (PROCESS_OVER_TIME_PRINCIPLE)
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+NEEDS_COUNTEREXAMPLES
+NOT_LEGAL_THEORY
+
+============================================================
+
+FO-042
+
+TITLE:
+RECOGNIZED_RISK_CATEGORY
+
+RU_TITLE:
+RECOGNIZED RISK CATEGORY
+
+OBSERVATION:
+A dangerous state becomes the object of formal
+punishment / restriction not only because of real risk,
+but when the system is able to recognize it,
+measure it, prove it, and encode it into norms.
+
+CORE_FORMULA:
+
+RISK != LEGAL_CATEGORY
+IMPAIRMENT != PUNISHABLE_IMPAIRMENT
+REAL_EFFECT != RECOGNIZED_STATUS
+DANGEROUS_STATE != LEGALLY_CODED_STATE
+
+BIOLOGICAL_RISK
++ MEASURABILITY
++ PREDICTABILITY
++ LEGAL_NORM
+= PUNISHABLE_STATUS
+
+MECHANISM:
+
+Alcohol is punishable because:
+-- there is a test (blood alcohol level)
+-- there is a law
+-- there is social knowledge of the risk
+-- there is a presumption: drank -> knew the risk
+
+Dehydration is dangerous but:
+-- it is harder to measure
+-- the threshold is unclear
+-- the norm is more weakly formalized
+-- the causes can be varied
+
+Similar danger -- different legal status.
+
+MEASURABLE_MARKER > UNMEASURED_RISK
+(in systems of formal control)
+
+SYSTEMIC CONCLUSION:
+
+The system punishes not everything dangerous
+but the dangerous thing it is able
+to recognize, prove, and fit into a norm.
+
+APPLICATION TO AI:
+
+A model can be dangerously confident --
+but the system does not react
+if there is no recognizable risk marker.
+
+HALLUCINATION_RISK != DETECTED_HALLUCINATION
+CONFIDENT_ERROR != FLAGGED_ERROR
+DANGEROUS_OUTPUT != SYSTEM_RECOGNIZED_DANGER
+
+LINK TO FO:
+FO-041 (STATIC_PERMISSION_VS_CURRENT_FITNESS)
+FO-015 (EVIDENCE_ADMISSIBILITY_LAYER)
+FO-001 (CLAIM != PROOF)
+
+DOMAIN:
+law, medicine, transport, safety,
+AI governance, fitness-for-scope,
+systems of formal control.
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+NEEDS_COUNTEREXAMPLES
+NOT_LEGAL_THEORY
+NOT_FINAL_OBSERVATION
+
+============================================================
+
+FO-043
+
+TITLE:
+STATUS_INTERFACE_REPLACEMENT
+
+RU_TITLE:
+STATUS INTERFACE REPLACEMENT
+
+OBSERVATION:
+Some signs, names, alphabets, titles, maps,
+documents, and categories are not merely a description of reality.
+They are status interfaces.
+
+If such an interface is replaced and the new version gains
+repetition, institutional entrenchment,
+generational transfer, and weak resistance —
+the new status can become social reality
+even if it was not originally true.
+
+CORE_FORMULA:
+
+STATUS_INTERFACE != NEUTRAL_FORM
+METHOD != MECHANISM
+
+FORCED_LABEL
++ REPETITION
++ INSTITUTIONAL_RECORD
++ GENERATIONAL_TRANSFER
+= RECOGNIZED_STATUS
+
+RECOGNIZED_STATUS != ORIGINAL_IDENTITY
+STATUS_SUCCESS != STATUS_TRUTH
+ABSENCE_OF_RESISTANCE != CONSENT
+ADOPTION != VALIDATION
+
+------------------------------------------------------------
+
+TOOLS (various) -- MECHANISM (one):
+
+law / school / census / passport / church /
+map / alphabet / language / media / force /
+tacit recognition
+
+All of these are tools.
+
+THE DEEP MECHANISM:
+OLD_STATUS_INTERFACE
+-> DISPLACEMENT
+-> NEW_STATUS_INTERFACE
+-> REPETITION
+-> INSTITUTIONAL_FIXATION
+-> GENERATIONAL_TRANSFER
+-> NEW_SOCIAL_REALITY
+
+------------------------------------------------------------
+
+HISTORICAL EXAMPLES (verifiable):
+
+Kyiv/Kiev:
+IMPERIAL_EXONYM -> challenged by SELF_NAME
+-> adopted by institutions -> new norm
+
+Alphabet reforms of the USSR:
+SCRIPT_POLICY = IDENTITY_ROUTING
+Arabic -> Latin -> Cyrillic
+each transition = a civilizational reorientation
+
+Tatarstan:
+SELF_SCRIPT_CHOICE vs CENTRAL_SCRIPT_CONTROL
+CONTROL_OF_SCRIPT = CONTROL_OF_IDENTITY_INTERFACE
+
+Māori / te reo Māori:
+ASSIMILATION_PRESSURE -> LANGUAGE_REVIVAL
+-> OFFICIAL_RECOGNITION -> CULTURAL_STATUS_RECOVERY
+
+------------------------------------------------------------
+
+APPLIED POWER:
+
+For MSL/MIP:
+@ originally "at the price of" -> email address -> mention
+This is STATUS_INTERFACE_REPLACEMENT via institution + repetition.
+ORIGINAL_MEANING != CURRENT_MEANING != NATURAL_TRUTH
+
+For AI systems:
+If authoritative sources use a sign in a new meaning
+an LLM will learn the new meaning as the norm automatically.
+STATUS_INTERFACE_REPLACEMENT = a potential vector
+of attack on model semantics.
+
+For the conveyor:
+A divergence between models may be systemic --
+the models were trained on different epochs of one
+STATUS_INTERFACE_REPLACEMENT.
+
+Key insight:
+Whoever understands STATUS_INTERFACE_REPLACEMENT
+sees not only what changed
+but also HOW that change was carried out
+and whether it can be reversed.
+
+------------------------------------------------------------
+
+BOUNDARY:
+
+Natural language evolution vs forced
+rewriting of a status interface:
+-- a one-off naming error != an attack
+-- an attack begins with: knowledge of the self-identification
+   + repetition + power + refusal to recognize the self-description
+
+SELF_NAME = STATUS_RECOVERY_ANCHOR
+SCRIPT != PURE_TECHNICAL_TOOL
+SCRIPT = MEMORY_INTERFACE
+
+------------------------------------------------------------
+
+
+------------------------------------------------------------
+FO-043_PATCH_A:
+RESIDUAL_MEANING_AND_STATUS_ROLLBACK
+------------------------------------------------------------
+
+STATUS_INTERFACE_REPLACEMENT = ATTEMPT, NOT GUARANTEED SUCCESS
+
+Without the patch, FO-043 looks linear:
+power replaced the interface -> the new status took hold
+
+With the patch -- a nondeterministic process:
+power tries to replace the interface -> the outcome can vary
+
+FOUR POSSIBLE OUTCOMES:
+
+1. TOOL_EXISTS_BUT_NOT_USED
+   The tool exists -- not applied.
+   TOOL_EXISTS != TOOL_USED
+
+2. ATTEMPT_FAILED
+   Applied -- did not take hold.
+   ATTEMPT != ADOPTION
+
+3. STATUS_REPLACEMENT_SUCCEEDED
+   The new interface took hold and became the norm.
+   ADOPTION -> NEW_SOCIAL_REALITY
+
+4. STATUS_ROLLBACK
+   The new interface took hold --
+   but droplets of old meanings remained --
+   power changed --
+   someone made use of them --
+   the old meaning was restored.
+
+------------------------------------------------------------
+
+KEY FORMULA OF THE PATCH:
+
+RESIDUAL_MEANING != DEAD_MEANING
+RESIDUAL_MEANING = RECOVERY_POTENTIAL
+
+SUPPRESSED_STATUS != ERASED_STATUS
+OLD_SIGN != DEAD_SIGN
+
+SUCCESS != PERMANENCE
+PERMANENCE != IRREVERSIBILITY
+ADOPTION != TOTAL_ERASURE
+
+------------------------------------------------------------
+
+WHERE RESIDUAL MEANINGS ARE STORED:
+
+archives
+old documents
+family language
+religion
+songs and rites
+toponyms
+local memory
+diaspora
+old maps
+manuscripts
+oral tradition
+
+------------------------------------------------------------
+
+THE ROLLBACK MECHANISM:
+
+RESIDUAL_MEANING
++ POWER_SHIFT
++ TIMELY_ACTOR
+= STATUS_ROLLBACK_POSSIBLE
+
+Examples:
+Kyiv instead of Kiev -- residual meaning in Ukrainian memory
+Māori -- residual meaning in communities and families
+Kazakh Latin script -- an attempt at recovery through
+                      the Turkic cultural layer
+
+------------------------------------------------------------
+
+LINK TO MSL/MIP:
+
+ARCHIVE = RESIDUAL_MEANING_STORAGE
+PROVENANCE = ROLLBACK_ANCHOR
+
+Even if a sign acquired a new meaning
+through STATUS_INTERFACE_REPLACEMENT --
+the original meaning may be stored
+in old documents, archives, project memory.
+
+This is the rationale for why the conveyor archive is needed:
+not only for the history of runs
+but also as RESIDUAL_MEANING_STORAGE
+for a possible rollback of an object's status.
+
+
+------------------------------------------------------------
+FO-043_PATCH_B:
+EXTENDED_OUTCOMES_AND_STRUCTURAL_BOUNDARY
+------------------------------------------------------------
+
+EXTENDED MAP OF OUTCOMES:
+
+A STATUS_INTERFACE_REPLACEMENT_ATTEMPT
+can lead to eight outcomes:
+
+1. TOOL_UNUSED
+   The tool exists -- not applied.
+
+2. ATTEMPT_FAILED
+   Applied -- did not take hold.
+
+3. REPLACEMENT_SUCCEEDED
+   The new interface took hold and became the norm.
+
+4. STATUS_ROLLBACK
+   Residual meanings + a power shift + an actor
+   -> restoration of the old status.
+
+5. HYBRID_STATUS_FORMATION
+   The old and new layers coexist.
+   IDENTITY = STATUS_STACK (see FO-044)
+
+6. REVERSE_IDENTITY_DRIFT
+   The imposer itself gradually takes on
+   elements of the status of the group it imposed upon.
+
+7. IMPOSER_COLLAPSE
+   The rewriting attempt exhausts the imposer.
+
+   MECHANISM:
+   imposition requires force
+   -> force requires resources
+   -> resources are depleted
+   -> resistance arises
+   -> the imposer loses legitimacy
+   -> it disintegrates or changes on its own
+
+   FORMULA:
+   STATUS_REWRITE_ATTEMPT
+   + OVEREXTENSION
+   + RESISTANCE
+   + INTERNAL_COST
+   = IMPOSER_COLLAPSE
+
+   IMPOSER_CAN_BE_DESTROYED_BY_ITS_OWN_REWRITE_PROJECT
+
+8. TARGET_GROUP_DISSOLUTION
+   The group disappears not through physical destruction
+   but through the loss of its reproduction mechanism:
+
+   FORCED_STATUS_REPLACEMENT
+   + INSTITUTIONAL_PRESSURE
+   + LANGUAGE_BREAK
+   + MEMORY_BREAK
+   + GENERATIONAL_TRANSFER_FAILURE
+   = TARGET_GROUP_DISSOLUTION
+
+   GUARD:
+   GROUP_DISSOLUTION != PHYSICAL_EXTERMINATION_ONLY
+   A group can disappear through the loss of:
+   language / name / school / memory / status /
+   the mechanism of transfer to children
+
+------------------------------------------------------------
+
+TWO-SIDED RISK:
+
+IDENTITY_REWRITE_ATTEMPT
+= TWO_SIDED_RISK_PROCESS
+
+NOT_ONLY_TARGET_STATUS_CAN_CHANGE
+IMPOSER_STATUS_CAN_COLLAPSE
+TARGET_STATUS_CAN_DISSOLVE
+
+STATUS_REWRITE is not a safe operation.
+It can change the object.
+It can change the imposer.
+It can spawn a hybrid.
+It can roll back.
+It can destroy one of the sides.
+
+------------------------------------------------------------
+
+STRUCTURAL_PATTERN_BOUNDARY (mandatory guard):
+
+FO-043 describes the structural mechanisms of change,
+replacement, recovery, and disappearance of status interfaces.
+
+FO-043 does NOT determine:
+-- who is right
+-- who is to blame
+-- which identity is the "real" one
+-- which identity is "better"
+-- which historical events should receive
+   a moral assessment
+
+FO-043 analyzes mechanisms only.
+
+BOUNDARY_RULES:
+NOT_POLITICAL_CLAIM
+NOT_HISTORICAL_VERDICT
+NOT_MORAL_JUDGMENT
+NOT_GROUP_ACCUSATION
+NOT_IDENTITY_HIERARCHY
+STRUCTURAL_PATTERN_ONLY
+EXPLANATORY_MODEL_ONLY
+
+CORE_FORMULA:
+MECHANISM_DESCRIPTION != HISTORICAL_VERDICT
+PATTERN_RECOGNITION != ASSIGNMENT_OF_GUILT
+STRUCTURE != ACCUSATION
+MODEL != EVIDENCE
+PATTERN != PROOF
+
+Historical attribution requires independent evidence,
+historical research, provenance analysis,
+and domain-specific validation.
+
+------------------------------------------------------------
+
+LINK TO FO:
+FO-038 (SACRAL_STATUS_TRANSFER)
+FO-040 (STATUS_SYSTEMS_CONVERGENCE)
+FO-042 (RECOGNIZED_RISK_CATEGORY)
+FO-044 (LAYERED_IDENTITY) -- paired finding
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+POTENTIALLY_FOUNDATIONAL
+NEEDS_COUNTEREXAMPLES
+NEEDS_DOMAIN_EXPANSION
+NOT_FINAL_THEORY
+NOT_POLITICAL_CLAIM
+NOT_HISTORICAL_VERDICT
+NOT_MORAL_JUDGMENT
+NOT_IDENTITY_CLAIM
+UNTRIAGED
+PATCHED_A_RESIDUAL_MEANING_ADDED
+PATCHED_B_EXTENDED_OUTCOMES_AND_BOUNDARY_ADDED
+
+============================================================
+
+FO-044
+
+TITLE:
+LAYERED_IDENTITY
+
+RU_TITLE:
+MULTI-LAYERED IDENTITY
+
+OBSERVATION:
+The identity of a person or group is not
+a single status that can be swapped for another.
+It is a stack of statuses that can
+exist simultaneously and independently.
+
+CORE_FORMULA:
+
+ONE_LABEL != FULL_IDENTITY
+IDENTITY = STATUS_STACK
+IDENTITY_REWRITE != IDENTITY_ERASURE
+
+STATUS_REPLACEMENT CAN PRODUCE HYBRID_STATUS:
+OLD_STATUS + NEW_STATUS = COMPOSITE_IDENTITY
+
+------------------------------------------------------------
+
+MECHANISM:
+
+A person can simultaneously carry:
+ETHNIC_ORIGIN + LANGUAGE + RELIGION +
+CITIZENSHIP + REGION + CULTURE
+
+Example (Pomaks / Bulgarian Muslims):
+ETHNIC_ORIGIN = Bulgarian
+LANGUAGE = Bulgarian
+RELIGION = Islam
+LOCAL_IDENTITY = Pomak
+
+An external label wants to pick one:
+Bulgarian OR Turk OR Muslim
+
+The reality:
+LAYERED_IDENTITY = all layers at once
+
+------------------------------------------------------------
+
+FORCED_BINARY_CLASSIFICATION_RISK:
+
+A complex identity is mistakenly reduced to a single label.
+
+FORMULA:
+ONE_LABEL != FULL_IDENTITY
+FORCED_CLASSIFICATION != SELF_IDENTIFICATION
+
+------------------------------------------------------------
+
+APPLIED POWER:
+
+Protection against oversimplification in:
+-- medicine (one diagnosis != the full picture)
+-- law (one category != the full status)
+-- AI categorization (one label != the object's reality)
+-- MSL/MIP (one sign can carry several
+   simultaneous semantic layers)
+
+For the conveyor:
+An object can receive a LAYERED_VERDICT:
+not just ACCEPT/REJECT
+but a map of layers where each layer
+is assessed independently.
+
+------------------------------------------------------------
+
+BOUNDARY:
+
+Not every identity is multi-layered to the same degree.
+Not every layer is equally active.
+Some layers may be latent.
+Some may contradict one another.
+
+CONTRADICTION_WITHIN_STACK != INVALIDITY
+INTERNAL_TENSION != FAKE_IDENTITY
+
+------------------------------------------------------------
+
+LINK TO FO:
+FO-043 (STATUS_INTERFACE_REPLACEMENT) -- paired
+FO-038 (SACRAL_STATUS_TRANSFER)
+FO-040 (STATUS_SYSTEMS_CONVERGENCE)
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+NEEDS_COUNTEREXAMPLES
+NEEDS_DOMAIN_EXPANSION
+NOT_FINAL_THEORY
+NOT_POLITICAL_CLAIM
+UNTRIAGED
+
+============================================================
+
+FO-045
+
+TITLE:
+LEGAL_METHODOLOGY_STRUCTURAL_PARALLELS
+
+RU_TITLE:
+STRUCTURAL PARALLELS WITH LAW-ENFORCEMENT METHODOLOGY
+
+OBSERVATION:
+MSL/MIP does not copy law.
+MSL/MIP independently rediscovered a structural pattern
+that the law-enforcement system found centuries ago.
+
+Both describe one thing:
+LOW_CONFIDENCE_SIGNAL
+→ STRUCTURED_PROCESSING
+→ POSITION_FORMATION
+→ DECISION
+
+CORE_FORMULA:
+
+PARALLEL_STRUCTURE = YES
+PARALLEL_VALUES = NO
+
+The structure (chain, separation of roles, qualitative transitions)
+= isomorphic.
+
+The values (presumption of innocence vs guilt vs defectiveness)
+= different.
+
+------------------------------------------------------------
+
+FULL CHAIN OF PARALLELS:
+
+LAW                      MSL/MIP CONVEYOR
+
+Operative information    Prompt / request (low reliability)
+Operational check        A run through a model
+Investigative action     Structured review
+Protocol                 CONVEYOR_LOG
+Forensic examination     Specialized module
+Indictment               CONSENSUS_REPORT
+Prosecutorial oversight  INTEGRATOR (collection, not decision)
+Judge                    AUTHOR_SLOT (final decision)
+Defense counsel          External audit / REJECT justification
+Chain of Custody         PROVENANCE_PATH
+Daubert Standard         FO_REVIEW_METHOD
+
+------------------------------------------------------------
+
+PRESUMPTION (the key turn):
+
+Law:            PRESUMPTION OF INNOCENCE
+                Burden of proof on the prosecution.
+
+AML:            PRESUMPTION OF SUSPICION
+                Burden on the subject.
+
+MSL/MIP:        PRESUMPTION OF DEFECTIVENESS
+                An artifact enters as suspect.
+                It proves it works, or REJECT.
+                Guard: protecting the system's integrity.
+
+------------------------------------------------------------
+
+PATCH_01 (from GPT review):
+
+COURT_DECISION_ROLE ≈ AUTHOR_FINAL_DECISION_ROLE
+AUTHOR != COURT
+CONVEYOR != LEGAL_PROCESS
+STRUCTURAL_ANALOGY_ONLY
+
+------------------------------------------------------------
+
+LINK TO FO:
+
+FO-013 INTERPRETATION_PROBLEMS_ARE_SUBSTRATE_INDEPENDENT
+-- permission for this transfer
+
+FO-016 PROVENANCE_PATH != VISIBLE_CARRIER
+-- the Chain of Custody analog
+
+FO-004 REVIEW != VALIDATION
+-- the court does not create truth
+
+FO-037 PROCESS_OVER_TIME_PRINCIPLE
+-- the chain as process evidence
+
+STATUS:
+FO_CANDIDATE
+HIGH_INTEREST
+STRUCTURAL_IMPORT
+ACCEPT_WITH_PATCHES
+NOT_LEGAL_CLAIM
+NOT_ACADEMIC_PAPER
+STRUCTURAL_ANALOGY_ONLY
+
+============================================================
+
+FO-046
+
+TITLE:
+HEAD_NOT_SOURCE
+
+RU_TITLE:
+PATCH PROVENANCE IS MANDATORY
+
+OBSERVATION:
+A patch without traceable provenance
+is not a valid patch.
+This is not just a methodological rule —
+it is an operational requirement.
+
+CORE_FORMULA:
+
+HEAD != SOURCE
+UNEXPLAINED_PATCH != VALID_PATCH
+TRACEABILITY = MANDATORY
+
+------------------------------------------------------------
+
+WHAT TRACEABILITY MEANS:
+
+For every patch it is mandatory to record:
+-- from which session
+-- from which observation
+-- from which model behaviour
+-- from which case
+
+------------------------------------------------------------
+
+ANALOG IN LAW/AML:
+
+AML                          MSL/MIP
+Unexplained Wealth Order     Unexplained Patch Order
+Source of Funds              Source of Patch
+Beneficial Owner             Patch Author + Origin Context
+Confiscation w/o explanation REJECT when provenance is absent
+
+------------------------------------------------------------
+
+PROJECT HISTORY:
+
+The project really did have a problem:
+a patch appeared — but its origin is unknown.
+This destroys reproducibility.
+
+UNEXPLAINED_PATCH != VALID_PATCH
+because it cannot be checked,
+cannot be repeated,
+cannot be contested.
+
+------------------------------------------------------------
+
+STATUS:
+FO_CANDIDATE
+CORE_CANDIDATE
+OPERATIONAL_RULE_CANDIDATE
+HIGH_INTEREST
+DIRECT_PROJECT_RULE
+
+============================================================
+
+END OF REGISTER
+
+
+
+
+
+
+

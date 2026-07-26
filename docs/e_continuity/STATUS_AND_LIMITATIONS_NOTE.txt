@@ -1,0 +1,45 @@
+STATUS_AND_LIMITATIONS_NOTE
+Project: E-Continuity / Managed Recoverability Framework
+Package: E-Continuity Full Project Documentation Scrupulous RU v0.2
+Created: 2026-06-05T19:26:06+00:00
+
+STATUS:
+COLLECTION_PACKAGE
+SCRUPULOUS_FALLBACK_PACKAGE
+NOT_NEW_FRAMEWORK_RELEASE
+NOT_GOLD_MASTER
+NOT_EXTERNAL_VERIFICATION
+
+WHAT IS CURRENT:
+- Project name: E-Continuity / Managed Recoverability Framework.
+- Former/internal name: Template E.
+- Current content baseline physically included: Template E v2.3 Full Master Archive RU.
+- v2.3 includes compact core formula, MVW operational metric, CASE-SPACE-001 revision,
+  Dynamic Proof Testing, Activation Failure, Biobank SOP Delta and case maturity rules.
+
+WHAT THIS PACKAGE DOES:
+- Collects all physically accessible project materials found in the current workspace.
+- Adds Russian package map, manifest, package provenance card, SHA256SUMS, duplicate report.
+- Adds current rules, guards, pending integrations and observation notes in a structured form.
+
+WHAT THIS PACKAGE DOES NOT DO:
+- It does not create E-Continuity v2.3.1 rename-only release.
+- It does not claim all old files are current.
+- It does not independently verify the factual content of all cases.
+- It does not convert all old Template E references to E-Continuity.
+- It does not certify any file as legal original or Gold Master.
+- It does not verify hashes outside this workspace.
+
+LIMITATIONS:
+- Some review/conveyor materials exist only as chat-provided text or generated summaries, not as external verified source files.
+- CASE-SPACE-001 remains C-3/C-4 candidate unless primary source verification is completed.
+- Some files are duplicates/export copies; DUPLICATES_BY_HASH.tsv identifies identical hash groups.
+- Legacy files are preserved for recovery/fallback and should not be treated as current without review.
+
+NEXT RECOMMENDED STEP:
+Do not expand theory further. When ready for handoff, create E-Continuity v2.3.1 rename-only release
+with updated title pages, README_RU, package map, provenance, MANIFEST, SHA256SUMS, and new archive names.
+
+COMMERCIAL NOTICE:
+PRIVATE AUTHOR PROJECT / COMMERCIAL USE PROHIBITED.
+Author-owner: Ruslan Malyavskiy.

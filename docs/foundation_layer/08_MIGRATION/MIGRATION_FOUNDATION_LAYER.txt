@@ -1,0 +1,161 @@
+MIGRATION PACKAGE
+PROJECT: Foundation Layer
+DATE: 2026-06-05
+STATUS: REGISTER_EXISTS / EXPLORER_CONCEPT
+
+================================================================
+FOR A NEW CHAT — PASTE AT THE BEGINNING
+================================================================
+
+I am Ruslan Malyavskiy. I am continuing work on the
+Foundation Layer — a register of foundational observations
+about how systems handle status, trust, and validation.
+
+THE ESSENCE OF THE PROJECT:
+Structural patterns that are independently rediscovered
+across different domains: AI, law, science, aviation, audit.
+Not a theory of truth — a toolkit for analyzing systems.
+
+================================================================
+CURRENT STATUS
+================================================================
+
+REGISTER: 46 FO candidates (v0.12)
+SCREENING: done by Kimi (preliminary)
+LAYERS: 4 (CORE/SUPPORTING/HUMANITARIAN/DEFERRED)
+POLICY: the register is always open (like the Linux kernel)
+
+================================================================
+FOUR LAYERS
+================================================================
+
+LAYER_1: CORE_OPERATIONAL (12 FO)
+Directly used in MSL/MIP / Conveyor.
+FO: 004, 012, 013, 018, 024, 026, 032, 033, 034, 035, 037, 043
+
+LAYER_2: SUPPORTING (10 FO)
+Need further work: examples / boundary / counterexamples.
+FO: 001, 005, 008, 014, 015, 016, 036, 038, 040, 044
+
+LAYER_3: HUMANITARIAN / DOMAIN (6 FO)
+Valuable, not the MSL/MIP core.
+FO: 017, 019, 022, 023, 025, 030
+
+LAYER_4: DEFERRED_WITH_REASON (16 FO)
+Do not delete. Do not drag into active context.
+FO: 002, 003, 006, 007, 009, 010, 011, 020, 021,
+    027, 028, 029, 031, 039, 041, 042
+
+================================================================
+KEY FO (CORE_OPERATIONAL)
+================================================================
+
+FO-004  REVIEW != VALIDATION (the conveyor's constitution)
+FO-012  OBSERVED_BEHAVIOUR > DECLARED_BEHAVIOUR
+FO-013  INTERPRETATION_PROBLEMS ARE SUBSTRATE_INDEPENDENT
+FO-018  RITUAL_COMPLIANCE != CAUSAL_MECHANISM
+FO-024  TRACE != ACTOR
+FO-026  SOCIAL_ENGINEERING ≅ PROMPT_INJECTION
+FO-032  RULE_DENSITY_CREATES_EMERGENT_SYSTEM_BEHAVIOUR
+FO-033  COMPLEX_SYSTEMS_REQUIRE_PERIODIC_PRUNING
+FO-034  PARASITIC_CONTEXT_ELEMENT
+FO-035  CONCRETE_OBJECT_QUESTION_TEST
+FO-037  PROCESS_OVER_TIME_PRINCIPLE
+FO-043  STATUS_INTERFACE_REPLACEMENT (patches A+B)
+
+================================================================
+NEW FO (from recent sessions)
+================================================================
+
+FO-044  LAYERED_IDENTITY (IDENTITY = STATUS_STACK)
+FO-045  LEGAL_METHODOLOGY_STRUCTURAL_PARALLELS
+FO-046  HEAD != SOURCE (UNEXPLAINED_PATCH != VALID_PATCH)
+
+================================================================
+FO REVIEW METHOD
+================================================================
+
+Minimal entry filter (for new candidates):
+1. Is there a concrete object or observation?
+2. Can a formula be stated?
+3. Does it not duplicate an existing FO?
+
+Full review (before a status upgrade):
+LEVEL_1: LLM review
+LEVEL_2: CONCRETE_OBJECT_QUESTION_TEST
+         (apply the FO to a pencil case — if it drifts into jargon → a signal)
+LEVEL_3: CASE_LIBRARY (2 confirming + 1 boundary)
+LEVEL_4: Conveyor run (4+ models)
+
+================================================================
+KEY DOCUMENTS
+================================================================
+
+OBSERVATION_STRENGTH != DOCUMENTATION_STRENGTH
+(absence of cases ≠ a weak observation)
+
+DEFERRED != DELETED
+CORE != PROVEN
+OPEN_REGISTER != CHAOTIC_REGISTER
+DISCIPLINE != CLOSURE
+
+================================================================
+EXTERNAL_METHODOLOGY_LIBRARY (6 elements)
+================================================================
+
+EML-001: LAW_ENFORCEMENT (ACCEPT_WITH_PATCHES)
+EML-002: COMMUNICATION (SUPPORTING_METHODOLOGY)
+EML-003: DECISION_SYSTEMS_CONVERGENCE (META_LAYER_CANDIDATE)
+EML-004: SCIENTIFIC_METHOD (NEW)
+EML-005: AVIATION_ACCIDENT_INVESTIGATION (STRONG_IMPORT)
+EML-006: AUDIT_METHODOLOGY (NEW)
+
+PATTERN CONFIRMED: all 6 domains show a
+LOW_CONFIDENCE → PROCEDURE → DECISION structure.
+
+================================================================
+FOUNDATION_FORMULAS_CANDIDATES (12 formulas)
+================================================================
+
+FF-001: CONFIDENCE_WITHIN_SYSTEM != CORRESPONDENCE_WITH_REALITY
+FF-002: PROCESS_EVIDENCE_ONLY != VALIDATION
+FF-003: MULTI_MODEL_REVIEW != ADVERSARIAL_PROCESS
+FF-004: PROCEDURE != HIGHER_CONFIDENCE_GUARANTEED
+FF-005: RECURRENCE != VALIDITY / RECURRENCE = WORTH_STUDYING
+FF-006: RESIDUAL_MEANING != DEAD_MEANING
+FF-007: OBSERVATION_STRENGTH != DOCUMENTATION_STRENGTH
+FF-008: DEPTH_IS_NOT_AUTOMATIC
+FF-009: PROBABLE_CAUSE != CERTAIN_CAUSE
+FF-010: NO_SINGLE_LAYER_IS_SUFFICIENT
+FF-011: FALSIFIABILITY = REJECT_PATH_MUST_EXIST
+FF-012: DOCUMENTATION_FOR_STRANGER_TEST
+
+================================================================
+NEXT TASKS
+================================================================
+
+1. Fill in the FO_CASE_LIBRARY for the 12 CORE FO
+   (minimum 2 CONFIRMING + 1 BOUNDARY each)
+
+2. Run the 12 CORE FO through a full conveyor
+
+3. Add to EML:
+   EML-007: SAFETY_ENGINEERING (Swiss cheese, FMEA)
+
+4. Foundation Layer Explorer — a future interface
+   (concept created: FOUNDATION_LAYER_EXPLORER_v0_1.html)
+
+================================================================
+FILES TO UPLOAD INTO THIS CHAT
+================================================================
+
+FOUNDATIONAL_OBSERVATIONS_REGISTER_v0_12_EN.txt
+FO_CORE_CANDIDATE_LIST_v0_1_EN.txt
+FO_SCREENING_RESULTS_KIMI_v0_1A_EN.txt
+FO_CASE_LIBRARY_TEMPLATE_v0_1_EN.txt
+EXTERNAL_METHODOLOGY_LIBRARY_v0_2_RU.txt
+FOUNDATION_FORMULAS_CANDIDATES_v0_1_EN.txt
+LEGAL_METHODOLOGY_PARALLELS_v0_1_EN.txt
+EXTERNAL_CASE_ECC_PROMPT_DEFENSE_AND_AGENTSHIELD_v0_1_EN.txt
+
+END_OF_MIGRATION_PACKAGE

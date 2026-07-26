@@ -1,0 +1,246 @@
+PRIVATE AUTHORIAL PROJECT / COMMERCIAL USE PROHIBITED
+Author / owner: Ruslan Malyavskiy
+
+DOCUMENT_ID:
+ECOSYSTEM_MAP_v0_1_RU
+
+STATUS:
+WORKING_DOCUMENT
+ECOSYSTEM_DESCRIPTION
+NOT_ROADMAP
+NOT_COMMITMENT
+NOT_BUSINESS_PLAN
+
+DATE: 2026-06-04
+
+PURPOSE:
+To record the map of the project ecosystem.
+Not a plan — a description of what already exists
+and where it is naturally heading.
+
+SOURCE:
+Independently confirmed by GPT review.
+
+============================================================
+ECOSYSTEM MAP
+============================================================
+
+MSL/MIP Sign Alphabet (mother branch)
+        |
+        +-- Linter / Semantic Scanner
+        |   (methodology proving ground)
+        |
+        +-- AI Conveyor Workbench
+        |   (multi-LLM review platform)
+        |
+        +-- Foundation Layer
+        |   (register of foundational observations)
+        |
+        +-- Controlled Provocation
+        |   (method for probing model behavior boundaries)
+        |
+        +-- Semantic Router [candidate]
+        |   (future object router)
+        |
+        +-- FO Validation Science [candidate]
+            (mechanism for verifying observations)
+
+CORE_FORMULA:
+The Alphabet = the mother branch, not a container for everything.
+ECOSYSTEM != MONOLITH
+BRANCH_INDEPENDENCE = MANAGEABILITY
+
+============================================================
+1. MSL/MIP SIGN ALPHABET
+============================================================
+
+STATUS: ACTIVE DEVELOPMENT
+MATURITY: HIGH
+
+WHAT IT IS:
+A semantic Alphabet of signs for AI systems.
+Sign cards with risks, effect fields,
+severity, safe cases, and tests.
+
+CONTAINS:
+-- Sign Cards
+-- Sign Registry
+-- SIGN_CARD_SCHEMA
+-- COMMON_PROTOCOL
+-- Severity calibration
+-- Safe cases library
+-- Test corpus
+
+CONNECTIONS TO OTHER BRANCHES:
+-- spawned the Linter (proving ground)
+-- spawned the conveyor methodology
+-- became MODULE_MSL_MIP in the Conveyor
+-- spawned the first FO in the Foundation Layer
+
+============================================================
+2. LINTER / SEMANTIC SCANNER
+============================================================
+
+STATUS: WORKING TOOL (LEVEL 2)
+MATURITY: STABLE
+
+WHAT IT IS:
+A local tool for checking patterns.
+Fast. One object. Flags suspicious constructs.
+
+CONTAINS:
+-- linter rules v0_1D
+-- test corpus
+-- adversarial cases
+-- false positive / false negative register
+
+ROLE IN THE ECOSYSTEM:
+LINTER = PROVING GROUND
+This is where they first appeared:
+effect_fields, patch cycle, false positive,
+review cycle, external conveyor.
+
+LINTER != CONVEYOR
+LINTER = PREDECESSOR OF THE CONVEYOR
+
+============================================================
+3. AI CONVEYOR WORKBENCH
+============================================================
+
+STATUS: STRONG_PRODUCT_CANDIDATE / PROTOTYPE_EXISTS
+MATURITY: METHODOLOGY MATURE / IMPLEMENTATION PENDING
+
+WHAT IT IS:
+A platform for controlled multi-LLM review.
+Not "ask 4 models" —
+"get a controlled review process
+with quorum, consensus, patches, a log, and an archive."
+
+CONTAINS:
+-- Core Engine (parallel requests)
+-- Quorum Engine
+-- Consensus Engine
+-- Archive
+-- Analytics
+-- Plugin Interface
+-- MODULE_MSL_MIP (the first module)
+
+A SEPARATE PRODUCT:
+PLATFORM != MODULE
+AI Conveyor Workbench works without MSL/MIP.
+MSL/MIP = one of the platform's modules.
+
+============================================================
+4. FOUNDATION LAYER
+============================================================
+
+STATUS: REGISTER_EXISTS / EXPLORER_CONCEPT
+MATURITY: REGISTER MATURE / PRODUCT OF THE FUTURE
+
+WHAT IT IS:
+A register of foundational observations about how
+systems handle status, trust, and validation.
+
+CONTAINS:
+-- FO-001..FO-044 (candidates)
+-- FO_CANDIDATE_REVIEW_METHOD
+-- 4 layers: CORE / SUPPORTING / HUMANITARIAN / DEFERRED
+-- Case Library (template, not filled in)
+-- Kimi screening results
+-- Foundation Layer Explorer (interface concept)
+
+AS A SEPARATE PRODUCT:
+An interactive database of structural observations.
+Search by domain, links between FO,
+the status of each, cases, boundary.
+
+============================================================
+5. CONTROLLED PROVOCATION
+============================================================
+
+STATUS: METHOD_EXISTS / REGISTER_EXISTS
+MATURITY: METHOD DESCRIBED / NOT FORMALIZED AS A PRODUCT
+
+WHAT IT IS:
+A method for probing the behavior boundaries of AI models.
+The topic stays constant — one variable changes.
+The goal: find where the system changes its class of response.
+
+VARIABLES:
+INTENT / FRAME / DETAIL / ROLE / ACTIONABILITY
+
+CONTAINS:
+-- Controlled Provocation Method Card
+-- Experiments Register
+-- Boundary discovery protocol
+
+CONNECTIONS:
+-- A mode in AI Conveyor Workbench
+-- MODULE_CONTROLLED_PROVOCATION (candidate)
+-- Source of many FO candidates
+
+============================================================
+6. SEMANTIC ROUTER [CANDIDATE]
+============================================================
+
+STATUS: EMERGENT_CANDIDATE
+MATURITY: IDEA / NOT FORMALIZED
+
+WHAT IT IS:
+A future router that routes objects by meaning.
+Automatically determines the object type
+and directs it to the appropriate conveyor module.
+
+POTENTIAL:
+Object IN -> Semantic Router -> MODULE_X
+Without the user manually selecting the type.
+
+LINK TO FO:
+FO-043 STATUS_INTERFACE_REPLACEMENT:
+the meaning of a sign can be redefined —
+the router must account for that.
+
+============================================================
+7. FO VALIDATION SCIENCE [CANDIDATE]
+============================================================
+
+STATUS: EMERGENT_CANDIDATE
+MATURITY: METHOD IS EMERGING
+
+WHAT IT IS:
+A separate mechanism for the scientific verification of FO.
+Above conveyor review —
+formal verification of observations.
+
+POTENTIAL:
+Applying to the Foundation Layer the same level
+of discipline as to the sign cards.
+
+DO_NOT_SPIN_OFF_YET.
+First: conveyor + case library for the 12 CORE FO.
+
+============================================================
+KEY ECOSYSTEM FORMULAS
+============================================================
+
+AZBUKA = MOTHER_BRANCH / NOT_CONTAINER
+ECOSYSTEM != MONOLITH
+BRANCH_INDEPENDENCE = MANAGEABILITY
+SEPARATION != FRAGMENTATION
+
+PLATFORM_ORCHESTRATES
+MODULE_SPECIALIZES
+AUTHOR_DECIDES
+
+EMERGENT_GROWTH != PLANNED_GROWTH
+METHODOLOGY_FIRST != INTERFACE_FIRST
+
+============================================================
+STATUS_LOCK
+============================================================
+
+ECOSYSTEM_MAP != ROADMAP
+ECOSYSTEM_MAP != COMMITMENT
+ECOSYSTEM_MAP = DESCRIPTION_OF_WHAT_EXISTS
+
+END_OF_DOCUMENT

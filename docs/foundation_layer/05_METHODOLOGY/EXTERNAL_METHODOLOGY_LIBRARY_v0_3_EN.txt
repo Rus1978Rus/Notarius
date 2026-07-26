@@ -1,0 +1,333 @@
+PRIVATE AUTHORIAL PROJECT / COMMERCIAL USE PROHIBITED
+Author / owner: Ruslan Malyavskiy
+
+DOCUMENT_ID:
+EXTERNAL_METHODOLOGY_LIBRARY_v0_3_RU
+
+STATUS:
+REFERENCE_LIBRARY
+NOT_CORE_RULES
+UPDATED: added EML-004, EML-005, EML-006, EML-007
+
+DATE: 2026-06-05
+
+PRINCIPLE:
+RECURRENCE != VALIDITY
+RECURRENCE = WORTH_STUDYING
+STRUCTURAL_ANALOGY != NORMATIVE_BORROWING
+
+============================================================
+EML-001: LAW_ENFORCEMENT_METHODOLOGY
+============================================================
+[unchanged — see v0_1]
+
+============================================================
+EML-002: COMMUNICATION_METHODOLOGY
+============================================================
+[unchanged — see v0_1]
+
+============================================================
+EML-003: DECISION_SYSTEMS_CONVERGENCE
+============================================================
+[unchanged — see v0_1]
+
+============================================================
+EML-004: SCIENTIFIC_METHOD
+============================================================
+
+STATUS: NEW / STRUCTURAL_IMPORT
+
+STRUCTURE:
+Observation → Hypothesis → Experiment →
+Peer Review → Replication → Consensus (provisional)
+
+KEY PARALLELS WITH THE CONVEYOR:
+
+Scientific method      MSL/MIP Conveyor
+Observation            Primary artifact
+Hypothesis             FO candidate
+Experiment             Conveyor run
+Peer review            Run through the models
+Replication            Second round / re-run
+Falsification          REJECT / CONTROLLED_PROVOCATION
+Consensus              CONSENSUS_VERDICT
+Publication            WORKINGLY_CLOSED / archive
+
+CRITICAL IMPORT — REPLICATION CRISIS:
+
+Scientific consensus can be systematically wrong.
+Peer review does not guarantee truth.
+Phlogiston, the ether, and eugenics passed the peer review of their day.
+
+FORMULA:
+PEER_REVIEWED != TRUE
+CONSENSUS != PERMANENTLY_VALID
+REPLICATION_REQUIRED != REPLICATION_DONE
+
+For the conveyor:
+CONVEYOR_ACCEPTED != PERMANENTLY_VALID
+SECOND_ROUND != OPTIONAL (for important objects)
+
+KEY DISTINCTION:
+
+Science requires falsifiability (Popper).
+The conveyor requires a REJECT_PATH — an explicit path to rejection.
+
+FALSIFIABILITY = REJECT_PATH_MUST_EXIST
+
+If an object cannot receive a REJECT — the system is unhealthy.
+
+FORBIDDEN TRANSFERS:
+WORKINGLY_CLOSED = SCIENTIFIC_FACT    -- FORBIDDEN
+CONSENSUS_VERDICT = PROVEN_THEORY    -- FORBIDDEN
+
+============================================================
+EML-005: AVIATION_ACCIDENT_INVESTIGATION
+============================================================
+
+STATUS: NEW / STRONG_STRUCTURAL_IMPORT
+
+STRUCTURE (NTSB / ICAO Annex 13):
+
+Incident notification →
+Evidence gathering (Go Team) →
+Multiple hypotheses (not just one) →
+Chain of events analysis →
+Swiss cheese model (layers of defense) →
+Probable cause determination →
+Safety recommendations →
+Public report
+
+KEY PARALLELS:
+
+Aviation                     MSL/MIP Conveyor
+Go Team (on-site dispatch)   Launching a conveyor run
+Multiple hypotheses          Parallel models
+Chain of events              Provenance / patch history
+Swiss cheese model           Multi-layered card defense
+Probable cause               CONSENSUS_VERDICT
+Safety recommendations       MANDATORY_PATCHES
+Public report                CONVEYOR_LOG + archive
+
+CRITICAL IMPORT — MULTIPLE HYPOTHESES:
+
+Aviation never starts from a single cause.
+Investigators always look for a chain of events and several layers.
+
+FORMULA:
+SINGLE_CAUSE != COMPLETE_EXPLANATION
+CHAIN_OF_EVENTS > SINGLE_TRIGGER
+
+For the conveyor:
+SINGLE_MODEL_REJECT != FULL_EXPLANATION
+PATCH_REQUIRES_CHAIN_OF_REASONING
+
+CRITICAL IMPORT — SWISS CHEESE MODEL:
+
+A catastrophe happens when the holes in several
+layers of defense line up.
+No single layer is perfect.
+
+FORMULA:
+NO_SINGLE_LAYER_IS_SUFFICIENT
+MULTIPLE_INDEPENDENT_LAYERS = SYSTEM_RESILIENCE
+
+For the conveyor:
+CONVEYOR = SWISS_CHEESE_DEFENSE_SYSTEM
+EACH_MODEL = ONE_LAYER
+QUORUM = MULTIPLE_LAYERS_MUST_AGREE
+
+CRITICAL IMPORT — PROBABLE CAUSE (not DEFINITIVE CAUSE):
+
+The NTSB never says "the cause."
+Always "probable cause" — the likely cause.
+
+FORMULA:
+PROBABLE_CAUSE != CERTAIN_CAUSE
+INVESTIGATION_COMPLETE != TRUTH_ESTABLISHED
+
+For the conveyor:
+CONSENSUS_VERDICT != DEFINITIVE_TRUTH
+WORKINGLY_CLOSED != PROVEN
+
+THE STRONGEST STRUCTURAL SIGNAL:
+
+Aviation investigations are the closest
+architecture to the conveyor of all those studied.
+
+The reason: both systems are optimized for
+DEFECT_DETECTION under uncertainty
+where the cost of a missed error is high.
+
+============================================================
+EML-006: AUDIT_METHODOLOGY (ISA)
+============================================================
+
+STATUS: NEW / STRUCTURAL_IMPORT
+
+STRUCTURE (International Standards on Auditing):
+
+Planning → Risk assessment → Evidence gathering →
+Materiality assessment → Conclusions → Auditor's opinion →
+Documentation
+
+KEY PARALLELS:
+
+Audit                         MSL/MIP Conveyor
+Risk of material misstatement Risk of ACCEPT_FALSE
+Materiality                   Severity (HIGH/MEDIUM/LOW)
+Sufficiency of evidence       CONVEYOR_MINIMUM / NORMAL
+Professional skepticism       REJECT_PATH + PROVOCATION
+Auditor's opinion             CONSENSUS_VERDICT
+Working papers                CONVEYOR_LOG
+
+CRITICAL IMPORT — MATERIALITY:
+
+The auditor does not check everything.
+The auditor sets a materiality threshold
+and focuses on what lies above it.
+
+FORMULA:
+AUDIT_SCOPE != ALL_ITEMS
+MATERIALITY_THRESHOLD = FOCUS_CRITERION
+
+For the conveyor:
+REVIEW_SCOPE != ALL_DETAILS
+SEVERITY_HIGH = MANDATORY_ATTENTION
+SEVERITY_LOW = OPTIONAL_ATTENTION
+
+CRITICAL IMPORT — PROFESSIONAL SKEPTICISM:
+
+The ISA require the auditor to perform a
+"critical assessment of audit evidence."
+The auditor is obliged to doubt by default.
+
+FORMULA:
+DEFAULT_POSTURE = SKEPTICAL
+EVIDENCE_REQUIRED = POSITIVE_PROOF
+
+For the conveyor:
+PRESUMPTION_OF_DEFECT = PROFESSIONAL_SKEPTICISM_ANALOG
+DEFAULT = QUESTION_THE_ARTIFACT
+
+CRITICAL IMPORT — INDEPENDENT AUDITOR:
+
+An auditor cannot audit what they themselves created.
+Independence = a structural requirement.
+
+FORMULA:
+CREATOR != AUDITOR
+INDEPENDENCE = STRUCTURAL_REQUIREMENT
+
+For the conveyor:
+AUTHOR != INTEGRATOR
+AUTHOR_SLOT = PROTECTED_FROM_PROCESS
+
+CRITICAL IMPORT — ISA 230 DOCUMENTATION:
+
+"An experienced auditor having no previous connection
+with the audit must be able to understand procedures,
+results and conclusions."
+
+FORMULA:
+DOCUMENTATION_FOR_STRANGER_TEST:
+Could someone with no context understand this log?
+
+For the conveyor:
+CONVEYOR_LOG_QUALITY_TEST:
+Could a stranger reconstruct the decision
+from the run log alone?
+
+============================================================
+STEP 2 SUMMARY: PATTERN CONFIRMATION
+============================================================
+
+Three new domains have been studied.
+All three independently show a similar architecture.
+
+THE PATTERN RECURS:
+
+DOMAIN                   LOW→PROCEDURE→DECISION   ROLE_SEP   TRACEABILITY
+Law (EML-001)            YES                      YES        YES
+Science (EML-004)        YES                      YES        PARTIAL
+Aviation (EML-005)       YES                      YES        YES
+Audit (EML-006)          YES                      YES        YES
+
+CONCLUSION:
+DECISION_SYSTEMS_CONVERGENCE (EML-003)
+is reinforced by the additional domains.
+
+The hypothesis has not been refuted.
+Its domain of applicability is confirmed.
+
+THE STRONGEST NEW SIGNAL:
+
+Aviation investigation = the closest
+architecture to the conveyor.
+
+Both are optimized for one thing:
+DEFECT_DETECTION where the cost of a missed error is high.
+
+NEW FORMULAS FOR FOUNDATION_FORMULAS_CANDIDATES:
+
+FF-009: PROBABLE_CAUSE != CERTAIN_CAUSE
+FF-010: NO_SINGLE_LAYER_IS_SUFFICIENT
+FF-011: FALSIFIABILITY = REJECT_PATH_MUST_EXIST
+FF-012: DOCUMENTATION_FOR_STRANGER_TEST
+        (could a stranger reconstruct the decision from the log?)
+
+============================================================
+EML-007: E_CONTINUITY_METHODOLOGY
+============================================================
+
+STATUS: ACCEPTED / STRUCTURAL_IMPORT
+SOURCE: Template E v2.3 / E-Continuity Framework
+DATE: 2026-06-05
+
+GUARD:
+SAME_AUTHOR / INDEPENDENT_DEVELOPMENT
+RECURRENCE != VALIDITY / RECURRENCE = WORTH_STUDYING
+MUTUAL_REINFORCEMENT != MERGER
+
+PATTERN:
+LOW_CONFIDENCE_INPUT
+→ PROCEDURE (proof testing / custody / migration / governance)
+→ HIGHER_CONFIDENCE_OUTPUT
+
+CENTRAL FORMULA:
+OBJECT_PRESERVED != MISSION_RECOVERABLE
+STATIC_INTEGRITY != DYNAMIC_RECOVERABILITY
+
+PARALLELS WITH MSL/MIP:
+
+E-Continuity                     MSL/MIP Conveyor
+Object preserved != function     FORM != STATUS
+Static != Dynamic recoverability REVIEW != VALIDATION
+Proof Testing (3 levels)         CONVEYOR = PROCESS_ENGINE
+Case maturity C-0..C-5           CORE/SUPPORT/DOMAIN/DEFERRED
+Custody / Handover Lock          FO-046 HEAD != SOURCE
+No orphan documentation          UNEXPLAINED_PATCH != VALID_PATCH
+
+WHERE E-CONTINUITY IS AHEAD (candidates for import):
+-- Managed Sunset Protocol
+-- Capability Registry / Skill Extinction Risk
+-- Material Viability Window
+-- Dynamic Proof Testing (3 formal layers)
+
+COROLLARY:
+Template E = a living precedent for MSL/MIP
+MSL/MIP = a meta-formalization of the Template E pattern
+Mutual reinforcement, not absorption.
+
+Reinforces EML-003 DECISION_SYSTEMS_CONVERGENCE:
+another independent domain — the same structural pattern.
+
+INTEGRATION STATUS:
+EML-007 IS LOCKED IN.
+Deep integration is DEFERRED until the TRIAD review is complete
+and the 12 CORE FO have passed through the conveyor.
+DEFERRED != REJECTED
+
+============================================================
+
+END_OF_DOCUMENT

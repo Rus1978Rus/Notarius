@@ -1,0 +1,17 @@
+NOTARIUS
+Copyright (C) 2026 Ruslan Malyavskiy. All rights reserved.
+Parent framework: E-Continuity / governed recoverability.
+
+LICENSE (AD-82): PROPRIETARY — ALL RIGHTS RESERVED (see the LICENSE file).
+The repository is open for VIEWING only. No license or right is granted;
+any use, execution, copying, modification or distribution is by the
+author's WRITTEN permission only. This is a deliberate, temporary
+maximal-restriction license; the author may publish a different one later.
+The former dual AGPL+commercial license (AD-55/74) is WITHDRAWN.
+
+THIRD-PARTY DATA: notarius/data/confusables_ascii.txt is derived from
+Unicode UTS#39 and remains under the Unicode License Agreement (file header).
+
+This is a research prototype/principle, NOT a certified product. It is
+provided "as is" without warranty. The boundaries are listed candidly in
+docs/ and AUTHOR_DECISIONS.md. For production — independent audit and validation.

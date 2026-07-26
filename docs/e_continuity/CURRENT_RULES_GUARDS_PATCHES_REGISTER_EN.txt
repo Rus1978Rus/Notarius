@@ -1,0 +1,88 @@
+CURRENT_RULES_GUARDS_PATCHES_REGISTER_RU
+Project: E-Continuity / Managed Recoverability Framework
+Created: 2026-06-05T19:26:06+00:00
+Status: ACTIVE_WORKING_REGISTER / HUMAN_READABLE
+
+1. PROJECT_NAME_LOCK
+- Active name: E-Continuity / Managed Recoverability Framework.
+- Former/internal name: Template E.
+- Use Template E only as a historical/former name.
+
+2. OLD_FOLDER_RULE_v1.0
+- The "старое" folder / OLD_DO_NOT_EDIT = frozen fallback storage (a frozen safety zone).
+- You may add outdated or backup copies.
+- You may not edit anything inside it.
+- If you need a file, copy it into the working folder and work with the copy.
+
+3. PRIVATE AUTHOR PROJECT / COMMERCIAL USE PROHIBITED
+- All materials are part of the private author project of Ruslan Malyavskiy.
+- Use is permitted only to assist the author: analysis, critique,
+  structuring, documentation, testing, PoC preparation.
+- Commercial use, sale, patenting,
+  model training, transfer to third parties,
+  productization, and commercial derivatives
+  are prohibited without written permission.
+
+4. PROJECT_WIDE_DOCUMENT_PROVENANCE_AND_ARTIFACT_RULE_v0_2
+- Every important document must have a DOCUMENT_PROVENANCE_CARD.
+- Content ≠ source.
+- Copy ≠ provenance.
+- Reconstruction ≠ physical original.
+- Hash exists ≠ hash verified.
+- LLM output ≠ verified copy.
+- Do not invent a hash.
+- A ZIP needs a manifest and checksums wherever possible.
+
+5. PROJECT_PACKAGE_RULE_SHORT
+- Every document package must have a README_RU / КАРТА_ПАКЕТА (package map).
+- Required: MANIFEST, PACKAGE_PROVENANCE_CARD, STATUS_AND_LIMITATIONS_NOTE,
+  SHA256SUMS.txt if the files were physically created.
+- A package without a map = a pile of files.
+- A package with a map, manifest, provenance and hash = a governed artifact.
+
+6. PERMANENT_RULE_PREFLIGHT_GUARD_v0_1
+- Before adopting any new rule, check it for contradiction,
+  blocker, authority confusion,
+  scope overreach, cost-benefit.
+- Canonical phrase: A rule must protect the project, not paralyze it.
+
+7. PROJECT_LANGUAGE_LAYER_RULE_v0_1 / PROJECT_LANGUAGE_RULE_SHORT
+- Russian = understanding and navigation.
+- English = technical stability and compatibility.
+- In Russian human-readable documents, English technical words must have
+  a Russian translation alongside them or an explanation in the README_RU / package map.
+- Machine files may stay in English, but a Russian comprehension layer must sit alongside them.
+
+8. INTERFACE_TO_RECOVERABILITY_GUARD_v0_1
+- Derived from INTERFACE_THEORY_OF_PERCEPTION_IMPORT_v0_1A.
+- Core rule: Interface State ≠ Recoverability State (verified recoverability).
+- Formula: Apparent preservation ≠ proven recoverability.
+- Examples: file opens ≠ semantic recoverability;
+  object looks intact ≠ dynamic recoverability;
+  archive exists ≠ custody chain alive;
+  hash exists ≠ hash verified.
+
+9. INTERFACE_THEORY_OF_PERCEPTION_IMPORT_v0_1A
+- Cross-project conceptual guard.
+- Not a standard, not a runtime, not a validator, not a sign-card.
+- For E-Continuity only a narrow applied slice is imported: the interface picture is not proof of recoverability.
+
+10. ANCHOR_PRESERVATION_AND_RECOVERY_OBSERVATION
+- Status: observation, high interest, illustrative case, not proof, not validation.
+- Formula: OBJECT → ANCHOR → MEMORY_SYSTEM → INTERPRETER → RECOVERY.
+- Boundary: ANCHOR ≠ PROOF. Anchor = recovery handle.
+- Refinement: the anchor alone is insufficient; an interpreter and an expansion protocol are needed.
+
+11. CRT vs LCD / RETRO GAME DISPLAY OBSERVATION
+- Status: illustrative observation.
+- Core lesson: display compatibility ≠ experience recoverability (recoverability of the original experience).
+- Candidate case: CASE-MEDIA-GAME-001 / CRT Display Dependency in Retro Games.
+
+12. v2.3 STABILIZATION PATCH
+- Compact Core Formula: Technical Recoverability + Verification Layer + Custody & Successor Governance + Migration & Sunset Governance + Capability Continuity.
+- MVW Operational Metric v0.1.
+- CASE-SPACE-001 C-3/C-4 candidate.
+- Static Integrity ≠ Dynamic Recoverability.
+- Activation Failure.
+- Dynamic Proof Testing Layer.
+- Biobank SOP Delta.

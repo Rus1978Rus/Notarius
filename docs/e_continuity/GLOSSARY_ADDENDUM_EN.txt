@@ -1,0 +1,31 @@
+GLOSSARY_ADDENDUM_RU
+Project: E-Continuity / Managed Recoverability Framework
+Created: 2026-06-05T19:26:06+00:00
+
+Anchor:
+A stable attachment point through which part of a lost object, memory or structure can be recovered.
+
+Recovery Handle:
+An element that does not prove truth on its own, but makes it possible to begin recovery.
+
+Interpreter:
+A person, group, procedure or system able to recognize an anchor and unfold it back into a meaningful structure.
+
+Expansion Protocol:
+The rule or procedure by which an anchor is turned back into a reconstructable structure.
+
+Interface State:
+The observable external picture of an object's or system's state.
+
+Recoverability State:
+A verified level of recoverability, confirmed by an appropriate proof test,
+custody, provenance and a dependency check.
+
+Interface Confusion Failure:
+An error in which an external appearance is taken for proven recoverability.
+
+Dynamic Recoverability:
+The ability of an object to withstand an operational load when brought back from a dormant state.
+
+Mission Recoverability:
+The ability to carry out the target mission, not merely to physically exist.

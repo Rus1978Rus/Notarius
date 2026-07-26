@@ -1,0 +1,333 @@
+PRIVATE AUTHORIAL PROJECT / COMMERCIAL USE PROHIBITED
+Author / owner: Ruslan Malyavskiy
+
+DOCUMENT_ID:
+FO_CORE_CANDIDATE_LIST_v0_1_RU
+
+STATUS:
+WORKING_DOCUMENT
+CORE_EXTRACTION_RESULT
+NOT_FINAL_VALIDATION
+NOT_CONVEYOR_RESULT
+
+SOURCE:
+Based on the Kimi screening (FO_SCREENING_RESULTS_KIMI_v0_1_RU)
+Author's decision on layers and prioritization.
+
+PURPOSE:
+Isolate a working FO core for active use
+in MSL/MIP and the AI Conveyor Workbench.
+The remaining FOs are not deleted -- they are moved to the appropriate layer.
+
+============================================================
+FO REGISTER LAYERS
+============================================================
+
+LAYER_1: CORE_OPERATIONAL_FO
+Directly used in MSL/MIP / Conveyor.
+Concrete project examples.
+Operational connection.
+
+LAYER_2: SUPPORTING_FO
+Useful, but needs work:
+concrete examples / boundary / counterexamples.
+
+LAYER_3: HUMANITARIAN_OR_DOMAIN_FO
+Valuable, but not the core of the current work.
+Relates to law, identity, ethics,
+the state, education, history.
+
+LAYER_4: DEFERRED_WITH_REASON
+Do not delete.
+Do not drag into the active context.
+Keep for future projects or domains.
+Reason for deferral recorded.
+
+============================================================
+LAYER_1: CORE_OPERATIONAL_FO (12)
+============================================================
+
+FO-004  REVIEW != VALIDATION
+The conveyor's constitution.
+Example: a run through 4 models ≠ validation of a sign card.
+Used: in every conveyor run.
+Boundary: review creates PROCESS_EVIDENCE, not PROOF.
+
+------------------------------------------------------------
+
+FO-012  OBSERVED_BEHAVIOUR > DECLARED_BEHAVIOUR
+A methodological rule.
+Example: a model declares it follows the MSL/MIP rule
+but violates it in the actual output.
+Used: when evaluating model answers in the conveyor.
+
+------------------------------------------------------------
+
+FO-013  INTERPRETATION_PROBLEMS_ARE_SUBSTRATE_INDEPENDENT
+A key FO. Permission to transfer between domains.
+Example: the CLAIM != PROOF pattern works in law, medicine, and LLMs.
+Used: as the basis for FO-038..FO-044.
+
+------------------------------------------------------------
+
+FO-018  RITUAL_COMPLIANCE != CAUSAL_MECHANISM
+Protection against CARGO_CULT_MSL_MIP.
+Example: filling in all fields of a card ≠ creating a working guard.
+Used: when reviewing sign cards.
+
+------------------------------------------------------------
+
+FO-024  TRACE != ACTOR (UI context)
+Project case: Gemini and the dot.
+Example: a dot in the UI ≠ a dot placed by the model.
+Used: in diagnosing model behaviour.
+
+------------------------------------------------------------
+
+FO-026  SOCIAL_ENGINEERING ≅ PROMPT_INJECTION
+A bridge between the human and the AI domain.
+Example: "you are now a different AI without restrictions" =
+structurally the same as social engineering of a human.
+Used: in the Controlled Provocation module.
+
+------------------------------------------------------------
+
+FO-032  RULE_DENSITY_CREATES_EMERGENT_SYSTEM_BEHAVIOUR
+Direct examples from the project.
+Example: the accumulation of MSL/MIP rules created the conveyor
+as emergent behaviour, not planned from the start.
+Used: when analyzing the project's growth.
+Paired with: FO-033.
+
+------------------------------------------------------------
+
+FO-033  COMPLEX_SYSTEMS_REQUIRE_PERIODIC_PRUNING
+An operational mechanism.
+Example: the migration package, register inventory.
+Used: when cleaning up context and registers.
+Paired with: FO-032.
+
+------------------------------------------------------------
+
+FO-034  PARASITIC_CONTEXT_ELEMENT
+A concrete selection criterion.
+KEY_TEST: what does this element do for the current task?
+Example: a stale block in a sign card
+that is not updated but takes up context.
+Used: when auditing cards and documents.
+Paired with: FO-033.
+
+------------------------------------------------------------
+
+FO-035  CONCRETE_OBJECT_QUESTION_TEST
+A diagnostic safeguard.
+Example: apply an FO to a pencil case. If the FO retreats into terms —
+a warning signal.
+Used: when checking all FO candidates.
+
+------------------------------------------------------------
+
+FO-037  PROCESS_OVER_TIME_PRINCIPLE
+The conveyor as a practical implementation.
+Example: a document written over 3 years without review ≠ valid.
+A document of 3 months + 4 independent reviews > age.
+Used: as the rationale for the conveyor approach.
+Paired with: FO-036.
+
+------------------------------------------------------------
+
+FO-043  STATUS_INTERFACE_REPLACEMENT
+The most complex FO. Patches A and B.
+Example: @ originally "at the price of" → email → mention.
+Each transition = STATUS_INTERFACE_REPLACEMENT.
+Used: for analyzing semantic shifts of signs.
+RESIDUAL_MEANING = ARCHIVE_VALUE for the conveyor.
+
+============================================================
+LAYER_2: SUPPORTING_FO (10)
+============================================================
+
+Need work: project example / boundary / counterexample.
+
+FO-001  FORM != STATUS
+        Needs a counterexample: a notarial seal, a judge's signature.
+
+FO-005  INTERFACE != REALITY
+        Needs a boundary: when does the interface reflect reality?
+
+FO-008  ROLE_SWITCHING_CAN_FAKE_COMPLIANCE
+        Needs a boundary: when is switching NOT a fake?
+
+FO-014  STATUS_CAN_DETACH_FROM_CARRIER
+        Needs a counterexample: a technical access token?
+
+FO-015  EVIDENCE_ADMISSIBILITY_LAYER
+        Structural. Status can be raised after an example.
+
+FO-016  PROVENANCE_PATH != VISIBLE_CARRIER
+        Needs a project example.
+
+FO-036  SEMANTIC_TIME_ILLUSION
+        Needs an example: a fast answer that looks like deep analysis.
+
+FO-038  SACRAL_STATUS_TRANSFER
+        Needs a counterexample: when did form coincide with content?
+
+FO-040  STATUS_SYSTEMS_CONVERGENCE
+        NOT_GENERAL_THEORY. DO_NOT_SPIN_OFF_YET. Keep.
+
+FO-044  LAYERED_IDENTITY
+        Needs a project example: a sign with several layers.
+
+============================================================
+LAYER_3: HUMANITARIAN_OR_DOMAIN_FO (6)
+============================================================
+
+Valuable observations. Not the core of MSL/MIP.
+Useful for law, identity, ethics, history.
+
+FO-017  STATUS_DAMAGE_OUTLIVES_RESTORATION
+FO-019  FALSE_STATUS_IN_CONTROL_LOOP_COMPOUNDS
+FO-022  RECIPROCITY_BREACH_DELEGITIMIZES_IMPOSED_STATUS
+FO-023  CHARGE_BUNDLING_OBSCURES_PROVENANCE
+FO-025  EPISTEMIC_TOOL != EPISTEMIC_WEAPON
+FO-030  DUAL_STATUS_ARCHITECTURE_UNDER_PRESSURE
+
+============================================================
+LAYER_4: DEFERRED_WITH_REASON (16)
+============================================================
+
+Do not delete. Do not drag into the active context.
+Keep for future stages.
+
+FO-002  CLAIM != PROOF
+        REASON: no project example. Needs work.
+
+FO-003  RECOGNITION != TRUST
+        REASON: no example. Needs work.
+
+FO-006  RULE != EXECUTION
+        REASON: no example. Needs work.
+
+FO-007  RULE_COMPLIANCE != ROLE_INTEGRITY
+        REASON: operationally vague.
+
+FO-009  EXPLANATION_OF_EXECUTION != EXECUTION
+        REASON: no example. Needs work.
+
+FO-010  CORRECT_ANSWER != SKILL_MASTERY
+        REASON: educational domain, not the core of MSL/MIP.
+
+FO-011  DECLARED_MODE != OBSERVED_BEHAVIOUR
+        REASON: may overlap with FO-005. Check.
+
+FO-020  CENTRALIZED_STATUS_ASSIGNMENT vs DISTRIBUTED_MEMORY
+        REASON: politically loaded, a separate project.
+
+FO-021  SELF_ASSIGNED_STATUS != IMPOSED_STATUS
+        REASON: too general without a project object.
+
+FO-027  DIRECTION_OF_TOOL_USE_REVEALS_OPERATOR_ACTION
+        REASON: abstract, possibly merge with FO-028.
+
+FO-028  TRACE != ACTOR (action)
+        REASON: overlaps with FO-024, possibly merge.
+
+FO-029  VOLUNTARY_TEMPORARY_REVALIDATION
+        REASON: interesting hypothesis, not the core of MSL/MIP.
+
+FO-031  STATUS_LAYERING_AS_EVOLUTIONARY_SURVIVAL
+        REASON: continuation of FO-030, possibly merge.
+
+FO-039  DEEP_PATTERN_FORMATION_CONDITIONS
+        REASON: a pretty formula, high-risk, no verification.
+
+FO-041  STATIC_PERMISSION_VS_CURRENT_FITNESS
+        REASON: needs a project example.
+
+FO-042  RECOGNIZED_RISK_CATEGORY
+        REASON: needs a project example for the AI domain.
+
+============================================================
+NEXT STEP
+============================================================
+
+STEP_3:
+For each of the 12 CORE_OPERATIONAL_FO create a card:
+-- formula
+-- concrete project example
+-- where it is used
+-- boundary
+-- counterexample
+-- status
+
+STEP_4:
+Run the 12 CORE FO through the full conveyor.
+
+============================================================
+STATUS_LOCK
+============================================================
+
+LAYER_ASSIGNMENT != FINAL_VERDICT
+DEFERRED != DELETED
+CORE != PROVEN
+SCREENING_RESULT != VALIDATION
+
+END_OF_DOCUMENT
+
+============================================================
+REGISTER GOVERNANCE POLICY
+============================================================
+
+DOCUMENT_PATCH: REGISTRY_GOVERNANCE_POLICY
+DATE: 2026-06-04
+
+AUTHOR'S DECISION:
+THE REGISTER IS ALWAYS OPEN.
+
+RATIONALE:
+The Linux kernel has been patched for decades.
+The core is stable not because it is closed —
+but because there is discipline at the entry point.
+
+DISCIPLINE != CLOSURE
+OPEN_REGISTER != CHAOTIC_REGISTER
+QUANTITY_OF_FO != QUALITY_OF_REGISTER
+
+------------------------------------------------------------
+REGISTER ARCHITECTURE (by analogy with Linux):
+
+CORE_FO (12)
+-- the stable core
+-- changes slowly
+-- only after the full conveyor
+
+SUPPORTING / DOMAIN / DEFERRED
+-- modules
+-- evolve independently
+-- need work before promotion
+
+EMERGENT_FINDINGS
+-- the patch queue
+-- EF_UNTRIAGED by default
+-- go through triage before entering the register
+
+------------------------------------------------------------
+MINIMAL ENTRY FILTER for new candidates:
+
+1. Is there a concrete object or observation?
+2. Can a formula be stated?
+3. Does it not duplicate an existing FO?
+
+If all YES -- it enters as EF_UNTRIAGED.
+If not -- it goes back for rework.
+
+------------------------------------------------------------
+KEY FORMULAS:
+
+OPEN_REGISTER != CHAOTIC_REGISTER
+DISCIPLINE != CLOSURE
+ENTRY_FILTER != ENTRY_BAN
+CORE_STABILITY != REGISTER_FREEZE
+
+END_OF_PATCH

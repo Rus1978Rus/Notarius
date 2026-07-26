@@ -1,0 +1,136 @@
+PRIVATE AUTHORIAL PROJECT / COMMERCIAL USE PROHIBITED
+Author / owner: Ruslan Malyavskiy
+
+DOCUMENT_ID:
+LEGAL_METHODOLOGY_PARALLELS_v0_1_RU
+
+STATUS:
+WORKINGLY_CLOSED
+CANDIDATE_FOR_CORE
+STRUCTURAL_ANALOGY_ONLY
+NOT_LEGAL_CLAIM
+NOT_ACADEMIC_PAPER
+
+ORIGIN: 2026-06-04
+REVIEWED_BY: GPT (ACCEPT_WITH_PATCHES)
+PATCHES_APPLIED: 3
+
+============================================================
+MAIN INSIGHT
+============================================================
+
+MSL/MIP does not copy law.
+MSL/MIP independently rediscovered a structural pattern
+that the law-enforcement system found centuries ago.
+
+LOW_CONFIDENCE_SIGNAL
+→ STRUCTURED_PROCESSING
+→ POSITION_FORMATION
+→ DECISION
+
+This is a general pattern for raising confidence.
+It works in law, forensics, AML, and MSL/MIP.
+
+PARALLEL_STRUCTURE = YES
+PARALLEL_VALUES = NO
+
+============================================================
+CHAIN OF PARALLELS
+============================================================
+
+LAW                      MSL/MIP CONVEYOR
+
+Operational intelligence Prompt (low confidence)
+Operational check (ORM)  Run through a model
+Investigative action     Structured review
+Official record          CONVEYOR_LOG
+Forensic examination     Specialized module
+Indictment               CONSENSUS_REPORT
+Prosecutorial oversight  INTEGRATOR (assembly, not decision)
+Judge                    AUTHOR_SLOT (final decision)
+Defense counsel          External audit / REJECT justification
+Chain of Custody         PROVENANCE_PATH
+Daubert Standard         FO_REVIEW_METHOD
+Appeal                   RETRY / second round
+
+============================================================
+PRESUMPTION
+============================================================
+
+Law:       PRESUMPTION OF INNOCENCE
+           Burden on the prosecution.
+
+AML:       PRESUMPTION OF SUSPICION
+           Burden on the subject.
+
+MSL/MIP:   PRESUMPTION OF DEFECT
+           The artifact enters as suspect.
+           It proves it works, or REJECT.
+
+============================================================
+PATCH_01: AUTHOR != COURT
+============================================================
+
+COURT_DECISION_ROLE ≈ AUTHOR_FINAL_DECISION_ROLE
+AUTHOR != COURT
+CONVEYOR != LEGAL_PROCESS
+STRUCTURAL_ANALOGY_ONLY
+
+============================================================
+PATCH_02: DO NOT CONFLATE ANALOGY WITH BORROWING
+============================================================
+
+STRUCTURAL_ANALOGY != NORMATIVE_BORROWING
+
+The structures are similar.
+The goals and values are different.
+
+============================================================
+PATCH_03: HEAD != SOURCE (operational rule)
+============================================================
+
+HEAD != SOURCE
+UNEXPLAINED_PATCH != VALID_PATCH
+TRACEABILITY = MANDATORY
+
+For each patch:
+-- from which session
+-- from which observation
+-- from which model behavior
+-- from which case
+
+Analogous to the AML Unexplained Wealth Order:
+absent provenance → REJECT.
+
+============================================================
+LINK TO FO
+============================================================
+
+FO-013  SUBSTRATE_INDEPENDENCE — license to transfer
+FO-016  PROVENANCE_PATH — Chain of Custody analog
+FO-004  REVIEW != VALIDATION
+FO-037  PROCESS_OVER_TIME_PRINCIPLE
+FO-045  LEGAL_METHODOLOGY_STRUCTURAL_PARALLELS
+FO-046  HEAD_NOT_SOURCE
+
+============================================================
+OPEN QUESTIONS
+============================================================
+
+1. Appeal: is there a mechanism for contesting a REJECT?
+2. Levels of review: Standard / Enhanced / Simplified?
+3. Patch red flags: no author, conflict with an FO,
+   no cases, political sensitivity?
+4. De-risking: declining integration because of risk
+   regardless of validity?
+
+============================================================
+STATUS_LOCK
+============================================================
+
+STRUCTURAL_ANALOGY != LEGAL_STANDARD
+CONVEYOR != COURT
+AUTHOR != JUDGE
+PROCESS_EVIDENCE != PROOF
+
+END_OF_DOCUMENT

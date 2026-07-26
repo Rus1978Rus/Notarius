@@ -1,0 +1,174 @@
+PRIVATE AUTHORIAL PROJECT / COMMERCIAL USE PROHIBITED
+Author / owner: Ruslan Malyavskiy
+
+DOCUMENT_ID:
+FOUNDATION_FORMULAS_CANDIDATES_v0_1_RU
+
+STATUS:
+WORKING_DOCUMENT
+FORMULA_COLLECTION
+NOT_FO_REGISTER
+NOT_RULES
+
+PURPOSE:
+A collection of strong formulas that surfaced during the work
+but have not yet been written up as FO candidates.
+Not rules. Not FO. Formulas, specifically.
+
+DATE: 2026-06-05
+
+============================================================
+FF-001
+============================================================
+
+FORMULA:
+CONFIDENCE_WITHIN_SYSTEM != CORRESPONDENCE_WITH_REALITY
+
+SOURCE: Claude review / TRIAD-EXT-001
+CONTEXT: Even a flawlessly functioning procedure can
+arrive at a wrong conclusion.
+Examples: phlogiston, the ether, eugenics.
+
+SIGNIFICANCE:
+A fundamental limit of any conveyor.
+A procedure raises internal confidence —
+but does not guarantee external validity.
+
+STATUS: HIGH_INTEREST / FOUNDATION_CANDIDATE
+
+============================================================
+FF-002
+============================================================
+
+FORMULA:
+PROCESS_EVIDENCE_ONLY != VALIDATION
+
+SOURCE: Grok review / TRIAD-EXT-001
+CONTEXT: A process log shows that the process was carried out
+but does not prove that the conclusion is correct.
+
+SIGNIFICANCE:
+A direct extension of FO-004 (REVIEW != VALIDATION).
+Adds: even a complete log ≠ validation.
+
+STATUS: HIGH_INTEREST / CONVEYOR_CORE_CANDIDATE
+
+============================================================
+FF-003
+============================================================
+
+FORMULA:
+MULTI_MODEL_REVIEW != ADVERSARIAL_PROCESS
+
+SOURCE: Claude review / TRIAD-EXT-001
+CONTEXT: Several models do not form a genuine system
+of mutual challenge. Models are motivated to give a helpful
+answer — not to hunt for weak spots.
+
+SIGNIFICANCE:
+Points to a structural gap in the conveyor.
+Controlled Provocation = a partial closing of it.
+
+STATUS: IMPORTANT_GAP / ARCHITECTURE_NOTE
+
+============================================================
+FF-004
+============================================================
+
+FORMULA:
+PROCEDURE != HIGHER_CONFIDENCE_GUARANTEED
+BAD_PROCEDURE_CAN_LOWER_CONFIDENCE
+
+SOURCE: Claude review / TRIAD-EXT-001
+CONTEXT: A poorly designed procedure can
+systematically lower confidence.
+Cargo cult, security theater, show trials.
+
+SIGNIFICANCE:
+A patch to the formula LOW_CONFIDENCE → PROCEDURE → HIGHER_CONFIDENCE.
+A procedure is necessary but not sufficient.
+
+STATUS: MANDATORY_PATCH / CORE_GUARD
+
+============================================================
+FF-005
+============================================================
+
+FORMULA:
+RECURRENCE != VALIDITY
+RECURRENCE = WORTH_STUDYING
+
+SOURCE: TRIAD-EXT-001 / consolidation
+CONTEXT: The recurrence of a pattern across different domains
+does not prove its universality —
+but is sufficient grounds for studying it.
+
+SIGNIFICANCE:
+A methodological rule for EXTERNAL_METHODOLOGY_LIBRARY.
+
+STATUS: METHODOLOGY_RULE / ACTIVE
+
+============================================================
+FF-006
+============================================================
+
+FORMULA:
+RESIDUAL_MEANING != DEAD_MEANING
+
+SOURCE: FO-043 PATCH_A
+CONTEXT: Residual meanings can outlive the official replacement
+and become the basis for a STATUS_ROLLBACK.
+
+SIGNIFICANCE:
+The rationale for why a conveyor archive is needed —
+not only for history but also as RESIDUAL_MEANING_STORAGE.
+
+STATUS: ACTIVE / IN_FO-043
+
+============================================================
+FF-007
+============================================================
+
+FORMULA:
+OBSERVATION_STRENGTH != DOCUMENTATION_STRENGTH
+
+SOURCE: GPT / interpretive patch to the Kimi screening
+CONTEXT: The absence of documented cases
+does not mean the observation is weak.
+A phenomenon can exist without an archived case.
+
+SIGNIFICANCE:
+Protects the FO register from false rejection.
+
+STATUS: ACTIVE / IN_FO_SCREENING_POLICY
+
+============================================================
+FF-008
+============================================================
+
+FORMULA:
+DEPTH_IS_NOT_AUTOMATIC != DEPTH_IS_ALWAYS_PRESENT
+
+SOURCE: GPT / MAGNITUDE_MISMATCH_CAUSAL_GUARD
+CONTEXT: For causality: depth is assigned only
+if it is mechanistically linked and adds controllability.
+
+SIGNIFICANCE:
+An anti-hallucination guard for causal analysis.
+
+STATUS: ACTIVE / IN_MAGNITUDE_MISMATCH_METHOD
+
+============================================================
+RULE FOR ADDING
+============================================================
+
+A formula makes it into this document if:
+1. It surfaced during a real run or discussion
+2. It captures something important in a single line
+3. It has not yet been written up as an FO candidate
+4. It is strong enough that it should not be lost
+
+FORMULA_CANDIDATE != FO_CANDIDATE
+FORMULA_CANDIDATE = PRE_FO_SIGNAL
+
+END_OF_DOCUMENT

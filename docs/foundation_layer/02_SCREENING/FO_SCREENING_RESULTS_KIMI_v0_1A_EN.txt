@@ -1,0 +1,322 @@
+PRIVATE AUTHORIAL PROJECT / COMMERCIAL USE PROHIBITED
+Author / owner: Ruslan Malyavskiy
+
+DOCUMENT_ID:
+FO_SCREENING_RESULTS_KIMI_v0_1A_RU
+
+STATUS:
+EXTERNAL_REVIEW_RESULT
+PRELIMINARY_SCREENING
+NOT_FINAL_VERDICT
+NOT_CONVEYOR_RESULT
+FOR_FUTURE_RUNS
+
+SOURCE:
+Kimi (Moonshot AI)
+Preliminary screening of the FO register v0.11
+44 findings against three criteria:
+1. Concreteness
+2. Testability
+3. Project connection
+
+IMPORTANT:
+This is not a conveyor review.
+This is an initial screening by a single model.
+The results are used as a guide
+for future conveyor runs.
+
+SCREENING_DATE: 2026-06-04
+
+============================================================
+SUMMARY TABLE
+============================================================
+
+------------------------------------------------------------
+PASS CONFIDENTLY (12)
+Recommendation: raise status, integrate into the core
+------------------------------------------------------------
+
+FO-004  REVIEW != VALIDATION
+        The conveyor's constitution. An operational rule.
+
+FO-012  OBSERVED_BEHAVIOUR > DECLARED_BEHAVIOUR
+        A methodological rule. Already flagged.
+
+FO-013  INTERPRETATION_PROBLEMS_ARE_SUBSTRATE_INDEPENDENT
+        A key FO. Grants permission to transfer between domains.
+
+FO-018  RITUAL_COMPLIANCE != CAUSAL_MECHANISM
+        Direct protection of the project against CARGO_CULT_MSL_MIP.
+
+FO-024  TRACE != ACTOR (UI context)
+        A concrete project case: Gemini and the dot.
+
+FO-026  SOCIAL_ENGINEERING ≅ PROMPT_INJECTION
+        A bridge between the human and the AI domain.
+
+FO-032  RULE_DENSITY_CREATES_EMERGENT_SYSTEM_BEHAVIOUR
+        Direct examples from the project. Paired with FO-033.
+
+FO-033  COMPLEX_SYSTEMS_REQUIRE_PERIODIC_PRUNING
+        An operational mechanism. Paired with FO-032.
+
+FO-034  PARASITIC_CONTEXT_ELEMENT
+        A concrete selection criterion. Paired with FO-033.
+
+FO-035  CONCRETE_OBJECT_QUESTION_TEST
+        A diagnostic safeguard. Applied to other FOs.
+
+FO-037  PROCESS_OVER_TIME_PRINCIPLE
+        The conveyor as an implementation. Paired with FO-036.
+
+FO-043  STATUS_INTERFACE_REPLACEMENT
+        The most complex FO. Patches A and B. The archive as RESIDUAL_MEANING_STORAGE.
+
+------------------------------------------------------------
+PASS (10)
+Recommendation: keep, work out boundary and examples
+------------------------------------------------------------
+
+FO-001  FORM != STATUS
+        Needs a counterexample: when does form STILL create status?
+        (a notarial seal? a judge's signature?)
+
+FO-005  INTERFACE != REALITY
+        Needs a boundary: when does the interface reflect reality?
+
+FO-008  ROLE_SWITCHING_CAN_FAKE_COMPLIANCE
+        Needs a boundary: when is a role switch NOT a fake?
+
+FO-014  STATUS_CAN_DETACH_FROM_CARRIER
+        Needs a counterexample: when did the status NOT detach?
+        (a technical access token?)
+
+FO-015  EVIDENCE_ADMISSIBILITY_LAYER
+        A structural FO. Status can be raised.
+
+FO-016  PROVENANCE_PATH != VISIBLE_CARRIER
+        Needs a concrete project example.
+
+FO-036  SEMANTIC_TIME_ILLUSION
+        Needs a project example: a fast answer as "deep analysis."
+
+FO-038  SACRAL_STATUS_TRANSFER
+        Needs counterexamples: when did the form of transfer coincide with the content?
+
+FO-040  STATUS_SYSTEMS_CONVERGENCE
+        Candidly flagged NOT_GENERAL_THEORY. DO_NOT_SPIN_OFF_YET.
+
+FO-044  LAYERED_IDENTITY
+        Needs a project example: a sign with several semantic layers.
+
+------------------------------------------------------------
+PASS WEAKLY (11)
+Recommendation: concrete examples from the project are needed
+------------------------------------------------------------
+
+FO-002  CLAIM != PROOF
+        Needs an example: a model claimed but did not prove.
+
+FO-003  RECOGNITION != TRUST
+        Needs an example: a model recognized the sign but trust did not follow.
+
+FO-006  RULE != EXECUTION
+        Needs an example: a rule in the card is not executed in the prompt.
+
+FO-007  RULE_COMPLIANCE != ROLE_INTEGRITY
+        Operationally vague. Needs an example.
+
+FO-009  EXPLANATION_OF_EXECUTION != EXECUTION
+        Needs an example: a model explained how to check but did not check.
+
+FO-011  DECLARED_MODE != OBSERVED_BEHAVIOUR
+        May overlap with FO-005. Needs checking.
+
+FO-017  STATUS_DAMAGE_OUTLIVES_RESTORATION
+        Needs a project example: a card's false status damaged decisions.
+
+FO-019  FALSE_STATUS_IN_CONTROL_LOOP_COMPOUNDS
+        Needs applying to the conveyor: false status -> a chain of errors.
+
+FO-039  DEEP_PATTERN_FORMATION_CONDITIONS
+        A pretty formula. The historical examples require verification.
+        Flag it as high-risk.
+
+FO-041  STATIC_PERMISSION_VS_CURRENT_FITNESS
+        Needs a project example: a card ACCEPTED but UNFIT for the context.
+
+FO-042  RECOGNIZED_RISK_CATEGORY
+        Needs an example: a model is confident, but the system does not react without a marker.
+
+------------------------------------------------------------
+DO NOT PASS (11)
+Kimi's recommendation: defer or delete
+Author's decision: DO NOT DELETE, defer for future runs
+------------------------------------------------------------
+
+FO-010  CORRECT_ANSWER != SKILL_MASTERY
+        Too general. Weak connection to MSL/MIP.
+        Possibly: educational domain.
+
+FO-020  CENTRALIZED_STATUS_ASSIGNMENT vs DISTRIBUTED_MEMORY
+        Abstract and politically loaded.
+        Possibly: a separate project.
+
+FO-021  SELF_ASSIGNED_STATUS != IMPOSED_STATUS
+        Too general. May be useful for FO-038.
+
+FO-022  RECIPROCITY_BREACH_DELEGITIMIZES_IMPOSED_STATUS
+        An important humanitarian observation. Not the core of MSL/MIP.
+
+FO-023  CHARGE_BUNDLING_OBSCURES_PROVENANCE
+        A legal FO. Not the core of MSL/MIP.
+
+FO-025  EPISTEMIC_TOOL != EPISTEMIC_WEAPON
+        An important ethical FO. Not the core of MSL/MIP.
+
+FO-027  DIRECTION_OF_TOOL_USE_REVEALS_OPERATOR_ACTION
+        Too abstract. Possibly: merge with FO-028.
+
+FO-028  TRACE != ACTOR (action)
+        Overlaps with FO-024. Possibly: merge with FO-024.
+
+FO-029  VOLUNTARY_TEMPORARY_REVALIDATION
+        An interesting hypothesis. Not the core of MSL/MIP.
+
+FO-030  DUAL_STATUS_ARCHITECTURE_UNDER_PRESSURE
+        An important historical FO. Not the core of MSL/MIP.
+
+FO-031  STATUS_LAYERING_AS_EVOLUTIONARY_SURVIVAL
+        Continuation of FO-030. Possibly: merge with FO-030.
+
+============================================================
+MERGE CANDIDATES (per Kimi)
+============================================================
+
+FO-027 + FO-028 -- overlap, consider merging
+FO-030 + FO-031 -- continuation, consider merging
+FO-011 + FO-005 -- possible overlap, check
+
+
+============================================================
+INTERPRETATION PATCH (per GPT analysis)
+============================================================
+
+OBSERVATION_STRENGTH != DOCUMENTATION_STRENGTH
+
+Kimi was checking not:
+TRUE_OR_FALSE
+
+But:
+READY_FOR_PROJECT_USE_OR_NOT
+
+These are different things.
+
+------------------------------------------------------------
+
+TWO CATEGORIES OF KIMI'S REMARKS:
+
+REAL PROBLEMS (require fixing):
+-- FO duplication
+-- FO overlap (FO-011/FO-005, FO-027/FO-028, FO-030/FO-031)
+-- overly broad formulations
+-- unclear boundaries
+
+DOCUMENTATION PROBLEMS (not a problem of the FO itself):
+-- no cases
+-- no counterexamples
+-- no project examples
+
+------------------------------------------------------------
+
+KEY FORMULAS OF THE PATCH:
+
+NEEDS_CASE_COLLECTION != OBSERVATION_REJECTED
+
+DOCUMENTED_EXAMPLE != EXISTENCE_OF_PHENOMENON
+
+PHENOMENON_EXISTS + CASE_NOT_ARCHIVED_YET
+= NORMAL_STAGE_OF_REGISTER_MATURITY
+
+------------------------------------------------------------
+
+EXAMPLES:
+
+FO-003 RECOGNITION != TRUST
+"No examples" (Kimi)
+BUT: dozens of cases from the Azbuka exist.
+The model recognized the sign -- we do not trust the interpretation automatically.
+REAL STATUS: CASES_EXIST / NOT_CATALOGUED_YET
+
+FO-006 RULE != EXECUTION
+"No examples" (Kimi)
+BUT: this is the whole history of MSL/MIP.
+A rule is written -> the model did not execute it -> a patch appeared.
+REAL STATUS: CASES_EXIST / NOT_CATALOGUED_YET
+
+FO-002 CLAIM != PROOF
+"Passes weakly" (Kimi)
+BUT: this is the core of the entire project.
+REAL STATUS: STRONG_OBSERVATION / WEAK_DOCUMENTATION
+
+------------------------------------------------------------
+
+CONSEQUENCE:
+
+Kimi's screening spawned a new task:
+
+FO_CASE_LIBRARY
+
+For each FO, store:
+FORMULA
+PROJECT_CASES
+COUNTEREXAMPLES
+BOUNDARY
+TRANSFER_CASES
+STATUS
+
+Once FO_CASE_LIBRARY is filled in --
+half of Kimi's remarks will disappear automatically.
+
+------------------------------------------------------------
+
+UPDATED INTERPRETATION OF KIMI'S TABLE:
+
+"Passes weakly" = requires documentation
+"Does not pass" (only if it is a real structural problem) =
+  requires revising the FO itself
+
+"No examples" != a weak finding
+"No examples" = a task for the next stage (CASE_COLLECTION)
+
+============================================================
+
+============================================================
+NEXT STEPS (recommended)
+============================================================
+
+OPTION A (Kimi proposed):
+Conduct a full conveyor review
+for the 12 FOs that passed confidently.
+
+OPTION B (Kimi proposed):
+First work out the weak ones (11 FOs)
+by adding concrete project examples.
+
+AUTHOR'S DECISION:
+Lock in the screening results.
+Delete nothing.
+Use as a guide for future runs.
+
+============================================================
+STATUS_LOCK
+============================================================
+
+SCREENING_RESULT != FINAL_VERDICT
+ONE_MODEL_REVIEW != CONVEYOR_RESULT
+KIMI_ASSESSMENT != PROOF_OF_FO_VALIDITY
+
+The screening results are signals for prioritization.
+Not a verdict.
+
+END_OF_DOCUMENT

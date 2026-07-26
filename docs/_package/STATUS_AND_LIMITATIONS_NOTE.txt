@@ -1,0 +1,51 @@
+STATUS_AND_LIMITATIONS_NOTE
+Package: NOTARIUS working repository (a branch of E-Continuity via MSL/MIP)
+Parent: E-Continuity / Governed-recoverability framework
+Author-owner: Ruslan Malyavskiy
+Created: 2026-07-22
+Rule basis: PROJECT_PACKAGE_RULE + PROJECT_WIDE_DOCUMENT_PROVENANCE_RULE
+           (E-Continuity RULES_REGISTER, clearing debt AD-15)
+
+STATUS:
+RESEARCH_TRACK (AD-9)
+WORKING_REPOSITORY
+NOT_NEW_FRAMEWORK_RELEASE
+NOT_GOLD_MASTER
+NOT_EXTERNAL_VERIFICATION
+NOT_SECURITY_VALIDATED
+
+WHAT IS READY:
+- Prototype v1 (HMAC, stdlib) and v2 (Ed25519) with negative tests (235 tests in 22 files).
+- Experiment exp_6_2_reassembly.py (dynamic proof test §6.2).
+- Methodological audit, prior-art review, applications conveyor (40 ideas).
+- 92 recorded author decisions (AUTHOR_DECISIONS.md).
+- Foundation Layer integration (AD-12) and E-Continuity parent (AD-14).
+- Package set: this note + PROVENANCE_CARD + DOCUMENT_PROVENANCE_REGISTER
+  + MANIFEST.tsv + SHA256SUMS.txt.
+
+WHAT IS NOT READY (limits, not to be hidden):
+- No §6 property is a confirmed security barrier.
+- No external (human) validation of the code or the conclusions.
+- No product; the product search is paused (AD-9).
+- v2 requires an external library (PyNaCl) — "stdlib only" and
+  "provable to a third party" are incompatible (recorded in envelope_v2.py).
+
+LIMITATIONS (parent rules, applied candidly):
+- CONTENT ≠ SOURCE. Files under docs/foundation_layer/ and docs/e_continuity/
+  are COPIES from the author's other packages, not originals. COPY ≠ PROVENANCE.
+- LLM_OUTPUT ≠ VERIFIED_COPY. All analysis documents and all code are
+  AI output (Claude), not a human-verified copy. What exactly was AI-generated
+  versus author-sourced is annotated in DOCUMENT_PROVENANCE_REGISTER.md.
+- HASH_EXISTS ≠ HASH_VERIFIED. The SHA-256 values in SHA256SUMS.txt were
+  computed in this environment and are NOT externally verified. No hash was
+  fabricated — only real computation over physically existing files.
+- INTERFACE_STATE ≠ RECOVERABILITY_STATE. The mere existence of this package
+  is the appearance of governance, not proven recoverability.
+
+NEXT STEP (recommendation, not a commitment):
+The package-standard debt is cleared. Parent governance rules not yet fully
+applied (e.g. external hash verification) remain STATUS: NOT_DONE and are not
+passed off as done.
+
+COMMERCIAL NOTICE:
+PRIVATE AUTHOR PROJECT / COMMERCIAL USE PROHIBITED.

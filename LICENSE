@@ -1,0 +1,59 @@
+NOTARIUS — PROPRIETARY LICENSE — ALL RIGHTS RESERVED
+
+Copyright (c) 2026 Ruslan Malyavskiy.
+All rights reserved.
+
+--------------------------------------------------------------------------
+
+This repository (source code, documentation, data, tests, and all other
+content — the "Work") is the private, copyrighted work of the author.
+NOTARIUS is a research prototype for semantic tracing and tamper-localization
+of information (provenance of a data element: where it came from, what
+happened to it, native vs inserted, and what exactly changed).
+
+The repository is made publicly VIEWABLE for reference and transparency
+only. NO license, permission, or right of any kind is granted to anyone.
+
+Without the PRIOR WRITTEN permission of the copyright holder, you may NOT:
+  - use, run, execute, or evaluate the Work for any purpose (commercial or
+    non-commercial, including internal, academic, or personal use);
+  - copy, reproduce, download, or store the Work beyond the transient copy
+    your browser makes to display this page;
+  - modify, adapt, translate, or create derivative works of the Work;
+  - distribute, publish, sublicense, sell, rent, or otherwise transfer it;
+  - mirror or redistribute this repository or any part of it outside the
+    hosting platform.
+
+THIRD-PARTY DATA: notarius/data/confusables_ascii.txt is derived from the
+Unicode UTS#39 confusables data and remains under the Unicode License Agreement
+(see that file's header). This proprietary license applies to the author's own
+Work, not to that third-party data.
+
+PLATFORM EXCEPTION (technical, not a grant of rights): because this
+repository is public on its hosting platform (GitHub), other users of that
+platform may view and use the platform's built-in "fork" function as
+required by the platform's Terms of Service. Such a fork does NOT grant any
+of the rights withheld above: a fork may not be used, run, modified,
+published, or exploited in any way. All copyright remains with the author.
+
+NO CONTRIBUTION GRANT: submitting a pull request, issue, patch, comment, or
+any other material does not grant you any rights in the Work, and does not
+oblige the author to use, keep, or respond to your submission. Any material
+you submit may be used by the author at the author's sole discretion.
+
+NO WARRANTY: THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED. THE AUTHOR IS NOT LIABLE FOR ANY CLAIM, DAMAGE, OR
+OTHER LIABILITY ARISING FROM THE WORK OR ITS USE. The Work is a research
+prototype and is NOT a production validator, antivirus, or security
+guarantee.
+
+This is a deliberate, temporary maximal-restriction license. The author may
+publish a different license in the future; until then, all rights are
+reserved and nothing above is waived.
+
+For any use not expressly permitted here, request written authorization
+from the copyright holder.
+
+--------------------------------------------------------------------------
+NOTE: This text is a license notice, not legal advice. For an enforceable
+arrangement tailored to your jurisdiction, have a lawyer review it.
