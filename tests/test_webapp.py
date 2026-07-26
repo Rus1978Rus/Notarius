@@ -61,6 +61,24 @@ class TestWebApp(unittest.TestCase):
         st, res = self._post("/api/scan", {"text": "pay​able"})
         self.assertEqual(res["hidden"]["risk"], "ALARM")
 
+    def test_compare_file_text(self):
+        import base64
+        ref = base64.b64encode(b'{"amount": 1000}').decode()
+        rcv = base64.b64encode(b'{"amount": 9000}').decode()
+        st, res = self._post("/api/compare_file",
+                             {"reference_b64": ref, "received_b64": rcv})
+        self.assertEqual(st, 200)
+        self.assertEqual(res["kind"], "text")
+
+    def test_compare_file_binary(self):
+        import base64
+        a = base64.b64encode(b"\x89PNG\x00\xff\xfe").decode()
+        b = base64.b64encode(b"\x89PNG\x00\xff\x01").decode()
+        st, res = self._post("/api/compare_file",
+                             {"reference_b64": a, "received_b64": b})
+        self.assertEqual(res["kind"], "binary")
+        self.assertIn("boundary", res)
+
     def test_bad_path_404(self):
         req = urllib.request.Request(
             f"http://127.0.0.1:{self.port}/api/nope",

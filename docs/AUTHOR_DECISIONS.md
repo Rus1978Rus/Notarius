@@ -1694,6 +1694,34 @@ is a true statement (with the honest caveat that bilingual text will flag).
 Regression test added; suite 247 green. Detection layer sourced from Vakhter/MSL
 (AD-83) untouched — only how the app INTERPRETS it for compare changed.
 
+### AD-95. "Any file" mode — other information types, honestly bounded (2026-07-26)
+**AUTHOR'S DECISION: "let's make browser versions for other kinds of information,
+not just text."** Extended the web app beyond text — but drawing the honest line
+the whole project depends on.
+
+analyze.py `analyze_files(bytes, bytes)` + a third web tab **"Any file"**
+(endpoint /api/compare_file, files read client-side as base64, localhost only):
+- identical bytes → untouched;
+- both decode as UTF-8 → the FULL text analysis (where + what changed). This
+  already covers documents, JSON, CSV, XML, config, logs — most structured data
+  is text-encoded, so it gets real per-line localization + invisible/homoglyph
+  detection for free (substrate independence, AD-88);
+- otherwise (image / audio / video / PDF / binary) → an HONEST fingerprint
+  verdict: whether the file was tampered (sha-256 differs), shown with both
+  fingerprints and sizes, plus an explicit boundary note: we tell you IF it
+  changed, NOT where inside — that needs a format-specific media reader, which
+  this tool does not include.
+
+WHY NOT MORE: "where inside a photo/audio/video" was deliberately NOT built.
+That is the READER layer (raw material, AD-66/83) we do not have; claiming it
+would be a lie, and the project's whole value is honesty (TRACE_LOCATES_THE_LIE
+≠ TRACE_PROVES_THE_TRUTH). So the tool reaches every carrier via fingerprint,
+goes deep on text-encoded ones, and says so plainly for media.
+
+5 new tests (analyze_files: identical/text/binary; /api/compare_file: text +
+binary). Suite: 24 files, 255 tests, all green. Core untouched — this is a new
+door on the existing engine.
+
 ---
 
 Recorded by: Claude (Anthropic), sessions 2026-07-21/22/23/24/25/26, per the author's responses.

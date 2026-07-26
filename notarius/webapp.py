@@ -21,12 +21,14 @@ it does not judge intent (TRACE_LOCATES_THE_LIE ≠ TRACE_PROVES_THE_TRUTH).
 
 from __future__ import annotations
 
+import base64
+import binascii
 import json
 import sys
 import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-from notarius.analyze import analyze_documents, scan_document
+from notarius.analyze import analyze_documents, analyze_files, scan_document
 
 _MAX_BODY = 8 * 1024 * 1024        # 8 MB guard
 
@@ -99,6 +101,7 @@ PAGE = r"""<!doctype html><html lang="en"><head><meta charset="utf-8">
   <div class="tabs">
     <button class="tab on" id="tabCompare" onclick="showTab('compare')">Compare two documents</button>
     <button class="tab" id="tabScan" onclick="showTab('scan')">Scan one document</button>
+    <button class="tab" id="tabFiles" onclick="showTab('files')">Any file</button>
   </div>
 
   <div id="paneCompare">
@@ -121,6 +124,19 @@ PAGE = r"""<!doctype html><html lang="en"><head><meta charset="utf-8">
     <div class="row"><button class="btn" onclick="runScan()">Scan ▶</button></div>
   </div>
 
+  <div id="paneFiles" style="display:none">
+    <div class="grid">
+      <div class="box"><h3>Reference file (your original)</h3>
+        <input class="file" type="file" id="fileRef"><div class="file">any type: document, JSON, CSV, image, audio, PDF…</div></div>
+      <div class="box"><h3>Received file (what arrived)</h3>
+        <input class="file" type="file" id="fileRcv"><div class="file">the copy to check against your original</div></div>
+    </div>
+    <div class="row"><button class="btn" onclick="runFiles()">Check files ▶</button></div>
+    <div class="file" style="margin-top:2px">Text-based files (documents, JSON, CSV, config, logs) get a full where-and-what
+      report. Images / audio / video / other binary files get an honest fingerprint verdict —
+      whether the file was tampered, not where inside it.</div>
+  </div>
+
   <div class="out" id="out"></div>
   <div class="foot"><b>NOTARIUS</b> · research prototype · runs offline on 127.0.0.1 · nothing leaves your machine ·
     it locates the lie, it does not prove intent</div>
@@ -129,9 +145,31 @@ PAGE = r"""<!doctype html><html lang="en"><head><meta charset="utf-8">
  function showTab(t){
    document.getElementById('paneCompare').style.display = t==='compare'?'block':'none';
    document.getElementById('paneScan').style.display    = t==='scan'?'block':'none';
+   document.getElementById('paneFiles').style.display   = t==='files'?'block':'none';
    document.getElementById('tabCompare').classList.toggle('on',t==='compare');
    document.getElementById('tabScan').classList.toggle('on',t==='scan');
+   document.getElementById('tabFiles').classList.toggle('on',t==='files');
    document.getElementById('out').innerHTML='';
+ }
+ function fileB64(input){ return new Promise((res,rej)=>{ const f=input.files[0];
+   if(!f){res(null);return;} const r=new FileReader();
+   r.onload=()=>res((r.result.split(',')[1])||''); r.onerror=rej; r.readAsDataURL(f); }); }
+ async function runFiles(){
+   const rb=await fileB64(document.getElementById('fileRef'));
+   const cb=await fileB64(document.getElementById('fileRcv'));
+   if(rb===null||cb===null){ out('<div class="empty">Choose both files.</div>'); return; }
+   try{ renderFiles(await post('/api/compare_file',{reference_b64:rb,received_b64:cb})); }
+   catch(e){ out('<div class="flag">Could not reach the local engine: '+esc(e.message)+'</div>'); }
+ }
+ function renderFiles(res){
+   if(res.kind==='identical'){ out('<div class="verdict v-ok">✔ Untouched — byte-for-byte identical to your reference.</div>'); return; }
+   if(res.kind==='text'){ render(res); return; }          // reuse the text renderer
+   let h='<div class="verdict v-bad">⚑ '+esc(res.summary)+'</div>';
+   h+='<div class="f"><div class="n">≠</div><div><div class="t">Fingerprints differ</div>'+
+      '<div class="fd">reference: <span class="code">'+esc(res.ref_sha.slice(0,24))+'…</span> ('+res.ref_size+' bytes)<br>'+
+      'received:&nbsp; <span class="code">'+esc(res.recv_sha.slice(0,24))+'…</span> ('+res.recv_size+' bytes)</div></div></div>';
+   h+='<div class="flag amber">'+esc(res.boundary)+'</div>';
+   out(h);
  }
  function loadFile(input,id){ const f=input.files[0]; if(!f) return;
    const r=new FileReader(); r.onload=()=>document.getElementById(id).value=r.result; r.readAsText(f); }
@@ -232,6 +270,14 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(200, json.dumps(res, ensure_ascii=False))
             if self.path == "/api/scan":
                 res = scan_document(payload.get("text", ""))
+                return self._send(200, json.dumps(res, ensure_ascii=False))
+            if self.path == "/api/compare_file":
+                try:
+                    ref = base64.b64decode(payload.get("reference_b64", ""))
+                    rcv = base64.b64decode(payload.get("received_b64", ""))
+                except (binascii.Error, ValueError):
+                    return self._send(400, json.dumps({"error": "bad file data"}))
+                res = analyze_files(ref, rcv)
                 return self._send(200, json.dumps(res, ensure_ascii=False))
             self._send(404, json.dumps({"error": "not found"}))
         except Exception as e:                       # never leak a stack to the page

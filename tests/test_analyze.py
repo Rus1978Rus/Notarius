@@ -12,7 +12,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from notarius.analyze import analyze_documents, scan_document   # noqa: E402
+from notarius.analyze import analyze_documents, analyze_files, scan_document  # noqa: E402
 
 
 class TestCompare(unittest.TestCase):
@@ -61,6 +61,29 @@ class TestScanOne(unittest.TestCase):
         r = scan_document("admin​istrator")
         self.assertEqual(r["hidden"]["risk"], "ALARM")
         self.assertIn("ALARM", r["summary"])
+
+
+class TestFiles(unittest.TestCase):
+    def test_identical_bytes(self):
+        r = analyze_files(b"same bytes", b"same bytes")
+        self.assertEqual(r["kind"], "identical")
+        self.assertTrue(r["identical"])
+
+    def test_text_file_gets_full_analysis(self):
+        # JSON is text → full where+what analysis, catches the value swap
+        r = analyze_files(b'{"amount": 1000}', b'{"amount": 9000}')
+        self.assertEqual(r["kind"], "text")
+        self.assertTrue(any(f["category"] == "VALUE_SUBSTITUTION" for f in r["findings"]))
+
+    def test_binary_gets_honest_fingerprint_verdict(self):
+        # PNG-like bytes (invalid UTF-8) → fingerprint verdict + honest boundary
+        png_a = b"\x89PNG\r\n\x1a\n\x00\x01\x02\xff\xfe"
+        png_b = b"\x89PNG\r\n\x1a\n\x00\x01\x02\xff\x00"
+        r = analyze_files(png_a, png_b)
+        self.assertEqual(r["kind"], "binary")
+        self.assertFalse(r["identical"])
+        self.assertNotEqual(r["ref_sha"], r["recv_sha"])
+        self.assertIn("not WHERE inside", r["boundary"])
 
 
 if __name__ == "__main__":

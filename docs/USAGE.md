@@ -44,6 +44,15 @@ Paste or load a **single** document to check it on its own for invisible
 characters and look-alike domains. Useful when you have no original to compare
 against.
 
+### Any file
+Pick **any two files** (not just text): the original and the received copy.
+- **Text-based files** (documents, JSON, CSV, XML, config, logs) get the full
+  where-and-what report, same as Compare.
+- **Images / audio / video / PDF / other binary** get an **honest fingerprint
+  verdict**: whether the file was tampered (its fingerprint changed) — **not**
+  where inside it. Seeing *where inside* a photo or audio needs a format-specific
+  reader, which this tool does not include, so it does not pretend to.
+
 > Note: a legitimately **bilingual** document (e.g. Russian text with Latin
 > terms) may raise a mixed-script flag here — that is expected, not an attack.
 > Compare mode does **not** have this issue: it only flags manipulation that was

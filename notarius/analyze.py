@@ -14,6 +14,7 @@ manipulation of the content — it does not judge intent
 from __future__ import annotations
 
 import difflib
+import hashlib
 
 from notarius.diagnose import diagnose_change
 from notarius.scanner import scan_hardened
@@ -80,6 +81,41 @@ def _line_finding(line: int, was: str, now: str) -> dict:
     diag = diagnose_change(was, now)
     return {"line": line, "category": diag["category"], "review": diag["review"],
             "was": was, "now": now, "human": diag["human"]}
+
+
+def analyze_files(orig: bytes, recv: bytes) -> dict:
+    """Compare ANY two files (bytes). Substrate-independent (AD-88, AD-95):
+      - identical bytes           → untouched;
+      - both decode as UTF-8 text → full text analysis (where + what changed),
+        which covers documents, JSON, CSV, XML, config, logs;
+      - otherwise (image/audio/PDF/binary) → an HONEST fingerprint verdict:
+        we can say IF the file was tampered, NOT where inside it (that needs a
+        format-specific media reader, which this tool does not include).
+    """
+    so = hashlib.sha256(orig).hexdigest()
+    sr = hashlib.sha256(recv).hexdigest()
+    if orig == recv:
+        return {"kind": "identical", "identical": True, "findings": [],
+                "hidden": {"risk": "OK", "signature": ""}, "url_risks": [],
+                "ref_sha": so, "recv_sha": sr,
+                "summary": "Identical — byte-for-byte the same file."}
+    try:
+        ot, rt = orig.decode("utf-8"), recv.decode("utf-8")
+    except UnicodeDecodeError:
+        return {
+            "kind": "binary", "identical": False, "findings": [],
+            "ref_sha": so, "recv_sha": sr,
+            "ref_size": len(orig), "recv_size": len(recv),
+            "summary": "The file was CHANGED — its fingerprint differs from the reference.",
+            "boundary": ("For images, audio, video and other binary files NOTARIUS "
+                         "tells you IF the file was tampered (the fingerprint changed), "
+                         "not WHERE inside it — that needs a format-specific reader, "
+                         "which this tool does not include."),
+        }
+    res = analyze_documents(ot, rt)          # text-based: full where+what analysis
+    res["kind"] = "text"
+    res["ref_sha"], res["recv_sha"] = so, sr
+    return res
 
 
 def scan_document(text: str) -> dict:
