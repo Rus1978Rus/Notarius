@@ -4,6 +4,14 @@
 > [`docs/product_mockup/notarius_presentation_live.html`](docs/product_mockup/notarius_presentation_live.html)
 > · static one-screen version: [`notarius_presentation.html`](docs/product_mockup/notarius_presentation.html)
 
+## ▶ Just want to try it? 3 steps
+
+1. **Install Python** (once) — [python.org/downloads](https://www.python.org/downloads/); on the first screen tick **“Add Python to PATH”**.
+2. **Download this project** — the green **Code** button above → **Download ZIP** → extract the folder.
+3. **Double-click `start.bat`** (Windows) or `start.sh` (macOS/Linux) — the app opens in your browser.
+
+Then press **“Load a demo example”**, or open the *Compare* tab and load the two files from [`examples/`](examples/) to watch it catch **invisible characters the eye can’t see**. Everything runs offline on your machine — nothing is uploaded. No extra libraries needed to try it (just Python).
+
 # NOTARIUS — working ground
 
 Project author: Ruslan Malyavskiy.
