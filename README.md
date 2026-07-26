@@ -1,5 +1,9 @@
 ![NOTARIUS — semantic provenance and tamper-localization: it shows where and what changed in a document](docs/assets/notarius_hero.png)
 
+> ▶ **Live walkthrough** (click through it one finding at a time — open in any browser, runs offline):
+> [`docs/product_mockup/notarius_presentation_live.html`](docs/product_mockup/notarius_presentation_live.html)
+> · static one-screen version: [`notarius_presentation.html`](docs/product_mockup/notarius_presentation.html)
+
 # NOTARIUS — working ground
 
 Project author: Ruslan Malyavskiy.

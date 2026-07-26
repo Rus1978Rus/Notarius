@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOTARIUS — live walkthrough</title>
+<style>
+  :root{
+    --navy:#0E2A3F; --ink:#1B2A36; --mut:#5B6B77; --line:#E2E8EE; --bg:#F5F8FB;
+    --card:#FFFFFF; --teal:#1C7E8C; --red:#C0392B; --amber:#C77A11; --green:#2E7D57;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px 40px;}
+  .banner{background:linear-gradient(135deg,#0E2A3F 0%,#123B57 100%);color:#EAF2F7;
+    padding:26px 34px;border-radius:0 0 18px 18px;box-shadow:0 8px 24px #0e2a3f22;}
+  .brand{display:flex;align-items:center;gap:14px;margin-bottom:12px;}
+  .mark{width:40px;height:40px;border-radius:9px;border:2px solid #7FD3C9;
+    display:grid;place-items:center;font-weight:800;color:#7FD3C9;font-size:20px;}
+  .brand h1{margin:0;font-size:25px;letter-spacing:.5px;font-weight:800;}
+  .brand .tag{color:#9FC0CF;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+  .lede{font-size:15.5px;line-height:1.5;max-width:900px;color:#DCE9F0;margin:0;}
+  .lede b{color:#fff;} .lede .rule{display:block;margin-top:6px;color:#8FB8C7;font-style:italic;font-size:14px;}
+
+  /* controls */
+  .bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:22px 0 6px;}
+  .btn{border:0;cursor:pointer;font:600 15px/1 inherit;padding:11px 18px;border-radius:10px;
+    background:var(--navy);color:#fff;box-shadow:0 2px 8px #0e2a3f22;transition:.15s;}
+  .btn:hover{filter:brightness(1.12)} .btn:disabled{opacity:.4;cursor:default}
+  .btn.ghost{background:#fff;color:var(--navy);border:1px solid var(--line);box-shadow:none;}
+  .btn.big{background:var(--teal);}
+  .dots{display:flex;gap:9px;margin-left:auto;}
+  .dot{width:30px;height:30px;border-radius:50%;border:2px solid #C3D2DD;background:#fff;color:#7A8b96;
+    font-weight:800;font-size:13px;display:grid;place-items:center;cursor:pointer;transition:.15s;}
+  .dot.done{background:var(--navy);border-color:var(--navy);color:#fff;}
+  .dot.cur{border-color:var(--teal);box-shadow:0 0 0 3px #1c7e8c33;transform:scale(1.08);}
+  .prog{height:6px;background:#E4EBF1;border-radius:6px;overflow:hidden;margin:6px 0 20px;}
+  .prog > i{display:block;height:100%;width:0;background:linear-gradient(90deg,#1C7E8C,#2E7D57);
+    transition:width .35s ease;}
+  .hint{color:var(--mut);font-size:12.5px;margin:-12px 0 16px;}
+  .hint kbd{background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;
+    padding:1px 6px;font:600 11px/1 Consolas,monospace;color:#40525F;}
+
+  .cols{display:grid;grid-template-columns:0.92fr 1.08fr;gap:22px;align-items:start;}
+  @media(max-width:860px){.cols{grid-template-columns:1fr}}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    box-shadow:0 2px 10px #123b5710;overflow:hidden;}
+  .phead{padding:12px 16px;border-bottom:1px solid var(--line);
+    font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);
+    display:flex;justify-content:space-between;align-items:center;}
+  .scan{font-size:11px;color:var(--teal);font-weight:700;opacity:0;transition:.2s;}
+  .scan.on{opacity:1;}
+
+  .doc{padding:18px 20px;font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:14.5px;line-height:2;color:#24333F;}
+  .doc .row{display:flex;justify-content:space-between;gap:10px;}
+  .doc .lbl{color:#6a7b87;}
+  .flag{border-radius:4px;padding:0 4px;transition:background .3s, color .3s, box-shadow .3s;}
+  .flag.red.on{background:#FBE4E1;color:#B32B1C;font-weight:700;box-shadow:0 0 0 2px #c0392b33;}
+  .flag.am.on{background:#FBF0DC;color:#8A5A0B;box-shadow:0 0 0 2px #c77a1133;}
+  .zw{display:inline-block;background:#8A5A0B;color:#fff;font-size:10px;font-weight:700;border-radius:3px;
+    padding:0 4px;margin:0 1px;vertical-align:middle;opacity:.25;transition:.3s;}
+  .zw.on{opacity:1;}
+  .strike.on{text-decoration:line-through;color:#B32B1C;}
+  .doc .meta{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);color:#6a7b87;font-size:12.5px;}
+
+  .finds{padding:14px 16px;display:flex;flex-direction:column;gap:11px;min-height:120px;}
+  .empty{color:#9AA9B4;font-size:14px;text-align:center;padding:34px 10px;}
+  .f{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:12px 13px;border:1px solid var(--line);
+    border-radius:11px;background:#FCFDFE;opacity:0;transform:translateY(8px);transition:.3s;display:none;}
+  .f.show{display:grid;opacity:1;transform:none;}
+  .f.flash{box-shadow:0 0 0 3px #1c7e8c33;}
+  .n{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:13px;display:grid;place-items:center;}
+  .f .t{font-weight:700;font-size:14.5px;margin:1px 0 4px;color:#1B2A36;}
+  .f .d{font-size:13.5px;color:#4C5A65;line-height:1.5;}
+  .pill{display:inline-block;font-family:Consolas,monospace;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:middle;}
+  .p-red{background:#F7E1DE;color:var(--red);} .p-am{background:#F6ECD8;color:var(--amber);} .p-navy{background:#E1EAF1;color:#1C4E6E;}
+  .code{font-family:Consolas,monospace;background:#EEF3F7;color:#1C4E6E;border-radius:4px;padding:0 5px;font-size:12.5px;}
+
+  .verdict{margin-top:22px;background:#0E2A3F;color:#EAF2F7;border-radius:14px;padding:18px 22px;
+    display:flex;gap:16px;align-items:flex-start;opacity:0;max-height:0;overflow:hidden;transition:.4s;}
+  .verdict.show{opacity:1;max-height:200px;}
+  .verdict .chk{width:34px;height:34px;border-radius:9px;background:#1f6f5b;display:grid;place-items:center;font-size:19px;flex:none;}
+  .verdict b{color:#fff;} .verdict .s{color:#9FC0CF;font-size:13.5px;margin-top:3px;}
+  .foot{margin-top:14px;color:#7A8b96;font-size:12px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="banner"><div class="wrap" style="padding:0">
+  <div class="brand"><div class="mark">N</div><div>
+    <h1>NOTARIUS</h1><div class="tag">Live walkthrough · click through what it catches</div></div></div>
+  <p class="lede"><b>Semantic provenance for documents.</b> It doesn't store your files — it catches the lie <i>inside</i> them.
+    Press <b>Next</b> to scan a single invoice, one finding at a time.
+    <span class="rule">It locates the lie; it does not judge intent.</span></p>
+</div></div>
+
+<div class="wrap">
+  <div class="bar">
+    <button class="btn" id="prev">◀ Prev</button>
+    <button class="btn big" id="next">Scan next ▶</button>
+    <button class="btn ghost" id="reset">Reset</button>
+    <button class="btn ghost" id="all">Show all</button>
+    <div class="dots" id="dots"></div>
+  </div>
+  <div class="prog"><i id="progbar"></i></div>
+  <div class="hint">Tip for live show: <kbd>→</kbd> / <kbd>Space</kbd> next · <kbd>←</kbd> back · <kbd>R</kbd> reset · <kbd>A</kbd> show all</div>
+
+  <div class="cols">
+    <div class="panel">
+      <div class="phead"><span>The received invoice</span><span class="scan" id="scan">● scanning…</span></div>
+      <div class="doc">
+        <div class="row"><span class="lbl">document</span><span>Invoice&nbsp;No.77</span></div>
+        <div class="row"><span class="lbl">from → to</span><span>Aktiv-Finance → Contractor&nbsp;LLC</span></div>
+        <div class="row"><span class="lbl">amount</span><span><span class="flag red" id="hl-amt">9&nbsp;000&nbsp;000&nbsp;USD</span></span></div>
+        <div class="row"><span class="lbl">terms</span><span>amount&nbsp;<span class="flag am" id="hl-zw">pay<span class="zw" id="zw">zwsp</span>able</span>&nbsp;on receipt</span></div>
+        <div class="row"><span class="lbl">reply-to</span><span><span class="flag am" id="hl-dom">paypаl.com</span></span></div>
+        <div class="row"><span class="lbl">route</span><span>Created → <span class="strike" id="hl-route">Checked</span> → Released</span></div>
+        <div class="meta">Reference on file said <b>1&nbsp;000&nbsp;000&nbsp;USD</b>. Watch NOTARIUS find what differs.</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="phead"><span>What NOTARIUS reports</span><span class="code" id="counter">0 / 5</span></div>
+      <div class="finds" id="finds">
+        <div class="empty" id="empty">Press <b>Scan next ▶</b> to begin.</div>
+        <div class="f" id="f1"><div class="n">1</div><div>
+          <div class="t">Amount swapped <span class="pill p-red">VALUE_SUBSTITUTION</span></div>
+          <div class="d">Line 3: <span class="code">1 000 000 → 9 000 000</span> — a zero was added. Where and what, exactly.</div></div></div>
+        <div class="f" id="f2"><div class="n">2</div><div>
+          <div class="t">Hidden character <span class="pill p-red">ALARM · zw_wordsplit</span></div>
+          <div class="d">An invisible zero-width character sits inside the word <span class="code">pay&#8203;able</span> — the edit was masked.</div></div></div>
+        <div class="f" id="f3"><div class="n">3</div><div>
+          <div class="t">Look-alike domain <span class="pill p-am">HIGH · homoglyph</span></div>
+          <div class="d"><span class="code">paypаl.com</span> uses a Cyrillic “а” masquerading as Latin — not the real domain.</div></div></div>
+        <div class="f" id="f4"><div class="n">4</div><div>
+          <div class="t">Whose link broke <span class="pill p-navy">TRACE_BREAK · step 3</span></div>
+          <div class="d">Chain Aktiv-Finance → Auditor → …; the forged link is signed by a key <b>not</b> in the trusted set. Last honest signer: Auditor.</div></div></div>
+        <div class="f" id="f5"><div class="n">5</div><div>
+          <div class="t">A step that never happened <span class="pill p-navy">MISSING_STEP · CHECKED</span></div>
+          <div class="d">The mandatory route requires <span class="code">Checked</span> (Warehouse) before release — it was skipped. Not a forgery, an <i>absence</i>.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="verdict" id="verdict">
+    <div class="chk">✓</div><div>
+      <b>The trace locates the lie — where it is and whose link carries it.</b>
+      <div class="s">It does not prove intent (an honest mistake vs. deliberate fraud) — that judgment stays with a human. TRACE_LOCATES_THE_LIE ≠ TRACE_PROVES_THE_TRUTH.</div></div>
+  </div>
+  <div class="foot">NOTARIUS · research prototype · proprietary, all rights reserved · runs offline, nothing leaves your machine</div>
+</div>
+
+<script>
+  const STEPS = [
+    {card:'f1', hl:'hl-amt'},
+    {card:'f2', hl:'hl-zw', extra:'zw'},
+    {card:'f3', hl:'hl-dom'},
+    {card:'f4'},
+    {card:'f5', hl:'hl-route'},
+  ];
+  const N = STEPS.length;
+  let cur = 0;                                  // 0 = nothing shown, N = all
+  const $ = id => document.getElementById(id);
+  const dotsBox = $('dots');
+  for(let i=1;i<=N;i++){ const d=document.createElement('div'); d.className='dot'; d.textContent=i;
+    d.onclick=()=>goTo(i); dotsBox.appendChild(d); }
+
+  function render(flashIdx){
+    // findings + invoice highlights
+    STEPS.forEach((s,i)=>{
+      const on = i < cur;
+      $(s.card).classList.toggle('show', on);
+      if(s.hl) $(s.hl).classList.toggle('on', on);
+      if(s.extra) $(s.extra).classList.toggle('on', on);
+      if(s.hl==='hl-route') $(s.hl).classList.toggle('on', on);
+    });
+    $('empty').style.display = cur===0 ? 'block':'none';
+    // dots + progress + counter
+    [...dotsBox.children].forEach((d,i)=>{
+      d.classList.toggle('done', i < cur);
+      d.classList.toggle('cur', i === cur-1);
+    });
+    $('progbar').style.width = (cur/N*100)+'%';
+    $('counter').textContent = cur+' / '+N;
+    $('scan').classList.toggle('on', cur>0 && cur<N);
+    $('verdict').classList.toggle('show', cur>=N);
+    $('prev').disabled = cur===0;
+    $('next').disabled = cur>=N;
+    $('next').textContent = cur>=N ? 'Done ✓' : (cur===0?'Scan invoice ▶':'Scan next ▶');
+    if(flashIdx!=null){ const el=$(STEPS[flashIdx].card); el.classList.add('flash');
+      setTimeout(()=>el.classList.remove('flash'),650); }
+  }
+  function goTo(n){ const prev=cur; cur=Math.max(0,Math.min(N,n));
+    render(cur>prev ? cur-1 : null); }
+  $('next').onclick=()=>goTo(cur+1);
+  $('prev').onclick=()=>goTo(cur-1);
+  $('reset').onclick=()=>goTo(0);
+  $('all').onclick=()=>goTo(N);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();goTo(cur+1);}
+    else if(e.key==='ArrowLeft'){goTo(cur-1);}
+    else if(e.key==='r'||e.key==='R'){goTo(0);}
+    else if(e.key==='a'||e.key==='A'){goTo(N);}
+  });
+  render();
+</script>
+</body>
+</html>
