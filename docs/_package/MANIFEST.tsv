@@ -101,7 +101,7 @@ notarius/cosign.py	9687	902078845b5f	LLM_GENERATED_CODE
 notarius/custody.py	6015	73b77f7d98b6	LLM_GENERATED_CODE
 notarius/data/confusables_ascii.txt	22233	017cee6df33d	LLM_GENERATED_CODE
 notarius/detect.py	13472	09517d0093b2	LLM_GENERATED_CODE
-notarius/diagnose.py	5664	3e1e733c8431	LLM_GENERATED_CODE
+notarius/diagnose.py	6338	029d7e00628e	LLM_GENERATED_CODE
 notarius/envelope_v2.py	4567	a93751173e05	LLM_GENERATED_CODE
 notarius/frost.py	6872	816289ed37d5	LLM_GENERATED_CODE
 notarius/homoglyph.py	4183	00bb3fe91824	LLM_GENERATED_CODE
@@ -138,7 +138,7 @@ tests/test_cli.py	2120	2f2ac61e07e9	LLM_GENERATED_CODE
 tests/test_cosign.py	6295	adba107f5e69	LLM_GENERATED_CODE
 tests/test_custody.py	3359	1630fcc68fd5	LLM_GENERATED_CODE
 tests/test_detect.py	6419	5025b59f5001	LLM_GENERATED_CODE
-tests/test_diagnose.py	3481	aa7f51ac1df1	LLM_GENERATED_CODE
+tests/test_diagnose.py	4289	680e59b5a96e	LLM_GENERATED_CODE
 tests/test_frost.py	3746	ed936ad0fb44	LLM_GENERATED_CODE
 tests/test_homoglyph.py	5067	43d368241308	LLM_GENERATED_CODE
 tests/test_integrations.py	2202	6c3f26234989	LLM_GENERATED_CODE

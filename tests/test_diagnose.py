@@ -39,6 +39,22 @@ class TestDiagnose(unittest.TestCase):
         self.assertEqual(d["review"], "high")
         self.assertIn("U+200B", d["details"]["inserted"])
 
+    def test_whitespace_changed(self):
+        # only spaces differ (the user's real case: an extra space) → low
+        d = diagnose_change("test on the live loop", "test on the  live loop")
+        self.assertEqual(d["category"], "WHITESPACE_CHANGED")
+        self.assertEqual(d["review"], "low")
+
+    def test_whitespace_does_not_mask_a_number(self):
+        # a space added inside a number is NOT "just whitespace" — it regroups
+        # digits, so the stronger VALUE_SUBSTITUTION must win.
+        d = diagnose_change("amount 1000", "amount 1 000")
+        self.assertEqual(d["category"], "VALUE_SUBSTITUTION")
+
+    def test_whitespace_does_not_mask_an_invisible(self):
+        d = diagnose_change("pay able", "pay" + ZWSP + " able")
+        self.assertEqual(d["category"], "INVISIBLE_INSERTION")
+
     def test_normalization_equivalent(self):
         # real case NFKC: the ligature ﬃ → ffi
         orig = "файл=oﬃce.pdf"

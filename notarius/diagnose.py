@@ -16,6 +16,7 @@ Categories (in priority order):
   HOMOGLYPH_SUBSTITUTION  — letters swapped for lookalikes (Cyr/Grk)  [review]
   NORMALIZATION_EQUIVALENT— bytes differ, but NFKC-equivalent        [low]
   CHAR_LOSS               — characters lost during transcoding       [medium]
+  WHITESPACE_CHANGED      — only spaces/tabs/indentation differ       [low]
   CONTENT_CHANGED         — changed, not classified                  [medium]
   IDENTICAL               — no change                                [none]
 """
@@ -29,11 +30,13 @@ from notarius.detect import _monitored
 from notarius.homoglyph import confusables_in, deconfuse
 
 _DIGITS = re.compile(r"\d+")
+_WS = re.compile(r"\s+")
 
 _REVIEW = {
     "IDENTICAL": "none",
     "NORMALIZATION_EQUIVALENT": "low",
     "CHAR_LOSS": "medium",
+    "WHITESPACE_CHANGED": "low",
     "CONTENT_CHANGED": "medium",
     "INVISIBLE_INSERTION": "high",
     "HOMOGLYPH_SUBSTITUTION": "high",
@@ -95,7 +98,16 @@ def diagnose_change(original: str, current: str) -> dict:
                    f"characters lost during transcoding {show} — "
                    f"check whether anything important was lost")
 
-    # 5. Changed, but not classified.
+    # 5. Whitespace only: identical once spaces/tabs/newlines are removed. The
+    # visible characters are the same — usually cosmetic (re-indent, extra
+    # space), occasionally used to shift alignment. Invisibles were already
+    # caught above (step 2), so this is ordinary whitespace.
+    if _WS.sub("", original) == _WS.sub("", current):
+        return _mk("WHITESPACE_CHANGED", {},
+                   "only whitespace changed (spaces/tabs/indentation) — the "
+                   "visible text is the same; usually cosmetic")
+
+    # 6. Changed, but not classified.
     return _mk("CONTENT_CHANGED", {}, "content changed (not classified)")
 
 
