@@ -31,10 +31,9 @@ def analyze_documents(orig_text: str, recv_text: str) -> dict:
       }
     """
     if orig_text == recv_text:
-        hidden = scan_hardened(recv_text)
-        return {"identical": True, "findings": [], "hidden": hidden,
-                "url_risks": find_url_context_risks(recv_text),
-                "summary": "Identical to the reference — untouched."}
+        # nothing was introduced by the transfer → no "manipulation" to report
+        return {"identical": True, "findings": [], "hidden": {"risk": "OK", "signature": ""},
+                "url_risks": [], "summary": "Identical to the reference — untouched."}
 
     o_lines, r_lines = orig_text.splitlines(), recv_text.splitlines()
     sm = difflib.SequenceMatcher(None, o_lines, r_lines, autojunk=False)
@@ -54,11 +53,23 @@ def analyze_documents(orig_text: str, recv_text: str) -> dict:
             for k in range(j1, j2):
                 findings.append(_line_finding(k + 1, "«no such line before»", r_lines[k]))
 
-    hidden = scan_hardened(recv_text)
-    url_risks = find_url_context_risks(recv_text)
+    # "Manipulation" = what the transfer INTRODUCED, not the document's own
+    # nature. A legitimately bilingual document (Russian + Latin terms) trips the
+    # mixed-script detector, but if the SAME signature is already in the
+    # reference, nothing was introduced — do not raise a false alarm.
+    recv_scan = scan_hardened(recv_text)
+    orig_scan = scan_hardened(orig_text)
+    introduced = (recv_scan.get("risk") == "ALARM"
+                  and recv_scan.get("signature") != orig_scan.get("signature"))
+    hidden = recv_scan if introduced else {"risk": "OK", "signature": ""}
+
+    orig_url_tokens = {u["token"] for u in find_url_context_risks(orig_text)}
+    url_risks = [u for u in find_url_context_risks(recv_text)
+                 if u["token"] not in orig_url_tokens]      # only newly-introduced ones
+
     summary = f"{len(findings)} changed line(s)."
     if hidden.get("risk") == "ALARM":
-        summary += f" Hidden manipulation in content ({hidden.get('signature')})."
+        summary += f" Hidden manipulation introduced ({hidden.get('signature')})."
     if url_risks:
         summary += f" {len(url_risks)} suspicious domain/URL(s)."
     return {"identical": False, "findings": findings, "hidden": hidden,

@@ -1672,6 +1672,28 @@ TRACE_PROVES_THE_TRUTH). Privacy is structural: localhost-only bind.
 COST: $0. Paid options (code-signing ~$100–500/yr for a no-Python installer, or
 hosting for a public URL) are deferred until a real distribution need appears.
 
+### AD-94. Compare = what was INTRODUCED, not the document's own nature (2026-07-26)
+**EVENT:** the author ran the app on a real bilingual file (Russian prose +
+Latin terms) and Compare raised a false "hidden manipulation
+(homoglyph_mixed_script)" — even when both sides were the same document, so
+nothing was actually manipulated.
+
+**FIX (analyze.py):** in Compare mode, the whole-document content alarm is now
+raised ONLY when it is INTRODUCED — the received carries an ALARM signature that
+the reference does not. A legitimately bilingual document trips the mixed-script
+detector, but if the same signature is already in the reference, nothing was
+smuggled by the transfer, so no alarm. Same rule for look-alike domains: only
+those newly present in the received are reported. Per-line diagnosis still
+classifies introduced invisibles/homoglyphs on the changed lines, so real
+manipulation is not lost (verified: the paypal→paypаl demo still fires).
+
+This is the correct semantics of "manipulation" for a comparison: it is a
+property of the DIFF (original → received), not of the document in isolation.
+The single-document Scan tab is unchanged — there, "this document mixes scripts"
+is a true statement (with the honest caveat that bilingual text will flag).
+Regression test added; suite 247 green. Detection layer sourced from Vakhter/MSL
+(AD-83) untouched — only how the app INTERPRETS it for compare changed.
+
 ---
 
 Recorded by: Claude (Anthropic), sessions 2026-07-21/22/23/24/25/26, per the author's responses.

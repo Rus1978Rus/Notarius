@@ -35,10 +35,20 @@ class TestCompare(unittest.TestCase):
         self.assertTrue(any(f["category"] == "INVISIBLE_INSERTION" for f in r["findings"]))
 
     def test_homoglyph_domain_flagged(self):
-        # Cyrillic 'а' (U+0430) in the host — a look-alike domain
+        # Cyrillic 'а' (U+0430) in the host — a look-alike domain, INTRODUCED
         r = analyze_documents("reply-to: paypal.com", "reply-to: paypаl.com")
         self.assertTrue(r["url_risks"])
         self.assertEqual(r["url_risks"][0]["issue"], "homoglyph_in_host")
+
+    def test_preexisting_manipulation_not_reflagged(self):
+        # a mixed-script token already in the ORIGINAL (legit bilingual / pre-existing)
+        # must NOT be reported as manipulation — only what the transfer INTRODUCED.
+        ref = "user: аdmin\namount: 1000"     # 'аdmin' with a Cyrillic 'а' already here
+        rcv = "user: аdmin\namount: 2000"     # same token; only the amount changed
+        r = analyze_documents(ref, rcv)
+        self.assertFalse(r["identical"])
+        self.assertEqual(r["hidden"]["risk"], "OK")   # not introduced → no false alarm
+        self.assertTrue(any(f["category"] == "VALUE_SUBSTITUTION" for f in r["findings"]))
 
 
 class TestScanOne(unittest.TestCase):
