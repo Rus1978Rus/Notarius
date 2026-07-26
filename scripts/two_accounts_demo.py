@@ -29,10 +29,10 @@ sys.path.insert(0, str(ROOT))
 
 from notarius.cli import cmd_check, cmd_seal   # noqa: E402
 
-INVOICE = ("СЧЁТ №77\n"
-           "плательщик: ООО «Клиент»\n"
-           "сумма к оплате: 1 000 000 USD\n"
-           "срок: 2026-08-01\n")
+INVOICE = ("INVOICE No.77\n"
+           "payer: Client LLC\n"
+           "amount payable: 1 000 000 USD\n"
+           "due date: 2026-08-01\n")
 
 
 def banner(t):
@@ -63,7 +63,7 @@ def main():
     print(f"  delivered to the receiver's box: {delivered}")
 
     banner("STEP 3. The MAILMAN intercepts and edits the amount in the attachment")
-    tampered = INVOICE.replace("1 000 000", "9 000 000").replace("оплате", "опла​те")
+    tampered = INVOICE.replace("1 000 000", "9 000 000").replace("payable", "pay​able")
     delivered.write_text(tampered, encoding="utf-8")
     print("  in the incoming: amount 1 000 000 → 9 000 000, the edit hidden by an invisible char")
 

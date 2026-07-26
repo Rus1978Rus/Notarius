@@ -42,10 +42,10 @@ def act(n, title):
 
 
 # Canonical report text as Party A sends it.
-DOC_CANON = ("ОТЧЁТ О ПЛАТЕЖЕ\n"
-             "получатель: ООО «Подрядчик»\n"
-             "сумма к переводу: 1000000 RUB\n"
-             "основание: акт №77 от 2026-07-20\n")
+DOC_CANON = ("PAYMENT REPORT\n"
+             "recipient: Contractor LLC\n"
+             "amount to transfer: 1000000 RUB\n"
+             "basis: act No.77 dated 2026-07-20\n")
 
 
 def main():
@@ -81,9 +81,9 @@ def main():
 
     # ── ACT 2: hostile delivery ────────────────────────────────────────
     act(2, "In transit the channel substituted the amount and masked the edit")
-    # 1000000 → 9000000, plus an invisible separator inside the word "переводу"
+    # 1000000 → 9000000, plus an invisible separator inside the word "transfer"
     tampered_text = DOC_CANON.replace("1000000", "9000000").replace(
-        "переводу", "перево​ду")
+        "transfer", "trans​fer")
     delivered = tampered_text.encode("utf-8")
     print("Party B received the report over the delivery channel. The bytes differ from")
     print("the original — but the edit is invisible to the eye (amount + invisible char).")

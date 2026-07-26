@@ -6,10 +6,10 @@
 
 Substrate-independence (FO-013): the core works on any element. One managed
 set (notarius.record), but the fields carry DIFFERENT carriers:
-  - сумма            — text/number
-  - печать_директора — image (PNG)
-  - аудио_согласие   — sound (WAV)
-  - реестр_позиций   — data (JSON)
+  - amount            — text/number
+  - director_seal — image (PNG)
+  - audio_consent   — sound (WAV)
+  - line_items   — data (JSON)
 
 Each field stores the FINGERPRINT of its file (sha256) and has its own keeper.
 Substituting ANY carrier changes the fingerprint → the core catches it and
@@ -65,19 +65,19 @@ def line(c="─"):
 def main():
     ws = Path(tempfile.mkdtemp(prefix="carriers_"))
     files = {
-        "сумма": ws / "amount.txt",
-        "печать_директора": ws / "stamp.png",
-        "аудио_согласие": ws / "consent.wav",
-        "реестр_позиций": ws / "items.json",
+        "amount": ws / "amount.txt",
+        "director_seal": ws / "stamp.png",
+        "audio_consent": ws / "consent.wav",
+        "line_items": ws / "items.json",
     }
-    files["сумма"].write_text("1000000 USD", encoding="utf-8")
-    files["печать_директора"].write_bytes(PNG)
-    files["аудио_согласие"].write_bytes(tiny_wav())
-    files["реестр_позиций"].write_text('{"позиций": 3, "итог": 1000000}', encoding="utf-8")
+    files["amount"].write_text("1000000 USD", encoding="utf-8")
+    files["director_seal"].write_bytes(PNG)
+    files["audio_consent"].write_bytes(tiny_wav())
+    files["line_items"].write_text('{"items": 3, "total": 1000000}', encoding="utf-8")
 
     a_priv, _ = kp()
-    keepers = {"сумма": "Казначей", "печать_директора": "Нотариус",
-               "аудио_согласие": "Секретарь", "реестр_позиций": "Бухгалтер"}
+    keepers = {"amount": "Treasurer", "director_seal": "Notary",
+               "audio_consent": "Secretary", "line_items": "Accountant"}
     kk = {}
     kprivs = {}
     for role in set(keepers.values()):
@@ -85,7 +85,7 @@ def main():
 
     # field values = file FINGERPRINTS (carrier-agnostic)
     fields = {name: fp(path) for name, path in files.items()}
-    rec = create_record(fields, keepers, kk, "Автор", a_priv, "09:00")
+    rec = create_record(fields, keepers, kk, "Author", a_priv, "09:00")
 
     line("═"); print("A SET OF DIFFERENT CARRIERS (each with its own keeper):"); line("═")
     for name, path in files.items():
@@ -97,17 +97,17 @@ def main():
     print("\n① ORIGINAL:", human_audit(audit(rec, [], current)))
 
     # ── IMAGE substitution: flip one byte in the PNG ───────────────────
-    b = bytearray(files["печать_директора"].read_bytes())
+    b = bytearray(files["director_seal"].read_bytes())
     b[-5] ^= 0x01                              # 1 bit in the image body
-    files["печать_директора"].write_bytes(bytes(b))
+    files["director_seal"].write_bytes(bytes(b))
     current2 = {name: fp(path) for name, path in files.items()}
     line("═"); print("② IMAGE SUBSTITUTION (director's stamp, 1 byte):"); line("═")
     print("   " + human_audit(audit(rec, [], current2)).replace("\n", "\n   "))
 
     # ── SOUND substitution: change a sample in the WAV ─────────────────
-    w = bytearray(files["аудио_согласие"].read_bytes())
+    w = bytearray(files["audio_consent"].read_bytes())
     w[-1] ^= 0xFF
-    files["аудио_согласие"].write_bytes(bytes(w))
+    files["audio_consent"].write_bytes(bytes(w))
     current3 = {name: fp(path) for name, path in files.items()}
     line("═"); print("③ SOUND SUBSTITUTION (audio consent) + image still tampered:"); line("═")
     print("   " + human_audit(audit(rec, [], current3)).replace("\n", "\n   "))

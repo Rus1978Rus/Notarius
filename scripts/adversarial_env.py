@@ -28,7 +28,7 @@ from notarius.envelope_v2 import (          # noqa: E402
 from notarius.scanner import scan_hardened   # noqa: E402
 from notarius.diagnose import assemble        # noqa: E402
 
-VALUE = "Плательщик=Иванов сумма=1000₽ файл=oﬃce.pdf замок=🔒"
+VALUE = "Payer=Ivanov amount=1000₽ file=oﬃce.pdf lock=🔒"
 
 
 def _run(cmd, data: bytes) -> bytes:
@@ -62,7 +62,7 @@ def env_sed_edit(s: str) -> str:
 def env_inject_invisible(s: str) -> str:
     """A gateway that appends an invisible char (ZWSP) into a field — as some
     editors/gateways do. We insert a zero-width char inside the name (hidden)."""
-    return s.replace("Иванов", "Ива​нов")
+    return s.replace("Ivanov", "Iva​nov")
 
 
 def env_gzip(s: str) -> str:

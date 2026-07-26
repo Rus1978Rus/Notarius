@@ -34,21 +34,21 @@ def line(c="─"):
 
 def main():
     a_priv, _ = kp()
-    kaz_priv, kaz_pub = kp()      # Казначей (Treasurer) — keeper of the NUMBERS
-    jur_priv, jur_pub = kp()      # Юрист (Lawyer) — keeper of the deadline
-    men_priv, men_pub = kp()      # Менеджер (Manager) — keeper of the recipient
+    kaz_priv, kaz_pub = kp()      # Treasurer (Treasurer) — keeper of the NUMBERS
+    jur_priv, jur_pub = kp()      # Lawyer (Lawyer) — keeper of the deadline
+    men_priv, men_pub = kp()      # Manager (Manager) — keeper of the recipient
 
     rec = create_record(
-        {"получатель": "ООО Подрядчик", "сумма": "1000000 USD", "срок_оплаты": ""},
-        {"получатель": "Менеджер", "сумма": "Казначей", "срок_оплаты": "Юрист"},
-        {"Менеджер": men_pub, "Казначей": kaz_pub, "Юрист": jur_pub},
-        "Автор", a_priv, "09:00")
+        {"recipient": "Contractor LLC", "amount": "1000000 USD", "due_date": ""},
+        {"recipient": "Manager", "amount": "Treasurer", "due_date": "Lawyer"},
+        {"Manager": men_pub, "Treasurer": kaz_pub, "Lawyer": jur_pub},
+        "Author", a_priv, "09:00")
 
-    line("═"); print("LIVING DOCUMENT: each field has its own keeper (сумма → Казначей)"); line("═")
+    line("═"); print("LIVING DOCUMENT: each field has its own keeper (amount → Treasurer)"); line("═")
 
     # legitimate progression: each edits THEIR OWN field
-    e1 = edit_field(rec, "Юрист", jur_priv, "10:00", "срок_оплаты", "до 2026-08-10")
-    e2 = edit_field(e1, "Казначей", kaz_priv, "11:30", "сумма", "1050000 USD")
+    e1 = edit_field(rec, "Lawyer", jur_priv, "10:00", "due_date", "until 2026-08-10")
+    e2 = edit_field(e1, "Treasurer", kaz_priv, "11:30", "amount", "1050000 USD")
     edits = [e1, e2]
 
     print("\nREADER FOOTNOTE (who / where / when):")
@@ -60,15 +60,15 @@ def main():
 
     # three forgeries
     line("═"); print("FORGERIES (all localized to the field)"); line("═")
-    bad_role = [e1, edit_field(e1, "Менеджер", men_priv, "11:40", "сумма", "9000000 USD")]
-    print("① Менеджер meddles with the numbers:")
+    bad_role = [e1, edit_field(e1, "Manager", men_priv, "11:40", "amount", "9000000 USD")]
+    print("① Manager meddles with the numbers:")
     print("   " + human_audit(audit(rec, bad_role)).replace("\n", "\n   "))
 
-    forged = dict(official); forged["сумма"] = "9000000 USD"
-    print("\n② Field сумма changed WITHOUT a signature:")
+    forged = dict(official); forged["amount"] = "9000000 USD"
+    print("\n② Field amount changed WITHOUT a signature:")
     print("   " + human_audit(audit(rec, edits, forged)).replace("\n", "\n   "))
 
-    inject = dict(official); inject["скрытая_строка"] = "перевести на счёт XX"
+    inject = dict(official); inject["hidden_line"] = "transfer to account XX"
     print("\n③ A new slot was slipped in:")
     print("   " + human_audit(audit(rec, edits, inject)).replace("\n", "\n   "))
 

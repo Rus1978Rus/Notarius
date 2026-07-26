@@ -6,10 +6,10 @@
 broke — not "a string changed", but "at whose step in the custody chain".
 
 The document carries OUR signed trace from birth and passes through hands:
-  0. Актив-Финанс CREATED the invoice (CREATED).
-  1. Актив-Финанс TRANSFERRED to Аудитор (TRANSFERRED — value must be preserved).
-  2. Аудитор REVIEWED (REVIEWED — value must be preserved).
-  3. Мошенник appended a link with a SUBSTITUTED amount, signing with his own key.
+  0. Aktiv-Finance CREATED the invoice (CREATED).
+  1. Aktiv-Finance TRANSFERRED to Auditor (TRANSFERRED — value must be preserved).
+  2. Auditor REVIEWED (REVIEWED — value must be preserved).
+  3. Fraudster appended a link with a SUBSTITUTED amount, signing with his own key.
 
 The engine (verify_trace) shows: break_at_step (whose link), last_signer,
 and "who last held it INTACT". Channel-independent — no mail/DKIM/headers.
@@ -27,8 +27,8 @@ from nacl.signing import SigningKey                                  # noqa: E40
 
 from notarius import trace as T                                     # noqa: E402
 
-DOC = "СЧЁТ №5 / получатель: ООО Подрядчик / сумма: 1000000 USD"
-DOC_FORGED = "СЧЁТ №5 / получатель: ООО Подрядчик / сумма: 9000000 USD"
+DOC = "INVOICE No.5 / recipient: Contractor LLC / amount: 1000000 USD"
+DOC_FORGED = "INVOICE No.5 / recipient: Contractor LLC / amount: 9000000 USD"
 
 
 def priv():
@@ -44,13 +44,13 @@ def line(c="─"):
 
 
 def main():
-    a_priv, b_priv, e_priv = priv(), priv(), priv()     # Актив-Финанс, Аудитор, Мошенник
-    trusted = {"Актив-Финанс": pub(a_priv), "Аудитор": pub(b_priv)}   # Мошенник NOT among the trusted
+    a_priv, b_priv, e_priv = priv(), priv(), priv()     # Aktiv-Finance, Auditor, Fraudster
+    trusted = {"Aktiv-Finance": pub(a_priv), "Auditor": pub(b_priv)}   # Fraudster NOT among the trusted
 
     # ── honest custody chain ───────────────────────────────────────────
-    tr = T.new_trace("schet-5", DOC, "orig", "Актив-Финанс", a_priv, "09:00")
-    tr = T.append_event(tr, DOC, "TRANSFERRED", "Актив-Финанс", a_priv, "09:05")
-    tr = T.append_event(tr, DOC, "REVIEWED", "Аудитор", b_priv, "10:00")
+    tr = T.new_trace("schet-5", DOC, "orig", "Aktiv-Finance", a_priv, "09:00")
+    tr = T.append_event(tr, DOC, "TRANSFERRED", "Aktiv-Finance", a_priv, "09:05")
+    tr = T.append_event(tr, DOC, "REVIEWED", "Auditor", b_priv, "10:00")
 
     line("═")
     print("HONEST CHAIN (created → transferred → reviewed)")
@@ -60,10 +60,10 @@ def main():
     print(f"→ trace intact, value in place.\n")
 
     # ── the thief appends a link with a substitution ───────────────────
-    tr_forged = T.append_event(tr, DOC_FORGED, "TRANSFERRED", "Мошенник", e_priv, "10:07")
+    tr_forged = T.append_event(tr, DOC_FORGED, "TRANSFERRED", "Fraudster", e_priv, "10:07")
 
     line("═")
-    print("FORGERY: Мошенник appended a link, substituting the amount 1000000 → 9000000")
+    print("FORGERY: Fraudster appended a link, substituting the amount 1000000 → 9000000")
     line("═")
     rep2 = T.verify_trace(tr_forged, trusted_keys=trusted, current_value=DOC_FORGED)
     bp = rep2["break_at_step"]
