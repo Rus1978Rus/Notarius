@@ -115,6 +115,15 @@ ORIGIN legend:
 | tests/test_audit_fixes.py | LLM_GENERATED | code | external-audit #2 regression: 6 tests reproduce and close N-W1/2/4/5/6/7 (AD-91) |
 | notarius/route.py | LLM_GENERATED | code | mandatory-route LAYER: catches a missing step against a role contract (AD-92) |
 | tests/test_route.py | LLM_GENERATED | code | 11 route vulnerability probes: omission/role impersonation/order/foreign-subject splice (AD-92) |
+| notarius/analyze.py | LLM_GENERATED | code | shared analysis engine behind both CLI and web app: compare + single-doc scan (AD-93) |
+| notarius/webapp.py | LLM_GENERATED | code | local web app (127.0.0.1 only, stdlib): paste two docs → verdict from the engine (AD-93) |
+| tests/test_analyze.py | LLM_GENERATED | code | 6 tests of the shared engine: swap/invisible/homoglyph/scan (AD-93) |
+| tests/test_webapp.py | LLM_GENERATED | code | 5 integration tests: real ephemeral-port server over HTTP (AD-93) |
+| docs/assets/notarius_app.png | LLM_GENERATED | image | screenshot of the running local web app, shown in README (AD-93) |
+| docs/assets/notarius_hero.png | LLM_GENERATED | image | hero image of the presentation screen, top of README |
+| docs/product_mockup/notarius_presentation.html | LLM_GENERATED | mockup | static one-screen presentation of what NOTARIUS catches |
+| docs/product_mockup/notarius_presentation_live.html | LLM_GENERATED | mockup | interactive click-through walkthrough for live demos |
+| docs/index.html | LLM_GENERATED | page | GitHub Pages landing (buttons to the walkthroughs) |
 
 BOUNDARY (parent): no LLM_GENERATED document is a human-verified copy.
 AUTHOR_SOURCE copies are not physical originals (`COPY ≠ PROVENANCE`).

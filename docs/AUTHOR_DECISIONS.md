@@ -1640,6 +1640,38 @@ physical truth. Time is self-declared (the order of RECORDING, not the real time
 
 UPSHOT: 22 test files green. Code: the new notarius/route.py (the core is untouched).
 
+### AD-93. A real working program: shared engine + local web app (2026-07-26)
+**AUTHOR'S DECISION: "let's build a working program" — start free (CLI + local web).**
+After the English port, presentation and Pages, the author asked for one actual
+usable program on the engine (not more mockups), and — after a plain-language
+cost breakdown — chose the free path: a command-line tool plus a local web app,
+skipping the paid signed-.exe route until there is a concrete reason to
+distribute to strangers.
+
+Built:
+- notarius/analyze.py — ONE shared analysis engine (analyze_documents /
+  scan_document). Both `notarius check` (CLI) and the web app call it, so they
+  can never drift. Returns structured findings: per-line category/review
+  (value substitution / invisible char / homoglyph / loss / rewrite), a
+  content scan (hidden invisibles), and look-alike-domain risks.
+- notarius/webapp.py — a stdlib local web app (`python3 -m notarius web`, also
+  `python3 -m notarius.webapp`). Serves a self-contained UI (paste or drop two
+  documents → real verdict from the engine, plus a single-document scan tab).
+  Binds to 127.0.0.1 ONLY — local, offline, no outbound calls, no telemetry;
+  the compare/scan path is pure stdlib.
+- cli.py refactored so `check` uses the shared engine (return codes unchanged);
+  added the `web` subcommand and help.
+- tests/test_analyze.py (6) + tests/test_webapp.py (5, a real ephemeral-port
+  server hit over HTTP). Suite: 24 files, 246 tests, all green.
+- docs/assets/notarius_app.png — screenshot of the running app, in the README.
+
+BOUNDARY (kept): the app shows WHERE and WHAT changed and flags hidden
+manipulation; it does not judge intent (TRACE_LOCATES_THE_LIE ≠
+TRACE_PROVES_THE_TRUTH). Privacy is structural: localhost-only bind.
+
+COST: $0. Paid options (code-signing ~$100–500/yr for a no-Python installer, or
+hosting for a public URL) are deferred until a real distribution need appears.
+
 ---
 
 Recorded by: Claude (Anthropic), sessions 2026-07-21/22/23/24/25/26, per the author's responses.

@@ -83,19 +83,35 @@ tests, a catalog of 7 structural defects of provenance ideas
 - `docs/foundation_layer/` + `FOUNDATION_LAYER_ANALYSIS_2026-07-22_EN.md` —
   the parent MSL/MIP project package and its methodological review.
 
-## Minimal product: run it on YOUR OWN file (AD-64)
+## The working program: run it on YOUR OWN document (AD-64, AD-93)
 
-A thin shell over the core — no keys, no installs, pure stdlib:
+Two front doors over one shared engine (`notarius/analyze.py`) — so the CLI and
+the app can never disagree.
+
+**Command line** — no keys, no installs, pure stdlib:
 ```
 python3 -m notarius check REFERENCE RECEIVED   # where and what was swapped
 python3 -m notarius seal  FILE                 # take a receipt-fingerprint (.ntr)
 python3 -m notarius verify FILE                # is it the same, or touched
 ```
+
+**Local web app** — a friendly window on the same engine:
+```
+python3 -m notarius web        # opens http://127.0.0.1:8788 in your browser
+```
+Paste your reference and what arrived (or drop two files), press Check, and get
+the verdict in plain terms. It binds to `127.0.0.1` only — **local, offline,
+nothing leaves your machine**. (The compare/scan path is pure stdlib; signing
+needs PyNaCl.)
+
+![NOTARIUS local web app catching an amount swap and a look-alike domain](docs/assets/notarius_app.png)
+
 `check` shows, in plain terms, the line number, the change category (value
-substitution / invisible char / loss / rewritten) and exposes hidden edits.
-The boundaries are candid: we show WHERE the lie is, we do not pass a verdict on
-intent. A full worked scenario — `scripts/handoff_demo.py`; the plain-language
-"what is this" — `docs/DEMO_HANDOFF_ONEPAGER_2026-07-24_EN.md`.
+substitution / invisible char / homoglyph / loss / rewritten) and exposes hidden
+edits and look-alike domains. The boundaries are candid: we show WHERE the lie
+is, we do not pass a verdict on intent. A full worked scenario —
+`scripts/handoff_demo.py`; the plain-language "what is this" —
+`docs/DEMO_HANDOFF_ONEPAGER_2026-07-24_EN.md`.
 
 ## Signing / identification algorithms (AD-18)
 

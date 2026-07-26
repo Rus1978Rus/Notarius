@@ -14,19 +14,23 @@ Three commands, all from the ready-made core, no keys and no setup (pure stdlib)
   python3 -m notarius verify FILE
         check a file against its receipt: is it the same or has it been touched.
 
+  python3 -m notarius web
+        open the local web app (http://127.0.0.1:8788) — paste two documents,
+        get the same verdict in a friendly window. Local only, nothing leaves
+        your machine.
+
 Boundary (candidly): we show WHERE the swap is, we do not pass a verdict on
 intent (TRACE_LOCATES_THE_LIE ≠ TRACE_PROVES_THE_TRUTH).
 """
 
 from __future__ import annotations
 
-import difflib
 import hashlib
 import json
 import sys
 from pathlib import Path
 
-from notarius.diagnose import diagnose_change
+from notarius.analyze import analyze_documents
 from notarius.scanner import scan_hardened
 
 
@@ -69,37 +73,23 @@ def cmd_check(orig_path: str, recv_path: str) -> int:
         print(f"  apply). Reference {_sha(o_raw)[:16]}…, arrived {_sha(r_raw)[:16]}…")
         return 1
 
-    o_lines, r_lines = o_text.splitlines(), r_text.splitlines()
-    sm = difflib.SequenceMatcher(None, o_lines, r_lines, autojunk=False)
-    findings = []
-    for tag, i1, i2, j1, j2 in sm.get_opcodes():
-        if tag == "equal":
-            continue
-        if tag == "replace":
-            for k in range(max(i2 - i1, j2 - j1)):
-                old = o_lines[i1 + k] if i1 + k < i2 else ""
-                new = r_lines[j1 + k] if j1 + k < j2 else ""
-                findings.append((j1 + k + 1, old, new))
-        elif tag == "delete":
-            for k in range(i1, i2):
-                findings.append((j1 + 1, o_lines[k], "«line deleted»"))
-        elif tag == "insert":
-            for k in range(j1, j2):
-                findings.append((k + 1, "«no such line before»", r_lines[k]))
-
-    print(f"✘ BREAK — changed lines: {len(findings)}\n")
-    for lineno, old, new in findings:
-        diag = diagnose_change(old, new)
-        print(f"  line {lineno}: {diag['category']}  (review: {diag['review']})")
-        print(f"      was:  {old!r}")
-        print(f"      now:  {new!r}")
-        print(f"      → {diag['human']}")
+    res = analyze_documents(o_text, r_text)          # shared engine (analyze.py)
+    print(f"✘ BREAK — changed lines: {len(res['findings'])}\n")
+    for f in res["findings"]:
+        print(f"  line {f['line']}: {f['category']}  (review: {f['review']})")
+        print(f"      was:  {f['was']!r}")
+        print(f"      now:  {f['now']!r}")
+        print(f"      → {f['human']}")
         print()
 
-    scan = scan_hardened(r_text)
-    if scan["risk"] == "ALARM":
-        print(f"⚑ HIDDEN EDIT: {scan['signature']} — invisible characters are")
+    _sig = res["hidden"].get("signature", "")
+    if res["hidden"]["risk"] == "ALARM" and not any(
+            k in _sig for k in ("homoglyph", "host", "url", "userinfo")):
+        print(f"⚑ HIDDEN EDIT: {_sig} — invisible characters are")
         print("  concealed in what arrived (the edit was masked).\n")
+    for u in res["url_risks"]:
+        print(f"⚑ SUSPICIOUS DOMAIN: {u.get('token')} — {u.get('issue', '')} "
+              f"({u.get('risk', '')})\n")
 
     print("─" * 64)
     print("Result: shown WHERE and WHAT differs from your reference.")
@@ -171,6 +161,9 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     cmd, rest = argv[0], argv[1:]
     try:
+        if cmd == "web":
+            from notarius.webapp import main as web_main   # lazy import
+            return web_main(rest)
         if cmd == "check" and len(rest) == 2:
             return cmd_check(rest[0], rest[1])
         if cmd == "seal" and len(rest) == 1:
