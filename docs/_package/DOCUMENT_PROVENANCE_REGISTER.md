@@ -127,6 +127,7 @@ ORIGIN legend:
 | update.bat | LLM_GENERATED | tool | Windows one-click updater: downloads the latest version from GitHub (AD-93) |
 | start.bat | LLM_GENERATED | tool | Windows double-click launcher: opens the local web app, no typing (AD-93) |
 | start.sh | LLM_GENERATED | tool | macOS/Linux launcher counterpart (AD-93) |
+| docs/USAGE.md | LLM_GENERATED | guide | plain how-to: start, Compare vs Scan, reading findings, updating, troubleshooting (AD-93) |
 | update.sh | LLM_GENERATED | tool | macOS/Linux updater counterpart (AD-93) |
 | examples/reference.txt | LLM_GENERATED | example | clean sample document for testing |
 | examples/received_tampered.txt | LLM_GENERATED | example | look-identical copy with invisible chars (U+200B, U+FEFF) inserted for testing |

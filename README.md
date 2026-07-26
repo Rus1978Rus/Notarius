@@ -12,6 +12,8 @@
 
 Then press **“Load a demo example”**, or open the *Compare* tab and load the two files from [`examples/`](examples/) to watch it catch **invisible characters the eye can’t see**. Everything runs offline on your machine — nothing is uploaded. No extra libraries needed to try it (just Python).
 
+Full walk-through of every button and result: **[How to use NOTARIUS](docs/USAGE.md)**.
+
 # NOTARIUS — working ground
 
 Project author: Ruslan Malyavskiy.
