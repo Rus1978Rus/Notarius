@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOTARIUS — what it catches</title>
+<style>
+  :root{
+    --navy:#0E2A3F; --navy2:#15395580; --ink:#1B2A36; --mut:#5B6B77;
+    --line:#E2E8EE; --bg:#F5F8FB; --card:#FFFFFF; --teal:#1C7E8C;
+    --red:#C0392B; --amber:#C77A11; --green:#2E7D57;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px 40px;}
+
+  /* ── banner (the 5-line heading on top) ── */
+  .banner{background:linear-gradient(135deg,#0E2A3F 0%,#123B57 100%);color:#EAF2F7;
+    padding:30px 34px;border-radius:0 0 18px 18px;box-shadow:0 8px 24px #0e2a3f22;}
+  .brand{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .mark{width:40px;height:40px;border-radius:9px;border:2px solid #7FD3C9;
+    display:grid;place-items:center;font-weight:800;color:#7FD3C9;font-size:20px;}
+  .brand h1{margin:0;font-size:26px;letter-spacing:.5px;font-weight:800;}
+  .brand .tag{color:#9FC0CF;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+  .lede{font-size:16.5px;line-height:1.55;max-width:900px;color:#DCE9F0;margin:0;}
+  .lede b{color:#FFFFFF;}
+  .lede .rule{display:block;margin-top:8px;color:#8FB8C7;font-style:italic;font-size:15px;}
+
+  .cols{display:grid;grid-template-columns:0.92fr 1.08fr;gap:22px;margin-top:24px;}
+  @media(max-width:860px){.cols{grid-template-columns:1fr}}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    box-shadow:0 2px 10px #123b5710;overflow:hidden;}
+  .phead{padding:12px 16px;border-bottom:1px solid var(--line);
+    font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);}
+
+  /* invoice document */
+  .doc{padding:18px 20px;font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:14.5px;line-height:1.9;color:#24333F;}
+  .doc .row{display:flex;justify-content:space-between;gap:10px;}
+  .doc .lbl{color:#6a7b87;}
+  .hl-red{background:#FBE4E1;color:#B32B1C;font-weight:700;border-radius:4px;padding:0 4px;}
+  .hl-am{background:#FBF0DC;color:#8A5A0B;border-radius:4px;padding:0 4px;}
+  .zw{display:inline-block;background:#8A5A0B;color:#fff;font-size:10px;font-weight:700;
+    border-radius:3px;padding:0 4px;margin:0 1px;vertical-align:middle;letter-spacing:.5px;}
+  .doc .meta{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);color:#6a7b87;font-size:12.5px;}
+
+  /* findings */
+  .finds{padding:14px 16px;display:flex;flex-direction:column;gap:11px;}
+  .f{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:12px 13px;border:1px solid var(--line);
+    border-radius:11px;background:#FCFDFE;}
+  .n{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;
+    font-size:13px;display:grid;place-items:center;}
+  .f .t{font-weight:700;font-size:14.5px;margin:1px 0 4px;color:#1B2A36;}
+  .f .d{font-size:13.5px;color:#4C5A65;line-height:1.5;}
+  .pill{display:inline-block;font-family:Consolas,monospace;font-size:11.5px;font-weight:700;
+    padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:middle;}
+  .p-red{background:#F7E1DE;color:var(--red);}
+  .p-am{background:#F6ECD8;color:var(--amber);}
+  .p-navy{background:#E1EAF1;color:#1C4E6E;}
+  .code{font-family:Consolas,monospace;background:#EEF3F7;color:#1C4E6E;border-radius:4px;padding:0 5px;font-size:12.5px;}
+
+  .verdict{margin-top:22px;background:#0E2A3F;color:#EAF2F7;border-radius:14px;padding:18px 22px;
+    display:flex;gap:16px;align-items:flex-start;}
+  .verdict .chk{width:34px;height:34px;border-radius:9px;background:#1f6f5b;display:grid;place-items:center;
+    font-size:19px;flex:none;}
+  .verdict b{color:#fff;}
+  .verdict .s{color:#9FC0CF;font-size:13.5px;margin-top:3px;}
+  .foot{margin-top:14px;color:#7A8b96;font-size:12px;text-align:center;}
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="wrap" style="padding:0">
+    <div class="brand">
+      <div class="mark">N</div>
+      <div>
+        <h1>NOTARIUS</h1>
+        <div class="tag">Semantic provenance · tamper-localization</div>
+      </div>
+    </div>
+    <p class="lede">
+      <b>Semantic provenance for documents.</b> It doesn't store your files — it catches the lie <i>inside</i> them.
+      It shows <b>WHERE</b> and <b>WHAT</b> changed: a swapped amount, a hidden character, a look-alike domain,
+      whose link in the chain broke — even a <b>skipped step</b>.
+      <span class="rule">It locates the lie; it does not judge intent.</span>
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="cols">
+    <!-- LEFT: the document -->
+    <div class="panel">
+      <div class="phead">The received invoice</div>
+      <div class="doc">
+        <div class="row"><span class="lbl">document</span><span>Invoice&nbsp;No.77</span></div>
+        <div class="row"><span class="lbl">from → to</span><span>Aktiv-Finance → Contractor&nbsp;LLC</span></div>
+        <div class="row"><span class="lbl">amount</span><span class="hl-red">9&nbsp;000&nbsp;000&nbsp;USD</span></div>
+        <div class="row"><span class="lbl">terms</span><span>amount&nbsp;<span class="hl-am">pay<span class="zw">zwsp</span>able</span>&nbsp;on receipt</span></div>
+        <div class="row"><span class="lbl">reply-to</span><span><span class="hl-am">paypаl.com</span></span></div>
+        <div class="row"><span class="lbl">route</span><span>Created → <s>Checked</s> → Released</span></div>
+        <div class="meta">Reference on file said <b>1&nbsp;000&nbsp;000&nbsp;USD</b>. Five things differ below.</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: findings -->
+    <div class="panel">
+      <div class="phead">What NOTARIUS reports</div>
+      <div class="finds">
+        <div class="f"><div class="n">1</div><div>
+          <div class="t">Amount swapped <span class="pill p-red">VALUE_SUBSTITUTION</span></div>
+          <div class="d">Line 3: <span class="code">1 000 000 → 9 000 000</span> — a zero was added. Where and what, exactly.</div></div></div>
+        <div class="f"><div class="n">2</div><div>
+          <div class="t">Hidden character <span class="pill p-red">ALARM · zw_wordsplit</span></div>
+          <div class="d">An invisible zero-width character sits inside the word <span class="code">pay&#8203;able</span> — the edit was masked.</div></div></div>
+        <div class="f"><div class="n">3</div><div>
+          <div class="t">Look-alike domain <span class="pill p-am">HIGH · homoglyph</span></div>
+          <div class="d"><span class="code">paypаl.com</span> uses a Cyrillic “а” masquerading as Latin — not the real domain.</div></div></div>
+        <div class="f"><div class="n">4</div><div>
+          <div class="t">Whose link broke <span class="pill p-navy">TRACE_BREAK · step 3</span></div>
+          <div class="d">Chain Aktiv-Finance → Auditor → …; the forged link is signed by a key <b>not</b> in the trusted set. Last honest signer: Auditor.</div></div></div>
+        <div class="f"><div class="n">5</div><div>
+          <div class="t">A step that never happened <span class="pill p-navy">MISSING_STEP · CHECKED</span></div>
+          <div class="d">The mandatory route requires <span class="code">Checked</span> (Warehouse) before release — it was skipped. Not a forgery, an <i>absence</i>.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="chk">✓</div>
+    <div>
+      <b>The trace locates the lie — where it is and whose link carries it.</b>
+      <div class="s">It does not prove intent (an honest mistake vs. deliberate fraud) — that judgment stays with a human. TRACE_LOCATES_THE_LIE ≠ TRACE_PROVES_THE_TRUTH.</div>
+    </div>
+  </div>
+  <div class="foot">NOTARIUS · research prototype · proprietary, all rights reserved · runs offline, nothing leaves your machine</div>
+</div>
+</body>
+</html>

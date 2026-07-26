@@ -1,3 +1,5 @@
+![NOTARIUS — semantic provenance and tamper-localization: it shows where and what changed in a document](docs/assets/notarius_hero.png)
+
 # NOTARIUS — working ground
 
 Project author: Ruslan Malyavskiy.
