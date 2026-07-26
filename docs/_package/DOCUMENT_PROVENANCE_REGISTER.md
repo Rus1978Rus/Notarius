@@ -125,6 +125,8 @@ ORIGIN legend:
 | docs/product_mockup/notarius_presentation_live.html | LLM_GENERATED | mockup | interactive click-through walkthrough for live demos |
 | docs/index.html | LLM_GENERATED | page | GitHub Pages landing (buttons to the walkthroughs) |
 | update.bat | LLM_GENERATED | tool | Windows one-click updater: downloads the latest version from GitHub (AD-93) |
+| start.bat | LLM_GENERATED | tool | Windows double-click launcher: opens the local web app, no typing (AD-93) |
+| start.sh | LLM_GENERATED | tool | macOS/Linux launcher counterpart (AD-93) |
 | update.sh | LLM_GENERATED | tool | macOS/Linux updater counterpart (AD-93) |
 | examples/reference.txt | LLM_GENERATED | example | clean sample document for testing |
 | examples/received_tampered.txt | LLM_GENERATED | example | look-identical copy with invisible chars (U+200B, U+FEFF) inserted for testing |

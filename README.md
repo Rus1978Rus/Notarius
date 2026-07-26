@@ -99,6 +99,9 @@ python3 -m notarius verify FILE                # is it the same, or touched
 ```
 python3 -m notarius web        # opens http://127.0.0.1:8788 in your browser
 ```
+Easiest of all — **double-click `start.bat`** (Windows) or `start.sh` (macOS/Linux):
+it launches the web app for you, no typing. The compare/scan path is pure stdlib,
+so it runs with just Python installed — no extra libraries needed.
 Paste your reference and what arrived (or drop two files), press Check, and get
 the verdict in plain terms. It binds to `127.0.0.1` only — **local, offline,
 nothing leaves your machine**. (The compare/scan path is pure stdlib; signing
