@@ -1,0 +1,5 @@
+Contract addendum No.12
+party: Client LLC
+amount pay​able: 1000000 USD
+deadline: 2026-08-01
+contact: bil﻿ling@acme.com

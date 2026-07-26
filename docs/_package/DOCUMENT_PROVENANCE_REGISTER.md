@@ -16,7 +16,7 @@ ORIGIN legend:
 | docs/NOTARIUS_FULL_SESSION.md | AUTHOR_SOURCE + LLM edits | working | uploaded by the author; AI added notes AD-1…AD-12 |
 | docs/NOTARIUS_METHODOLOGICAL_AUDIT_2026-07-21_EN.md | LLM_GENERATED | analysis | line-by-line audit, session 2026-07-21 |
 | docs/PRIOR_ART_REVIEW_2026-07-21_EN.md | LLM_GENERATED | analysis | web review, sources inside |
-| docs/AUTHOR_DECISIONS.md | LLM_GENERATED | journal | records the author's decisions AD-1…AD-92 |
+| docs/AUTHOR_DECISIONS.md | LLM_GENERATED | journal | records the author's decisions AD-1…AD-94 |
 | docs/VENDOR_PROMPT_APPLICATIONS_EN.md | LLM_GENERATED | tool | vendor-survey prompt (ideas) |
 | docs/VENDOR_PROMPT_METHODS_REVIEW_EN.md | LLM_GENERATED | tool | blind methods-review prompt (AD-20) |
 | docs/VENDOR_PROMPT_UNCOPYABLE_KEY_EN.md | LLM_GENERATED | tool | blind prompt to find an uncopyable key part (AD-25) |
@@ -124,6 +124,11 @@ ORIGIN legend:
 | docs/product_mockup/notarius_presentation.html | LLM_GENERATED | mockup | static one-screen presentation of what NOTARIUS catches |
 | docs/product_mockup/notarius_presentation_live.html | LLM_GENERATED | mockup | interactive click-through walkthrough for live demos |
 | docs/index.html | LLM_GENERATED | page | GitHub Pages landing (buttons to the walkthroughs) |
+| update.bat | LLM_GENERATED | tool | Windows one-click updater: downloads the latest version from GitHub (AD-93) |
+| update.sh | LLM_GENERATED | tool | macOS/Linux updater counterpart (AD-93) |
+| examples/reference.txt | LLM_GENERATED | example | clean sample document for testing |
+| examples/received_tampered.txt | LLM_GENERATED | example | look-identical copy with invisible chars (U+200B, U+FEFF) inserted for testing |
+| examples/README.md | LLM_GENERATED | example | how to run the example pair |
 
 BOUNDARY (parent): no LLM_GENERATED document is a human-verified copy.
 AUTHOR_SOURCE copies are not physical originals (`COPY ≠ PROVENANCE`).
